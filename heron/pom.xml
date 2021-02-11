@@ -1,0 +1,237 @@
+<?xml version="1.0"?>
+<project
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>heron</artifactId>
+    <version>0.1</version>
+    <packaging>war</packaging>
+    <name>Brilliant - Web administration</name>
+
+    <parent>
+		<groupId>net.brilliant</groupId>
+		<artifactId>aquarium</artifactId>
+        <version>0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mojarra.version>2.3.4</mojarra.version>
+		
+		<version.joinfaces-dependencies>4.1.4</version.joinfaces-dependencies>
+		<maven.test.skip>true</maven.test.skip>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>		
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+			<dependency>
+			  <groupId>org.joinfaces</groupId>
+			  <artifactId>joinfaces-dependencies</artifactId>
+			  <version>${version.joinfaces-dependencies}</version>
+			  <type>pom</type>
+			  <scope>import</scope>
+			</dependency>			
+
+            <dependency>
+                <groupId>com.github.adminfaces</groupId>
+                <artifactId>admin-theme</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.primefaces</groupId>
+                <artifactId>primefaces</artifactId>
+                <version>${version.primefaces}</version>
+            </dependency>
+		        <dependency>
+		            <groupId>org.primefaces.extensions</groupId>
+		            <artifactId>primefaces-extensions</artifactId>
+		            <version>${version.primefaces}</version>
+		            <!-- only for gravatar, adminfaces doesn't depend on extensions-->
+		        </dependency>                        
+        </dependencies>    
+    </dependencyManagement>  
+    
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-utility</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+		
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-i18n</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-auth</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-css</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-dispatcher</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+		<dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>heron-api-dispatcher</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+		<!-- analytics -->
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+            <dependency>
+                <groupId>com.github.adminfaces</groupId>
+                <artifactId>admin-theme</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.2</version> 
+		</dependency>
+
+	<dependency>
+	    <groupId>org.bouncycastle</groupId>
+	    <artifactId>bcprov-jdk15on</artifactId>
+	    <version>1.64</version>
+	</dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>		
+        <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-security</artifactId>
+	</dependency>
+
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>     
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>adminfaces-spring-boot-starter</artifactId>
+            <exclusions>
+            	<exclusion>
+	                <groupId>com.github.adminfaces</groupId>
+	                <artifactId>admin-template</artifactId>
+            	</exclusion>
+            	<exclusion>
+		            <groupId>org.primefaces.extensions</groupId>
+		            <artifactId>primefaces-extensions</artifactId>
+            	</exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${version.lombok}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.9</version>
+		</dependency>
+        
+
+<!-- <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-jpa</artifactId>
+    <version>2.4.2</version>
+</dependency>
+ -->
+ <!-- <dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-core</artifactId>
+	<version>5.3.2</version>
+</dependency> -->
+ 
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			</dependency>
+			</dependencies>
+    <build>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/docs</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <filtering>true</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>src/test/java/</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
