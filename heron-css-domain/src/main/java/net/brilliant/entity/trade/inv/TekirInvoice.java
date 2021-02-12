@@ -55,7 +55,7 @@ import net.brilliant.model.ReturnInvoiceStatus;
  *
  */
 @Entity
-@Table(name="TEKIR_INVOICE")
+@Table(name="TRD_INVOICE")
 public class TekirInvoice extends TenderBase implements ITender, PaymentPlanHolder {
 
 	private static final long serialVersionUID = 1L;

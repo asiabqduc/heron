@@ -27,7 +27,7 @@ import net.brilliant.entity.trade.TenderTaxSummaryBase;
  *
  */
 @Entity
-@Table(name="TEKIR_INVOICE_TAX_SUMMARY")
+@Table(name="TRD_INVOICE_TAX_SUMMARY")
 public class TekirInvoiceTaxSummary extends TenderTaxSummaryBase { 
 
     private static final long serialVersionUID = 1L;

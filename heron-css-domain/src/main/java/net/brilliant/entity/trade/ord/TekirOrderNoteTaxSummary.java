@@ -26,7 +26,7 @@ import net.brilliant.entity.trade.TenderTaxSummaryBase;
  *
  */
 @Entity
-@Table(name="TEKIR_ORDER_NOTE_TAX_SUMMARY")
+@Table(name="TRD_ORDER_NOTE_TAX_SUMMARY")
 public class TekirOrderNoteTaxSummary extends TenderTaxSummaryBase implements Serializable {
 
     private static final long serialVersionUID = 1L;

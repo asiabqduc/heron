@@ -44,7 +44,7 @@ import net.brilliant.entity.trade.inv.TekirInvoiceDetail;
  *
  */
 @Entity
-@Table(name="TEKIR_SHIPMENT_NOTE")
+@Table(name="TRD_SHIPMENT_NOTE")
 public class TekirShipmentNote extends TenderBase implements ITender {
 
 	private static final long serialVersionUID = 1L;

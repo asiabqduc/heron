@@ -28,7 +28,7 @@ import net.brilliant.entity.trade.TenderCurrencySummaryBase;
  *
  */
 @Entity
-@Table(name="TEKIR_INVOICE_CURRENCY_SUMMARY")
+@Table(name="TRD_INVOICE_CURRENCY_SUMMARY")
 public class TekirInvoiceCurrencySummary extends TenderCurrencySummaryBase {
     private static final long serialVersionUID = 1L;
 

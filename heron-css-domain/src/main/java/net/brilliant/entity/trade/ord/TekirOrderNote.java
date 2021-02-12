@@ -46,7 +46,7 @@ import net.brilliant.model.OrderStatus;
  *
  */
 @Entity
-@Table(name="TEKIR_ORDER_NOTE")
+@Table(name="TRD_ORDER_NOTE")
 public class TekirOrderNote extends TenderBase implements ITender {
 
 	private static final long serialVersionUID = 1L;

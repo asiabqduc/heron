@@ -28,7 +28,7 @@ import net.brilliant.entity.trade.TenderCurrencyRateBase;
  *
  */
 @Entity
-@Table(name="TEKIR_INVOICE_CURRENCY_RATE")
+@Table(name="TRD_INVOICE_CURRENCY_RATE")
 public class TekirInvoiceCurrencyRate extends TenderCurrencyRateBase implements Serializable {
 
     private static final long serialVersionUID = 1L;
