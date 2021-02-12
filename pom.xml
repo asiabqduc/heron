@@ -64,6 +64,8 @@
 		
 		<version.commons-lang3>3.10</version.commons-lang3> 
 		<version.commons-text>1.8</version.commons-text>
+
+		<version.spring-core>5.3.3</version.spring-core>
 	</properties>
  
 	<modules>
