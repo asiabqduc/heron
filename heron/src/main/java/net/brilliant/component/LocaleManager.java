@@ -3,7 +3,6 @@
  */
 package net.brilliant.component;
 
-import java.io.IOException;
 import java.util.Locale;
 
 import javax.annotation.ManagedBean;
@@ -48,7 +47,7 @@ public class LocaleManager {
     FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     try {
 			Faces.redirect("/index.jsf");
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
   }
