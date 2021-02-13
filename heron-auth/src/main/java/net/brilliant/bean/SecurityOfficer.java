@@ -14,7 +14,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.service.AuthorizationService;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.component.CompCore;
 
 /**
@@ -32,7 +32,7 @@ public class SecurityOfficer extends CompCore {
 	@Inject
 	private AuthorizationService authorizationService;
 
-	private Map<String, GrantedAuthority> permissionMap = ListUtility.createMap();
+	private Map<String, GrantedAuthority> permissionMap = CollectionsUtility.createMap();
 
 	public boolean hasPermission(String target, String actions) {
 		System.out.println(Calendar.getInstance().getTime() + "\t. Target, action: " + target + "$" + actions);

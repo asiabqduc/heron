@@ -9,6 +9,10 @@ import javax.inject.Named;
 @ViewScoped
 public class MegaMenuMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 5462850093839410654L;
     private String orientation = "horizontal";
  
     public String getOrientation() {

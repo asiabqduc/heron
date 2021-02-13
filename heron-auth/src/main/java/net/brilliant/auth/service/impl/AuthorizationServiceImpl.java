@@ -28,7 +28,7 @@ import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.common.DateTimeUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.exceptions.NgepAuthException;
 import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.entity.auth.AuthenticationDetails;
@@ -135,7 +135,7 @@ public class AuthorizationServiceImpl extends AuthorizationServiceBase implement
 
 	@Override
 	public List<AccessDecisionPolicy> getAccessDecisionPolicies(AuthenticationDetails authenticationDetails) throws ObjectNotFoundException {
-		List<AccessDecisionPolicy> accessDecisionPolicies = ListUtility.createDataList();
+		List<AccessDecisionPolicy> accessDecisionPolicies = CollectionsUtility.createDataList();
 		List<AccessDecisionPolicy> currentADPs = null; 
 		for (GrantedAuthority authority :authenticationDetails.getAuthorities()) {
 			currentADPs = accessDecisionPolicyService.getAccessDecisionPoliciesByAuthority((Authority)authority);
@@ -156,7 +156,7 @@ public class AuthorizationServiceImpl extends AuthorizationServiceBase implement
 
 		accessDecisionPolicies = (List<AccessDecisionPolicy>)filterInvocation.getHttpRequest().getSession(false).getAttribute(MY_ACCESSED_DECISION_POLICIES);
     if (null==accessDecisionPolicies) {
-    	accessDecisionPolicies = ListUtility.createDataList();
+    	accessDecisionPolicies = CollectionsUtility.createDataList();
   		for (GrantedAuthority authority :authentication.getAuthorities()) {
   			currentADPs = accessDecisionPolicyService.getAccessDecisionPoliciesByAuthority((Authority)authority);
   			if (!currentADPs.isEmpty()) {

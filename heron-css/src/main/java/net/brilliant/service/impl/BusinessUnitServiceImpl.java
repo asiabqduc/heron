@@ -49,24 +49,24 @@ public class BusinessUnitServiceImpl extends GenericServiceImpl<BusinessUnit, Lo
 		BusinessUnit.buildObject(data);
 		return new BusinessUnit();
 		/*return BusinessUnit.getInstance(
-				(String)ListUtility.getEntry(data, 0), //Code
-				(String)ListUtility.getEntry(data, 2), //First name
-				(String)ListUtility.getEntry(data, 1)) //Last name
-				.setDateOfBirth(DateTimeUtility.createFreeDate((String)ListUtility.getEntry(data, 4)))
-				.setPlaceOfBirth((String)ListUtility.getEntry(data, 5))
-				.setNationalId((String)ListUtility.getEntry(data, 6))
-				.setNationalIdIssuedDate(DateTimeUtility.createFreeDate((String)ListUtility.getEntry(data, 7)))
-				.setNationalIdIssuedPlace((String)ListUtility.getEntry(data, 8))
-				.setGender(GenderTypeUtility.getGenderType((String)ListUtility.getEntry(data, 21)))
-				.setAddress((String)ListUtility.getEntry(data, 14))
-				.setPresentAddress((String)ListUtility.getEntry(data, 14), (String)ListUtility.getEntry(data, 22))
-				.setBillingAddress((String)ListUtility.getEntry(data, 15), (String)ListUtility.getEntry(data, 22))
-				.setPhones(CommonUtility.safeSubString((String)ListUtility.getEntry(data, 18), 0, 50))
-				.setCellPhones(CommonUtility.safeSubString((String)ListUtility.getEntry(data, 19), 0, 50))
-				.setOverallExpectation((String)ListUtility.getEntry(data, 28))
-				.setOverallExperience((String)ListUtility.getEntry(data, 27))
-				.setEmail((String)ListUtility.getEntry(data, 20))
-				.setNotes((String)ListUtility.getEntry(data, 29))
+				(String)CollectionsUtility.getEntry(data, 0), //Code
+				(String)CollectionsUtility.getEntry(data, 2), //First name
+				(String)CollectionsUtility.getEntry(data, 1)) //Last name
+				.setDateOfBirth(DateTimeUtility.createFreeDate((String)CollectionsUtility.getEntry(data, 4)))
+				.setPlaceOfBirth((String)CollectionsUtility.getEntry(data, 5))
+				.setNationalId((String)CollectionsUtility.getEntry(data, 6))
+				.setNationalIdIssuedDate(DateTimeUtility.createFreeDate((String)CollectionsUtility.getEntry(data, 7)))
+				.setNationalIdIssuedPlace((String)CollectionsUtility.getEntry(data, 8))
+				.setGender(GenderTypeUtility.getGenderType((String)CollectionsUtility.getEntry(data, 21)))
+				.setAddress((String)CollectionsUtility.getEntry(data, 14))
+				.setPresentAddress((String)CollectionsUtility.getEntry(data, 14), (String)CollectionsUtility.getEntry(data, 22))
+				.setBillingAddress((String)CollectionsUtility.getEntry(data, 15), (String)CollectionsUtility.getEntry(data, 22))
+				.setPhones(CommonUtility.safeSubString((String)CollectionsUtility.getEntry(data, 18), 0, 50))
+				.setCellPhones(CommonUtility.safeSubString((String)CollectionsUtility.getEntry(data, 19), 0, 50))
+				.setOverallExpectation((String)CollectionsUtility.getEntry(data, 28))
+				.setOverallExperience((String)CollectionsUtility.getEntry(data, 27))
+				.setEmail((String)CollectionsUtility.getEntry(data, 20))
+				.setNotes((String)CollectionsUtility.getEntry(data, 29))
 			;*/
 	}
 

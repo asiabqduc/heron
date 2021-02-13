@@ -6,7 +6,7 @@ package net.brilliant.model;
 import java.util.List;
 
 import lombok.Builder;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.model.base.DataList;
 import net.brilliant.model.base.IDataContainer;
 
@@ -17,10 +17,10 @@ import net.brilliant.model.base.IDataContainer;
 @Builder
 public class SimpleDataContainer implements IDataContainer<String> {
 	@Builder.Default
-	private List<String> headerItems = ListUtility.createArrayList();
+	private List<String> headerItems = CollectionsUtility.createArrayList();
 
 	@Builder.Default
-	private DataList<List<String>> dataItems = ListUtility.createDataList();
+	private DataList<List<String>> dataItems = CollectionsUtility.createDataList();
 
 	@Override
 	public DataList<List<String>> getDataItems() {

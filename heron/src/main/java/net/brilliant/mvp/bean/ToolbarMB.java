@@ -11,6 +11,11 @@ import java.io.Serializable;
 @ViewScoped
 public class ToolbarMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 1464955314236874227L;
+
     public void save() {
         addMessage("Success", "Data saved");
     }

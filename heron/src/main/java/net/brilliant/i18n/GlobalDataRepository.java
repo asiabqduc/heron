@@ -12,7 +12,7 @@ import javax.faces.context.FacesContext;
 
 import lombok.Builder;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * @author ducbui
@@ -22,8 +22,8 @@ import net.brilliant.common.ListUtility;
 public class GlobalDataRepository {
 	public static final String SESSION_LOCALE = "locale";
 
-	private static List<Locale> supportedLocales = ListUtility.createArrayList();
-	private static Map<String, Locale> supportedLocaleMap = ListUtility.createMap();
+	private static List<Locale> supportedLocales = CollectionsUtility.createArrayList();
+	private static Map<String, Locale> supportedLocaleMap = CollectionsUtility.createMap();
 
 	@Builder.Default
 	private Locale defaultLocale = CommonUtility.LOCALE_VIETNAMESE;// = getVietnameseLocale();

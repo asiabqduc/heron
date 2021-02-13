@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * @author bqduc
@@ -30,7 +30,7 @@ public class Bucket {
 	}
 
 	public Bucket(Object[] values) {
-		this.container = ListUtility.createArrayList();
+		this.container = CollectionsUtility.createArrayList();
 		for (int idx = 0; idx < values.length; idx++) {
 			this.container.add(values[idx]);
 		}

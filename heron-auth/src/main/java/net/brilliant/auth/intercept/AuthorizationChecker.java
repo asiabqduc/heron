@@ -20,7 +20,7 @@ import net.paramount.auth.entity.Authority;
 import net.paramount.auth.model.AccessDecision;
 import net.paramount.auth.service.AccessDecisionPolicyService;
 import net.paramount.common.CommonConstants;
-import net.paramount.common.ListUtility;
+import net.paramount.common.CollectionsHelper;
 
 *//**
  * @author ducbq
@@ -45,7 +45,7 @@ public class AuthorizationChecker {
 
 		accessDecisionPolicies = (List<AccessDecisionPolicy>)request.getSession(false).getAttribute(MY_ACCESSED_DECISION_POLICIES);
     if (null==accessDecisionPolicies) {
-    	accessDecisionPolicies = ListUtility.createDataList();
+    	accessDecisionPolicies = CollectionsUtility.createDataList();
   		for (GrantedAuthority authority :authentication.getAuthorities()) {
   			currentADPs = accessDecisionPolicyService.getAccessDecisionPoliciesByAuthority((Authority)authority);
   			if (!currentADPs.isEmpty()) {

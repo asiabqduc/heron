@@ -112,7 +112,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
    		.csrf().disable()
       .authorizeRequests()
        	.antMatchers(unauthorizedMatchers()).permitAll()
-       	.anyRequest().access("@authorizationChecker.check(request, authentication)")
+       	.anyRequest().access("@authorizationChecker.decide(request, authentication)")
       .and()
       	.formLogin()
       	.failureHandler(this.authenticationFailureHandler)

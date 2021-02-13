@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @FacesConverter(value = "entityConverter")
-public class EntityConverter implements Converter {
+public class EntityConverter implements Converter<Object> {
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object entity) {

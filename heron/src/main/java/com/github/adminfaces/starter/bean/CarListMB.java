@@ -26,6 +26,11 @@ public class CarListMB implements Serializable {
     /*@Inject
     CarService carService;*/
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 8903738611327075724L;
+
     Integer id;
 
     LazyDataModel<Car> cars;
@@ -40,7 +45,6 @@ public class CarListMB implements Serializable {
 		@PostConstruct
     public void initDataModel() {
         cars = new LazyDataModel<Car>() {
-            @SuppressWarnings("unchecked")
 						/*@Override
             public List<Car> load(int first, int pageSize,
                                   String sortField, SortOrder sortOrder,
@@ -88,11 +92,11 @@ public class CarListMB implements Serializable {
     }
 
     public void delete() {
-        int numCars = 0;
-        for (Car selectedCar : selectedCars) {
+        int numCars = selectedCars.size();
+        /*for (Car selectedCar : selectedCars) {
             numCars++;
-            //carService.remove(selectedCar);
-        }
+            carService.remove(selectedCar);
+        }*/
         selectedCars.clear();
         addDetailMessage(numCars + " cars deleted successfully!");
     }

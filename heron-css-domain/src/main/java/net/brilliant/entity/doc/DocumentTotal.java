@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Map;
 
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.entity.general.MoneySet;
 
 /**
@@ -28,7 +28,7 @@ import net.brilliant.entity.general.MoneySet;
  */
 public class DocumentTotal {
 
-	private Map<Long, MoneySet> data = ListUtility.createMap();
+	private Map<Long, MoneySet> data = CollectionsUtility.createMap();
 	private BigDecimal localTotal = BigDecimal.ZERO;
 
 	public void add(MoneySet amount) {

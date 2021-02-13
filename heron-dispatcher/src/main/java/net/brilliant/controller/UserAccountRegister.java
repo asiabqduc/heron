@@ -32,7 +32,7 @@ import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.entity.config.Configuration;
 import net.brilliant.entity.general.BusinessUnit;
@@ -235,7 +235,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 				.build();
 
 		UserAccountProfile userAccount = (UserAccountProfile)context.get(CommunicatorConstants.CTX_USER_ACCOUNT);
-		Map<String, Object> definitions = ListUtility.createMap();
+		Map<String, Object> definitions = CollectionsUtility.createMap();
 		definitions.put("userContact", userAccount);
 		definitions.put("location", "Bình Định-Sài Gòn");
 		definitions.put("signature", "www.mekongparadise.com");

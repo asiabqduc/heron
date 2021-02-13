@@ -33,6 +33,10 @@ import java.util.List;
 public class OrderListMB implements Serializable {
     
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 4792908570839942062L;
     private List<String> cities;
     private List<String> themes;
     
@@ -69,12 +73,12 @@ public class OrderListMB implements Serializable {
         this.themes = themes;
     }    
     
-    public void onSelect(SelectEvent event) {
+    public void onSelect(SelectEvent<?> event) {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Selected", event.getObject().toString()));
     }
     
-    public void onUnselect(UnselectEvent event) {
+    public void onUnselect(UnselectEvent<?> event) {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Unselected", event.getObject().toString()));
     }

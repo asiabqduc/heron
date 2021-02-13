@@ -17,6 +17,10 @@ import org.omnifaces.util.Faces;
 @SessionScoped
 public class LayoutMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 962473515508255484L;
     private static final Logger LOG = Logger.getLogger(LayoutMB.class.getName());
     private static final String DEFAULT_TEMPLATE = "/admin.xhtml"; //template bundled in admin-template 
     private static final String TEMPLATE_TOP = "/admin-top.xhtml"; //template bundled in admin-template 

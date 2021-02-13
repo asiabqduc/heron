@@ -15,7 +15,7 @@ import org.primefaces.event.SelectEvent;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.paramount.common.ListUtility;
+import net.paramount.common.CollectionsHelper;
 import net.paramount.domain.entity.general.Catalogue;
 import net.paramount.service.general.CatalogueService;
 
@@ -42,7 +42,7 @@ public class CatalogueAutoComplete implements Serializable {
 
 	public List<Catalogue> completeItem(String query) {
 		List<Catalogue> allItems = businessService.getObjects();
-		List<Catalogue> filteredItems = ListUtility.createDataList();
+		List<Catalogue> filteredItems = CollectionsUtility.createDataList();
 		Catalogue skin = null;
 		for (int i = 0; i < allItems.size(); i++) {
 			skin = allItems.get(i);
@@ -56,7 +56,7 @@ public class CatalogueAutoComplete implements Serializable {
 
 	public List<Catalogue> completeItemContains(String query) {
 		List<Catalogue> allItems = businessService.getObjects();
-		List<Catalogue> filteredItems = ListUtility.createDataList();
+		List<Catalogue> filteredItems = CollectionsUtility.createDataList();
 
 		Catalogue skin = null;
 		for (int i = 0; i < allItems.size(); i++) {

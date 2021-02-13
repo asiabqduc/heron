@@ -9,6 +9,11 @@ import java.util.List;
  */
 public class FacesTeamFacade implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -1994853244724667952L;
+
     private String name;
 
     private List<Stats> stats;

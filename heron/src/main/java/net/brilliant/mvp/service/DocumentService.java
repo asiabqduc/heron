@@ -32,7 +32,8 @@ public class DocumentService implements Serializable {
 	 */
 	private static final long serialVersionUID = -1895408104324884077L;
 
-		public TreeNode createDocuments() {
+		@SuppressWarnings("unused")
+    public TreeNode createDocuments() {
         TreeNode root = new DefaultTreeNode(new FacesDocument("Files", "-", "Folder"), null);
 		
 		TreeNode documents = new DefaultTreeNode(new FacesDocument("Documents", "-", "Folder"), root);
@@ -65,6 +66,7 @@ public class DocumentService implements Serializable {
         return root;
     }
     
+    @SuppressWarnings("unused")
     public TreeNode createCheckboxDocuments() {
         TreeNode root = new CheckboxTreeNode(new FacesDocument("Files", "-", "Folder"), null);
 		

@@ -12,7 +12,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @ViewScoped
 public class SessionMB implements Serializable {
 
-	private String currentUser;
+	/**
+   * 
+   */
+  private static final long serialVersionUID = 9192378456310373153L;
+  private String currentUser;
 
 	@PostConstruct
 	public void init() {

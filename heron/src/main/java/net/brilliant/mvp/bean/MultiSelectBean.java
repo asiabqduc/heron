@@ -17,6 +17,10 @@ import javax.inject.Named;
 @ViewScoped
 public class MultiSelectBean implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -7480566769359127908L;
     private List<SelectItem> categories;
     private String selection;
 

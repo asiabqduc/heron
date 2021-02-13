@@ -15,6 +15,11 @@ import org.omnifaces.util.Messages;
 @ViewScoped
 public class LogonMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 1962551082512335264L;
+
     private String email;
 
     private String password;

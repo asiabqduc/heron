@@ -1,7 +1,6 @@
 package net.brilliant.mvp.bean.analytics;
 
 import java.io.Serializable;
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 /**
@@ -11,6 +10,10 @@ import java.util.Calendar;
  */
 public class PageView implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 5576843386188680267L;
     private String ip;
     private Calendar date;
     private String country;

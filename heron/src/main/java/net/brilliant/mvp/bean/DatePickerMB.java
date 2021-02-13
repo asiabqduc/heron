@@ -18,7 +18,11 @@ import org.primefaces.event.SelectEvent;
 @ViewScoped
 public class DatePickerMB implements Serializable {
 
-	private Date date1;
+	/**
+   * 
+   */
+  private static final long serialVersionUID = 867538813761460541L;
+  private Date date1;
     private Date date2;
     private Date date3;
     private Date date4;
@@ -57,7 +61,7 @@ public class DatePickerMB implements Serializable {
         maxDate = new Date(today.getTime() + (365 * oneDay));
     }
  
-    public void onDateSelect(SelectEvent event) {
+    public void onDateSelect(SelectEvent<?> event) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));

@@ -15,19 +15,22 @@
  */
 package net.brilliant.mvp.bean;
 
-import javax.faces.view.ViewScoped;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 @Named
 @ViewScoped
 public class RadioMB implements Serializable {
     
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 8204175754772444963L;
     private String console;    
     private String city; 
     private String city2; 

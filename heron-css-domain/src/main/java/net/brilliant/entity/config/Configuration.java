@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -58,7 +58,7 @@ public class Configuration extends RepoAuditable {
       , orphanRemoval = true
       , fetch = FetchType.EAGER
   )
-	private List<ConfigurationDetail> configurationDetails = ListUtility.createDataList();
+	private List<ConfigurationDetail> configurationDetails = CollectionsUtility.createDataList();
 
 	public String getName() {
 		return name;
@@ -135,7 +135,7 @@ public class Configuration extends RepoAuditable {
 	}
 
 	public Map<Object, Object> getConfigDetailsMap(){
-		Map<Object, Object> fetchedResults = ListUtility.createMap();
+		Map<Object, Object> fetchedResults = CollectionsUtility.createMap();
 		this.configurationDetails.forEach((configDetail)->{
 			fetchedResults.put(configDetail.getName(), configDetail.getValue());
 		});

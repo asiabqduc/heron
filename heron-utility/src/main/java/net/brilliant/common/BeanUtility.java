@@ -94,8 +94,8 @@ public class BeanUtility {
 
 	public Object copyBeanData(Object sourceBean, Object targetBean, String[] excludedAttributes) {
 		String[] propertyNames = this.getPropertyNames(targetBean);
-		List<String> finalPropertyNames = ListUtility.createList();
-		List<String> excludedPropertyNames = ListUtility.createList(excludedAttributes);
+		List<String> finalPropertyNames = CollectionsUtility.createList();
+		List<String> excludedPropertyNames = CollectionsUtility.createList(excludedAttributes);
 		for (String property :propertyNames) {
 			if (excludedPropertyNames.contains(property))
 				continue;
@@ -113,7 +113,7 @@ public class BeanUtility {
 	}
 
 	public static List<String> getBeanPropertyNames(Class<?> beanClass) throws IntrospectionException {
-		List<String> propertyNames = ListUtility.createArrayList();
+		List<String> propertyNames = CollectionsUtility.createArrayList();
 		String propName = null;
 		BeanInfo beanInfo = Introspector.getBeanInfo(beanClass);
 		PropertyDescriptor[] descriptors = beanInfo.getPropertyDescriptors();
@@ -240,7 +240,7 @@ public class BeanUtility {
           InvocationTargetException,
           IllegalAccessException {
   	
-  	Map<String, Object> objectAttributeMap = ListUtility.createMap();
+  	Map<String, Object> objectAttributeMap = CollectionsUtility.createMap();
       Object result = null;
 
       Class<?> beanClass = bean.getClass();
@@ -459,7 +459,7 @@ public class BeanUtility {
   }
 
   private static Class<?>[] getInterfaces(Class<?> c, String packagePrefix) {
-    List<Class<?>> result = ListUtility.createDataList();
+    List<Class<?>> result = CollectionsUtility.createDataList();
     Class<?> processingClass = c;
     if (processingClass.isInterface()) {
         result.add(processingClass);
@@ -473,7 +473,7 @@ public class BeanUtility {
         addInterfaces(result.get(i), result);
     }
 
-    List<Class<?>> finalResults = ListUtility.createDataList();
+    List<Class<?>> finalResults = CollectionsUtility.createDataList();
     for (Class<?> classInstance :result) {
     	if (classInstance.getCanonicalName().startsWith(packagePrefix)) {
     		finalResults.add(classInstance);
@@ -544,7 +544,7 @@ public class BeanUtility {
   }
 
   public static List<String> getBeanPropertyNames(Object bean){
-  	List<String> beanPropertyNames = ListUtility.createList();
+  	List<String> beanPropertyNames = CollectionsUtility.createList();
   	List<Field> fieldList = getInheritedPrivateFields(bean.getClass());
 
   	fieldList.forEach(field->{
@@ -556,7 +556,7 @@ public class BeanUtility {
   }
 
   private static List<Field> getInheritedPrivateFields(Class<?> type) {
-    List<Field> result = ListUtility.createList();
+    List<Field> result = CollectionsUtility.createList();
 
     Class<?> i = type;
     while (i != null && i != Object.class) {
@@ -635,4 +635,8 @@ public class BeanUtility {
       e.printStackTrace();
     }
   }  
+
+  public static Class<?> getClass(String classQualifiedName) throws ClassNotFoundException{
+    return Class.forName(classQualifiedName);
+  }
 }

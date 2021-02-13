@@ -54,12 +54,12 @@ public class TabViewMB implements Serializable {
         return cars;
     }
     
-    public void onTabChange(TabChangeEvent event) {
+    public void onTabChange(TabChangeEvent<?> event) {
         FacesMessage msg = new FacesMessage("Tab Changed", "Active Tab: " + event.getTab().getTitle());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
         
-    public void onTabClose(TabCloseEvent event) {
+    public void onTabClose(TabCloseEvent<?> event) {
         FacesMessage msg = new FacesMessage("Tab Closed", "Closed tab: " + event.getTab().getTitle());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }

@@ -26,7 +26,7 @@ import net.brilliant.autx.SecurityServiceContextHelper;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.exceptions.AppException;
 import net.brilliant.exceptions.CommonException;
 import net.brilliant.exceptions.ExecutionContextException;
@@ -175,7 +175,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 	public boolean exists(String countByProperty, Object value) {
 		String invokeMethod = "existsBy" + StringUtils.capitalize(countByProperty);
-		Map<?, ?> parameters = ListUtility.createMap(countByProperty, value);
+		Map<?, ?> parameters = CollectionsUtility.createHashMapData(countByProperty, value);
 		boolean isExists = false;
 		try {
 			isExists = existsEntity(invokeMethod, parameters);
@@ -195,7 +195,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 	public Long count(String countByProperty, Object value) {
 		String invokeMethod = "countBy" + StringUtils.capitalize(countByProperty);
-		Map<?, ?> parameters = ListUtility.createMap(countByProperty, value);
+		Map<?, ?> parameters = CollectionsUtility.createHashMapData(countByProperty, value);
 		return countEntity(invokeMethod, parameters);
 		//throw new RuntimeException("Not implemented yet");
 	}
@@ -301,7 +301,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		if (null != predicator){
 			pagedObjects = repository.findAll(predicator.buildSpecification(searchParameter), searchParameter.getPageable());
 		}else{
-			//pagedObjects = ListUtility.createPageable(repository.findAll(), searchParameter.getPageable());
+			//pagedObjects = CollectionsUtility.createPageable(repository.findAll(), searchParameter.getPageable());
 		}
 		return pagedObjects;
 	}

@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 import net.brilliant.common.CommonConstants;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.entity.config.Configuration;
 import net.brilliant.entity.config.ConfigurationDetail;
@@ -53,7 +53,7 @@ public class EmailConfigurationHelper extends CompCore {
 				.value("Application email configuration")
 				.build();
 
-		List<ConfigurationDetail> configDetails = ListUtility.createDataList(
+		List<ConfigurationDetail> configDetails = CollectionsUtility.createDataList(
 				ConfigurationDetail.builder().name(GlobalConstants.CONFIG_EMAIL_HOST).value("smtp.gmail.com").build(),
 				ConfigurationDetail.builder().name(GlobalConstants.CONFIG_EMAIL_PORT).value("587").build(),
 				ConfigurationDetail.builder().name(GlobalConstants.CONFIG_EMAIL_USER_NAME).value(defaultCryptographer.encode("duc.bui.appdev@gmail.com", GlobalCryptogramRepository.SECRET_KEY)).build(),

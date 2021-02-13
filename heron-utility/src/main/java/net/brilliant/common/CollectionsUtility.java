@@ -20,7 +20,7 @@ import net.brilliant.model.ui.UISelectItem;
  * @author bqduc
  *
  */
-public class ListUtility {
+public class CollectionsUtility {
 	public static <T> DataList<T> createDataList(){
 		return new DataList<T>();
 	}
@@ -74,7 +74,7 @@ public class ListUtility {
 		return (T[])objects.toArray();
 	}
 
-	public static <K, T> Map <K, T> createMap(Object ...keyValuePairs){
+	public static <K, T> Map <K, T> createHashMapData(Object ...keyValuePairs){
 		Map<K, T> retMap = new HashMap<>();
 		for (int i = 0; i < keyValuePairs.length; i+= 2) {
 			K key = (K)keyValuePairs[i];

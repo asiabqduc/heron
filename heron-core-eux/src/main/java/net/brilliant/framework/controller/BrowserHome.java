@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.model.FilterBase;
 
 /**
@@ -27,15 +27,15 @@ public abstract class BrowserHome<E, F extends FilterBase> extends Home <E, F> {
 	@Getter
 	protected String instantSearch;
 
-	private List<E> businessObjects = ListUtility.createList();
+	private List<E> businessObjects = CollectionsUtility.createList();
 
 	@Setter
 	@Getter
-	protected List<E> selectedObjects = ListUtility.createList();
+	protected List<E> selectedObjects = CollectionsUtility.createList();
 
 	@Setter
 	@Getter
-  protected List<E> filteredObjects = ListUtility.createList();
+  protected List<E> filteredObjects = CollectionsUtility.createList();
 
 	protected abstract List<E> doGetBusinessObjects();
 

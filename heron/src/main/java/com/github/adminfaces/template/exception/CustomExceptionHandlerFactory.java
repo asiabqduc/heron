@@ -7,7 +7,8 @@ public class CustomExceptionHandlerFactory extends ExceptionHandlerFactory {
 
 	private final ExceptionHandlerFactory parent;
 
-	public CustomExceptionHandlerFactory(final ExceptionHandlerFactory parent) {
+	@SuppressWarnings("deprecation")
+  public CustomExceptionHandlerFactory(final ExceptionHandlerFactory parent) {
 		this.parent = parent;
 	}
 

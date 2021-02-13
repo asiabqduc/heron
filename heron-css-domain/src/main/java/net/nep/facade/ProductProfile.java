@@ -10,7 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.entity.Attachment;
 import net.brilliant.domain.model.dto.FacadeCore;
 import net.brilliant.entity.stock.InventoryCore;
@@ -35,10 +35,10 @@ public class ProductProfile extends FacadeCore {
 	private InventoryPrice profileDetail;
 
 	@Builder.Default
-	private List<Attachment> images = ListUtility.createList();
+	private List<Attachment> images = CollectionsUtility.createList();
 
 	@Builder.Default
-	List<InventoryImage> inventoryImages = ListUtility.createList();
+	List<InventoryImage> inventoryImages = CollectionsUtility.createList();
 
 	@Builder.Default
 	private Boolean changedImages = Boolean.FALSE;

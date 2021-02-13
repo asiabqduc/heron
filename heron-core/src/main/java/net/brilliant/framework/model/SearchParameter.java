@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * @author bqduc
@@ -36,7 +36,7 @@ public class SearchParameter {
 	private String keyword;
 
 	@Builder.Default
-	private Map<String, Object> parameterMap = ListUtility.createMap();
+	private Map<String, Object> parameterMap = CollectionsUtility.createHashMapData();
 
 	public String getPlatform() {
 		return platform;

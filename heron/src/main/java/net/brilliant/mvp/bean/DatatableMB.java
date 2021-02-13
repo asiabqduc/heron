@@ -62,6 +62,7 @@ public class DatatableMB implements Serializable {
         cars = carService.createCars(30);
     }
 
+    @SuppressWarnings("unchecked")
     public boolean filterByPrice(Object value, Object filter, Locale locale) {
         String filterText = (filter == null) ? null : filter.toString().trim();
         if(filterText == null||filterText.equals("")) {
@@ -72,7 +73,7 @@ public class DatatableMB implements Serializable {
             return false;
         }
 
-        return ((Comparable) value).compareTo(Integer.valueOf(filterText)) > 0;
+        return ((Comparable<Integer>) value).compareTo(Integer.valueOf(filterText)) > 0;
     }
 
     public int getRandomPrice() {

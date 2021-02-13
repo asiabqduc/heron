@@ -44,7 +44,7 @@ import com.google.gson.GsonBuilder;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.model.SelectItem;
 import net.brilliant.exceptions.ExecutionContextException;
 import net.brilliant.framework.constants.ControllerConstants;
@@ -131,7 +131,7 @@ public abstract class BaseController extends RootController {
 	protected List<SelectItem> buildCategorySelectedItems(List<?> objects) {
 		Long objectId = null;
 		String objectCode = null, objectName = null;
-		List<SelectItem> selectItems = ListUtility.createArrayList();
+		List<SelectItem> selectItems = CollectionsUtility.createArrayList();
 		if (CommonUtility.isNotEmpty(objects)) {
 			for (Object object : objects) {
 				try {
@@ -184,8 +184,8 @@ public abstract class BaseController extends RootController {
 
 	protected List<SelectItem> buildSelectItems(List<?> objects, String keyProperty, String[] displayProperties) {
 		Long objectId = null;
-		List<SelectItem> selectItems = ListUtility.createArrayList();
-		Map<String, Object> displayValueMap = ListUtility.createMap();
+		List<SelectItem> selectItems = CollectionsUtility.createArrayList();
+		Map<String, Object> displayValueMap = CollectionsUtility.createMap();
 		for (Object object : objects) {
 			try {
 				objectId = (Long) BeanUtility.getBeanProperty(object, keyProperty);

@@ -19,6 +19,10 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class PanelMB implements Serializable {
     
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -1206181685940658432L;
     private List<String> boxColors;
     private String selectedColor;
     private boolean solid;

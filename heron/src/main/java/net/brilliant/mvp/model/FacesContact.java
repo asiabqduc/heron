@@ -19,6 +19,10 @@ import java.io.Serializable;
 
 public class FacesContact implements Serializable{
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 6010681633861002583L;
     private String firstname;
     private String surname;
     private String phone;

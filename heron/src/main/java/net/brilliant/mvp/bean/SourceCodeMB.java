@@ -1,16 +1,13 @@
 package net.brilliant.mvp.bean;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
-import javax.servlet.ServletContext;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import static com.github.adminfaces.template.util.Assert.has;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.github.adminfaces.template.util.Assert.has;
+import javax.enterprise.context.ApplicationScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 /**
  * Created by rmpestano on 21/01/17.

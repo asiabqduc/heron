@@ -24,6 +24,7 @@ import static com.github.adminfaces.template.util.Assert.has;
 @Named
 @SessionScoped
 public class BreadCrumbMB implements Serializable {
+  private static final long serialVersionUID = -2395789489815972965L;
 
     @Inject
     AdminConfig adminConfig;

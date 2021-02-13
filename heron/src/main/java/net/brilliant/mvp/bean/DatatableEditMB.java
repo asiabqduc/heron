@@ -71,17 +71,17 @@ public class DatatableEditMB implements Serializable {
         this.service = service;
     }
 
-    public void onRowEdit(RowEditEvent event) {
+    public void onRowEdit(RowEditEvent<?> event) {
         FacesMessage msg = new FacesMessage("Car Edited", ((FacesCar) event.getObject()).getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onRowCancel(RowEditEvent event) {
+    public void onRowCancel(RowEditEvent<?> event) {
         FacesMessage msg = new FacesMessage("Edit Cancelled", ((FacesCar) event.getObject()).getId());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onCellEdit(CellEditEvent event) {
+    public void onCellEdit(CellEditEvent<?> event) {
         Object oldValue = event.getOldValue();
         Object newValue = event.getNewValue();
 

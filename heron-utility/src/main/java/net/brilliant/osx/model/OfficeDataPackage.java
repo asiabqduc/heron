@@ -6,7 +6,7 @@ package net.brilliant.osx.model;
 import java.util.Map;
 
 import lombok.Builder;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * @author bqduc
@@ -15,7 +15,7 @@ import net.brilliant.common.ListUtility;
 @Builder
 public class OfficeDataPackage extends DataPackage {
 	@Builder.Default
-	private Map<Object, DataPackage> packageData = ListUtility.createMap();
+	private Map<Object, DataPackage> packageData = CollectionsUtility.createHashMapData();
 
 	public DataPackage getDataPackage(final Object key){
 		return packageData.get(key);

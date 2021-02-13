@@ -19,6 +19,10 @@ import static com.github.adminfaces.template.util.Assert.has;
 @ApplicationException(rollback = true)
 public class BusinessException extends RuntimeException implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 3372991546149202740L;
     private String summary;
     private String detail;
     private String fieldId;

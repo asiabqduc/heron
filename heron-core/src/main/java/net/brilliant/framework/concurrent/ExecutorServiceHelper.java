@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 import net.brilliant.model.ExecutionContext;
@@ -45,7 +45,7 @@ public class ExecutorServiceHelper extends CompCore {
 		WorkerThreadBase workerThread = invokeWorkerThread(executionContext);
 		ExecutorService executorService = getExecutorService();
 
-		List<Future<ExecutionContext>> futures = executorService.invokeAll(ListUtility.createDataList(workerThread));
+		List<Future<ExecutionContext>> futures = executorService.invokeAll(CollectionsUtility.createDataList(workerThread));
 		return futures.get(0);//CompletableFuture.completedFuture(executionContext);
 	}
 }

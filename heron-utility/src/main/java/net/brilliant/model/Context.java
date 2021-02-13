@@ -6,17 +6,17 @@ package net.brilliant.model;
 import java.io.Serializable;
 import java.util.Map;
 
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * Base Context
  * @author bqduc
  *
  */
-public abstract class Context implements Serializable{
+public class Context implements Serializable{
 	private static final long serialVersionUID = 2622407790323667698L;
 
-	private Map<String, Object> contextData = ListUtility.createMap();
+	private Map<String, Object> contextData = CollectionsUtility.createMap();
 
 	public Map<String, Object> getContextData() {
 		return this.contextData;

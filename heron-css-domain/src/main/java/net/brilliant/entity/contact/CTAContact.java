@@ -49,7 +49,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.embeddable.Phone;
 import net.brilliant.entity.general.BusinessUnit;
 import net.brilliant.entity.general.GeneralCatalogue;
@@ -219,11 +219,11 @@ public class CTAContact extends RepoAuditable {
 
 	@Transient
 	@Builder.Default
-	private Set<ContactAddress> contactAddresses = ListUtility.newHashSet();
+	private Set<ContactAddress> contactAddresses = CollectionsUtility.newHashSet();
 
 	@Builder.Default
 	@Transient
-	private Set<ContactTeam> contactTeams = ListUtility.newHashSet();
+	private Set<ContactTeam> contactTeams = CollectionsUtility.newHashSet();
 
 	/*@Builder.Default
 	@ManyToMany(cascade = {
@@ -234,7 +234,7 @@ public class CTAContact extends RepoAuditable {
       joinColumns = @JoinColumn(name = "contact_id"),
       inverseJoinColumns = @JoinColumn(name = "document_id")
   )
-  private List<Document> documents = ListUtility.createArrayList();*/
+  private List<Document> documents = CollectionsUtility.createArrayList();*/
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_user_id")
@@ -413,7 +413,7 @@ public class CTAContact extends RepoAuditable {
 
 	public void setContactAddresses(List<ContactAddress> contactAddresses) {
 		if (null==this.contactAddresses)
-			this.contactAddresses = ListUtility.newHashSet();
+			this.contactAddresses = CollectionsUtility.newHashSet();
 
 		if (CommonUtility.isNotEmpty(contactAddresses)){
 			this.contactAddresses.addAll(contactAddresses);
@@ -430,7 +430,7 @@ public class CTAContact extends RepoAuditable {
 
 	public void setContactTeams(List<ContactTeam> contactTeams) {
 		if (null==this.contactTeams)
-			this.contactTeams = ListUtility.newHashSet();
+			this.contactTeams = CollectionsUtility.newHashSet();
 
 		if (CommonUtility.isNotEmpty(contactTeams)){
 			this.contactTeams.addAll(contactTeams);

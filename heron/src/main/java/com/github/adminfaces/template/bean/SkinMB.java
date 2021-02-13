@@ -16,6 +16,7 @@ import static com.github.adminfaces.template.util.Assert.has;
 @Named
 @SessionScoped
 public class SkinMB implements Serializable {
+  private static final long serialVersionUID = -7186823920978500914L;
 
     private String skin;
 

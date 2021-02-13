@@ -15,6 +15,10 @@ import javax.inject.Named;
 @Named
 @SessionScoped
 public class AdminSession implements Serializable {
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 8124293489845321325L;
 
     private boolean isLoggedIn = true;
 

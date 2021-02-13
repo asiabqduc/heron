@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonConstants;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.exceptions.CommonException;
 import net.brilliant.exceptions.ExecutionContextException;
 import net.brilliant.framework.component.ComponentBase;
@@ -59,7 +59,7 @@ public abstract class ServiceImpl<EntityType extends RepoEntity, Key extends Ser
 
 	//////////////////////////Revise and exclude as soon as possible
 	protected final Page<EntityType> DUMMY_PAGEABLE = new PageImpl<EntityType>(new ArrayList<EntityType>());
-	protected final List<EntityType> DUMMY_LIST = ListUtility.createDataList();
+	protected final List<EntityType> DUMMY_LIST = CollectionsUtility.createDataList();
 
 	//protected abstract Page<ClassType> performSearch(String keyword, Pageable pageable);
 
@@ -104,7 +104,7 @@ public abstract class ServiceImpl<EntityType extends RepoEntity, Key extends Ser
 		Object findingResult = null;
 		List<EntityType> searchResult = null;
 		try {
-			findingResult = BeanUtility.callMethod(this.getRepository(), "find", ListUtility.createMap("keyword", parameter), PACKAGE_PREFIX);
+			findingResult = BeanUtility.callMethod(this.getRepository(), "find", CollectionsUtility.createHashMapData("keyword", parameter), PACKAGE_PREFIX);
 			if (findingResult instanceof List) {
 				searchResult = (List<EntityType>)findingResult;
 			}

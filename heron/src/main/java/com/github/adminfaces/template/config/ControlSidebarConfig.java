@@ -30,7 +30,7 @@ import java.io.Serializable;
  * @author rmpestano
  */
 public class ControlSidebarConfig implements Serializable {
-    
+  private static final long serialVersionUID = -8715736258234449976L;
     private final Boolean showOnMobile;
     private final Boolean fixedLayout;
     private final Boolean boxedLayout;

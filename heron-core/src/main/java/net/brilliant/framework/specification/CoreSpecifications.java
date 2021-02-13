@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.model.SearchParameter;
 
 /**
@@ -42,7 +42,7 @@ public abstract class CoreSpecifications<UserType, UserRequest> extends BaseSpec
 			public Predicate toPredicate(Root<UserType> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 				Predicate[] predicatesArray = null;
 				Object searchValue = null;
-				List<Predicate> predicates = ListUtility.createArrayList();
+				List<Predicate> predicates = CollectionsUtility.createArrayList();
 				//predicates = buildPredicates(searchParameter, root, builder);
 				if (CommonUtility.isNotEmpty(searchParameter.getParameterMap())){
 					for (String searchParam :searchParameter.getParameterMap().keySet()){

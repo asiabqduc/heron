@@ -28,6 +28,11 @@ import org.primefaces.PrimeFaces;
 @ViewScoped
 public class UserLoginMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -5549276089448917064L;
+
     private String username;
 
     private String password;

@@ -17,6 +17,11 @@ import org.primefaces.event.SelectEvent;
 @ViewScoped
 public class DFLevel2MB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -8241707890965707921L;
+
     public void openLevel3() {
         Map<String, Object> options = new HashMap<String, Object>();
         options.put("modal", true);
@@ -27,7 +32,7 @@ public class DFLevel2MB implements Serializable {
     }
 
         //pass back to level 1
-    public void onReturnFromLevel3(SelectEvent event) {
+    public void onReturnFromLevel3(SelectEvent<?> event) {
         PrimeFaces.current().dialog().closeDynamic(event.getObject());
     }
 }

@@ -47,7 +47,7 @@ public class DragDropMB implements Serializable {
         droppedCars = new ArrayList<>();
     }
      
-    public void onCarDrop(DragDropEvent ddEvent) {
+    public void onCarDrop(DragDropEvent<?> ddEvent) {
         FacesCar car = ((FacesCar) ddEvent.getData());
   
         droppedCars.add(car);

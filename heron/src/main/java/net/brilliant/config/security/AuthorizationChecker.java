@@ -19,7 +19,7 @@ import net.brilliant.auth.entity.Authority;
 import net.brilliant.auth.model.AccessDecision;
 import net.brilliant.auth.service.AccessDecisionPolicyService;
 import net.brilliant.common.CommonConstants;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 /**
  * @author ducbq
@@ -31,7 +31,8 @@ public class AuthorizationChecker {
 	@Inject
 	private AccessDecisionPolicyService accessDecisionPolicyService;
 
-	private boolean doCheck(HttpServletRequest request, Authentication authentication) {
+	@SuppressWarnings("unchecked")
+  private boolean doCheck(HttpServletRequest request, Authentication authentication) {
 		if (authentication == null || CommonConstants.ANONYMOUS_USER.equals(authentication.getPrincipal())) {
 			return false;
 		}
@@ -44,7 +45,7 @@ public class AuthorizationChecker {
 
 		accessDecisionPolicies = (List<AccessDecisionPolicy>)request.getSession(false).getAttribute(MY_ACCESSED_DECISION_POLICIES);
     if (null==accessDecisionPolicies) {
-    	accessDecisionPolicies = ListUtility.createDataList();
+    	accessDecisionPolicies = CollectionsUtility.createDataList();
   		for (GrantedAuthority authority :authentication.getAuthorities()) {
   			currentADPs = accessDecisionPolicyService.getAccessDecisionPoliciesByAuthority((Authority)authority);
   			if (!currentADPs.isEmpty()) {
@@ -68,7 +69,7 @@ public class AuthorizationChecker {
 		return hasAccessedPermission;
 	}
 
-	public boolean check(HttpServletRequest request, Authentication authentication) {
+	public boolean decide(HttpServletRequest request, Authentication authentication) {
 		return this.doCheck(request, authentication);
 	}
 

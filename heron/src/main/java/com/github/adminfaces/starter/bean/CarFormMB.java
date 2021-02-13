@@ -28,7 +28,11 @@ import net.brilliant.common.CommonUtility;
 @ViewScoped
 public class CarFormMB implements Serializable {
 
-/*    @Inject
+/**
+   * 
+   */
+  private static final long serialVersionUID = 5543805425294090571L;
+    /*    @Inject
     CarService carService;
 */
     private Integer id;

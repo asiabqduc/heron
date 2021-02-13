@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.entity.system.Option;
 import net.brilliant.entity.system.Sequence;
 import net.brilliant.framework.component.ComponentBase;
@@ -32,7 +32,7 @@ public class SequenceManager extends ComponentBase {
 	@Inject 
 	private OptionService optionService;
 
-	private Map<String, Sequence> sequenceMap = ListUtility.createMap();
+	private Map<String, Sequence> sequenceMap = CollectionsUtility.createMap();
 
 	public String getNewNumber(String serial, Integer len) {
 		// TODO: burda gerçek numaranın bir şekilde veri tabanından alınması lazım. Veri tabanı sequence'i v.s. bişey kullnılması lazım.'

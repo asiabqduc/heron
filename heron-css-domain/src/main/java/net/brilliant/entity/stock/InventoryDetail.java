@@ -40,7 +40,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.entity.general.Catalogue;
 import net.brilliant.entity.contact.ContactCore;
 import net.brilliant.entity.general.BusinessUnit;
@@ -96,23 +96,23 @@ public class InventoryDetail extends RepoAuditable {
 
 	@Builder.Default
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<InventoryPrice> productProfileDiscountList = ListUtility.createList();
+	private List<InventoryPrice> productProfileDiscountList = CollectionsUtility.createList();
 
 	@Builder.Default
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ProductProfileTax> productProfileTaxList = ListUtility.createList();
+	private List<ProductProfileTax> productProfileTaxList = CollectionsUtility.createList();
 
 	@Builder.Default
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<InventoryCategory> productProfileCategoryList = ListUtility.createList();
+	private List<InventoryCategory> productProfileCategoryList = CollectionsUtility.createList();
 	
 	@Builder.Default
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<InventoryImage> productImageList = ListUtility.createList();
+	private List<InventoryImage> productImageList = CollectionsUtility.createList();
 
 	@Builder.Default
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<ProductProfilePartner> productProfilePartnerList = ListUtility.createList();
+	private List<ProductProfilePartner> productProfilePartnerList = CollectionsUtility.createList();
 
 	/**
 	 * The institution keeps its information.

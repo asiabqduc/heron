@@ -24,6 +24,10 @@ import javax.inject.Named;
 @ViewScoped
 public class InplaceMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -6203764584977351505L;
     private String text = "AdminFaces";
  
     public String getText() {

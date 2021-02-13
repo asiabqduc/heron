@@ -45,7 +45,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.entity.general.BusinessUnit;
 import net.brilliant.entity.general.GeneralCatalogue;
 import net.brilliant.framework.entity.RepoAuditable;
@@ -93,7 +93,7 @@ public class ContactCore extends RepoAuditable {
       , orphanRemoval = true
       , fetch = FetchType.EAGER
   )
-	private List<ContactCommunication> contacPhones = ListUtility.createDataList();
+	private List<ContactCommunication> contacPhones = CollectionsUtility.createDataList();
 
   @Column(name="portal_name", length=50)
 	private String portalName;
@@ -181,11 +181,11 @@ public class ContactCore extends RepoAuditable {
 
 	@Transient
 	@Builder.Default
-	private Set<ContactAddress> contactAddresses = ListUtility.newHashSet();
+	private Set<ContactAddress> contactAddresses = CollectionsUtility.newHashSet();
 
 	@Builder.Default
 	@Transient
-	private Set<ContactTeam> contactTeams = ListUtility.newHashSet();
+	private Set<ContactTeam> contactTeams = CollectionsUtility.newHashSet();
 	
 	@ManyToOne
 	@JoinColumn(name = "owner_user_id")

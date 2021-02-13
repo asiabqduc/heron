@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
  * @author bqduc
  *
  */
-@SuppressWarnings({ "rawtypes", "unchecked" })
 @Configuration
 public class ServletsConfiguration {
 

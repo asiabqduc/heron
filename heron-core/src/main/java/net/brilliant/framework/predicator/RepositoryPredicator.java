@@ -13,7 +13,7 @@ import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.model.SearchParameter;
 
 /**
@@ -48,7 +48,7 @@ public abstract class RepositoryPredicator<T> {
 			@Override
 			public Predicate toPredicate(Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 				Object searchValue = null;
-				List<Predicate> predicates = ListUtility.createArrayList();
+				List<Predicate> predicates = CollectionsUtility.createArrayList();
 				if (CommonUtility.isNotEmpty(searchParameter.getParameterMap())){
 					for (String searchParam :searchParameter.getParameterMap().keySet()){
 						searchValue = searchParameter.getParameterMap().get(searchParam);

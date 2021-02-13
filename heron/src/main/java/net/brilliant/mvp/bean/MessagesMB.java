@@ -14,6 +14,11 @@ import org.omnifaces.util.Messages;
 @ViewScoped
 public class MessagesMB implements Serializable{
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 6803819513767960159L;
+
     public void info() {
         Messages.create("Info").detail("AdminFaces info message.").add();
     }

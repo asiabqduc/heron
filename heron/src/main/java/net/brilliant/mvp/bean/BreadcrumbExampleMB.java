@@ -15,6 +15,10 @@ import java.io.Serializable;
 @SessionScoped
 public class BreadcrumbExampleMB implements Serializable{
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 4173570434978990240L;
     private String link;
     private String title;
 

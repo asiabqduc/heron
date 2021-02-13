@@ -4,7 +4,6 @@
 package net.brilliant.config.security;
 
 import java.security.SecureRandom;
-import java.util.regex.Pattern;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

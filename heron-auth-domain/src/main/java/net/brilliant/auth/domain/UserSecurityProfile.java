@@ -13,7 +13,7 @@ import lombok.Builder;
 import net.brilliant.auth.entity.Authority;
 import net.brilliant.auth.entity.UserAccountProfile;
 import net.brilliant.common.CommonConstants;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.model.dto.FacadeCore;
 
 /**
@@ -28,7 +28,7 @@ public class UserSecurityProfile extends FacadeCore {
 	private Authentication authentication;
 
 	@Builder.Default
-	private List<Authority> grantedAuthorities = ListUtility.createList();
+	private List<Authority> grantedAuthorities = CollectionsUtility.createList();
 
 	@Builder.Default
 	private String displayName = CommonConstants.ANONYMOUS_USER;

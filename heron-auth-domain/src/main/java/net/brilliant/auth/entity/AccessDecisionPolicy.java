@@ -35,7 +35,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import net.brilliant.auth.model.AccessDecision;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -88,7 +88,7 @@ public class AccessDecisionPolicy extends RepoAuditable {
       , cascade = CascadeType.ALL
       , orphanRemoval = true
       , fetch = FetchType.EAGER)
-  private List<AccessDecisionAuthority> accessDecisionAuthorities = ListUtility.createDataList();
+  private List<AccessDecisionAuthority> accessDecisionAuthorities = CollectionsUtility.createDataList();
 
 	public AccessDecisionPolicy addAccessDecisionAuthority(Authority authority) {
 		accessDecisionAuthorities.add(

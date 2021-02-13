@@ -41,7 +41,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.entity.general.Catalogue;
 import net.brilliant.entity.general.GeneralCatalogue;
 import net.brilliant.entity.general.MeasureUnit;
@@ -150,15 +150,15 @@ public class InventoryItem extends RepoAuditable {
 	@Builder.Default
 	@JsonIgnore
 	@OneToMany(mappedBy = "inventoryItem", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-	private List<InventoryItemCatalog> productCatalogues = ListUtility.createArrayList();
+	private List<InventoryItemCatalog> productCatalogues = CollectionsUtility.createArrayList();
 
 	@Transient
 	@Builder.Default
-	private List<Catalogue> catalogues = ListUtility.createArrayList();
+	private List<Catalogue> catalogues = CollectionsUtility.createArrayList();
 
 	@Transient
 	@Builder.Default
-	private List<InventoryItemProfile> profiles = ListUtility.createArrayList();
+	private List<InventoryItemProfile> profiles = CollectionsUtility.createArrayList();
 
 	@ManyToOne
 	@JoinColumn(name = "master_usage_direction_id")
@@ -177,7 +177,7 @@ public class InventoryItem extends RepoAuditable {
 			joinColumns = {@JoinColumn(name = "inventory_item_id")}
 	)
 	//@formatter:on
-	private Set<Catalogue> categories = ListUtility.createHashSet();
+	private Set<Catalogue> categories = CollectionsUtility.createHashSet();
 
 	@Column(name = "servicing_code", length=GlobalConstants.SIZE_SERIAL)
 	private String servicingCode;

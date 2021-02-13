@@ -12,7 +12,7 @@ import net.brilliant.auth.entity.Authority;
 import net.brilliant.auth.repository.AccessDecisionAuthorityRepository;
 import net.brilliant.auth.repository.AccessDecisionPolicyRepository;
 import net.brilliant.auth.service.AccessDecisionPolicyService;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 
@@ -38,7 +38,7 @@ public class AccessDecisionPolicyServiceImpl extends GenericServiceImpl<AccessDe
 
 	@Override
 	public List<AccessDecisionPolicy> getAccessDecisionPoliciesByAuthority(Authority authority) {
-		List<AccessDecisionPolicy> fetchedResults = ListUtility.createList();
+		List<AccessDecisionPolicy> fetchedResults = CollectionsUtility.createList();
 		List<AccessDecisionAuthority> accessDecisionAuthorities = accessDecisionAuthorityRepository.findByAuthority(authority);
 		for (AccessDecisionAuthority accessDecisionAuthority :accessDecisionAuthorities) {
 			fetchedResults.add(accessDecisionAuthority.getAccessDecisionPolicy());

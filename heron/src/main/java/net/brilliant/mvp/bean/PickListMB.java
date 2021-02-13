@@ -113,12 +113,12 @@ public class PickListMB implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void onSelect(SelectEvent event) {
+    public void onSelect(SelectEvent<?> event) {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Selected", event.getObject().toString()));
     }
 
-    public void onUnselect(UnselectEvent event) {
+    public void onUnselect(UnselectEvent<?> event) {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Item Unselected", event.getObject().toString()));
     }

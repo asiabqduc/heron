@@ -11,6 +11,10 @@ import java.io.Serializable;
 @ViewScoped
 @Named
 public class TriStateCheckboxMB implements Serializable {
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 5354349641088441216L;
     private String value1;
     private String value2;
     private String value3;

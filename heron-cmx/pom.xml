@@ -34,14 +34,6 @@
 			<artifactId>heron-auth</artifactId>
 			<version>${project.version}</version>
 		</dependency>	
-		<!--
-		
-		<dependency>
-		    <groupId>javax.validation</groupId>
-		    <artifactId>validation-api</artifactId>
-		    <version>${version.javax.validation}</version>
-		</dependency>		
-		-->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>

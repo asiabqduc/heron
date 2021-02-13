@@ -35,7 +35,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.component.LocaleManager;
 import net.brilliant.context.DatabaseMessageServiceImpl;
 import net.brilliant.context.MessagePersistenceService;
@@ -511,7 +511,7 @@ public class MultiplePropertiesResourceBundle extends ResourceBundle {
 		ResourceBundle resourceBundle = null;
 		//PathMatchingResourcePatternResolver innerResolver = null;
 		try {
-			List<String> scannedResources = ListUtility.createArrayList();
+			List<String> scannedResources = CollectionsUtility.createArrayList();
 			Resource[] resources = resolver.getResources(PathMatchingResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX);
 			//Resource[] innerResources = null;
 			for (Resource resource : resources) {
@@ -545,7 +545,7 @@ public class MultiplePropertiesResourceBundle extends ResourceBundle {
 	}
 	
 	private List<String> getResourceBundleNames(PathMatchingResourcePatternResolver resolver, String resourcePath, String resourceName) throws IOException{
-		List<String> resourceBundleNames = ListUtility.createArrayList();
+		List<String> resourceBundleNames = CollectionsUtility.createArrayList();
 		Resource[] resources = resolver.getResources(resourceName);
 		ResourceBundle bundle = null;
 		for (Resource resource :resources) {

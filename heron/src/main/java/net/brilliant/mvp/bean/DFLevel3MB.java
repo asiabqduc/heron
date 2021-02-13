@@ -14,6 +14,10 @@ import org.primefaces.PrimeFaces;
 @ViewScoped
 public class DFLevel3MB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 864742116642888292L;
     private String val;
 
     public String getVal() {

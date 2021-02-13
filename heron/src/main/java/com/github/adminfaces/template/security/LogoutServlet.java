@@ -15,6 +15,10 @@ import org.omnifaces.util.Faces;
 @WebServlet(name = "adminLogoutServlet", urlPatterns = "/admin-logout")
 public class LogoutServlet extends HttpServlet {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 7177163235631787691L;
     @Inject
     AdminConfig adminConfig;
 

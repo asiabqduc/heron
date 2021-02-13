@@ -19,7 +19,12 @@ import java.io.Serializable;
 
 public class FacesDocument implements Serializable, Comparable<FacesDocument> {
 
-	private String name;
+	/**
+   * 
+   */
+  private static final long serialVersionUID = 1523694650977112138L;
+
+  private String name;
 	
 	private String size;
 	

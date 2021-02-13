@@ -32,7 +32,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.UserAccountProfile;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -61,7 +61,7 @@ public class ContactProfile extends RepoAuditable {
       , orphanRemoval = true
       //, fetch = FetchType.EAGER
   )
-	private List<ContactAddress> addresses = ListUtility.createList();
+	private List<ContactAddress> addresses = CollectionsUtility.createList();
 
 	@Builder.Default
   @OneToMany(
@@ -70,7 +70,7 @@ public class ContactProfile extends RepoAuditable {
       , orphanRemoval = true
       //, fetch = FetchType.EAGER
   )
-	private List<ContactCommunication> communications = ListUtility.createList();
+	private List<ContactCommunication> communications = CollectionsUtility.createList();
 
   @Builder.Default
   @OneToMany(
@@ -79,7 +79,7 @@ public class ContactProfile extends RepoAuditable {
       , orphanRemoval = true
       //, fetch = FetchType.EAGER
   )
-	private List<ContactHierarchy> hierarchies = ListUtility.createList();
+	private List<ContactHierarchy> hierarchies = CollectionsUtility.createList();
 
   @Builder.Default
   @OneToMany(
@@ -88,7 +88,7 @@ public class ContactProfile extends RepoAuditable {
       , orphanRemoval = true
       //, fetch = FetchType.EAGER
   )
-	private List<ContactAssignment> assignments = ListUtility.createList();
+	private List<ContactAssignment> assignments = CollectionsUtility.createList();
 
 	@ManyToOne
 	@JoinColumn(name = "assistant_contact_id")

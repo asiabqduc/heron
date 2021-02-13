@@ -10,7 +10,7 @@ import javax.inject.Named;
 
 import net.brilliant.auth.entity.Authority;
 import net.brilliant.auth.service.AuthorityService;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 
 @Named(value="autoCompleteAuthority")
 @ViewScoped
@@ -37,7 +37,7 @@ public class AutoCompleteAuthority implements Serializable {
 
 	public List<Authority> completeItem(String query) {
 		List<Authority> allItems = businessService.getObjects();
-		List<Authority> filteredItems = ListUtility.createDataList();
+		List<Authority> filteredItems = CollectionsUtility.createDataList();
 		Authority skin = null;
 		for (int i = 0; i < allItems.size(); i++) {
 			skin = allItems.get(i);
@@ -51,7 +51,7 @@ public class AutoCompleteAuthority implements Serializable {
 
 	public List<Authority> completeItemContains(String query) {
 		List<Authority> allItems = businessService.getObjects();
-		List<Authority> filteredItems = ListUtility.createDataList();
+		List<Authority> filteredItems = CollectionsUtility.createDataList();
 
 		for (int i = 0; i < allItems.size(); i++) {
 			Authority skin = allItems.get(i);

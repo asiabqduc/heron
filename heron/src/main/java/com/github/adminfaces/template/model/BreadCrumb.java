@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by rafael-pestano on 30/11/16.
  */
 public class BreadCrumb implements Serializable {
-
+  private static final long serialVersionUID = -8797199452190604105L;
     private String link;
     private String title;
 

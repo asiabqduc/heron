@@ -10,7 +10,12 @@ import java.io.Serializable;
 @ApplicationException(rollback = true)
 public class AccessDeniedException extends RuntimeException implements Serializable {
 
-	public AccessDeniedException() {
+	/**
+   * 
+   */
+  private static final long serialVersionUID = 6905805626922970837L;
+
+  public AccessDeniedException() {
 	}
 
 	public AccessDeniedException(Throwable cause) {

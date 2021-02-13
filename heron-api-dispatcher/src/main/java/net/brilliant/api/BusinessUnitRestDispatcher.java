@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.org.BusinessUnitService;
 import net.brilliant.domain.model.SearchCondition;
 import net.brilliant.entity.general.BusinessUnit;
@@ -91,7 +91,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 
 	@Override
 	protected List<BusinessUnitProxy> searchBusinessObjects(SearchCondition searchCondition) {
-		List<BusinessUnitProxy> list = ListUtility.createList();
+		List<BusinessUnitProxy> list = CollectionsUtility.createList();
 		BusinessUnit fetchedBizObject = this.businessService.getObjectByCode(searchCondition.getCode());
 		if (null != fetchedBizObject) {
 			BusinessUnitProxy taxGroupProxy = BusinessUnitProxy.builder().build();

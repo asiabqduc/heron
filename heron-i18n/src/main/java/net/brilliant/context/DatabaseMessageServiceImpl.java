@@ -15,7 +15,7 @@ import org.springframework.context.NoSuchMessageException;
 import org.springframework.stereotype.Component;
 
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.lingual.entity.MessageLabel;
 import net.brilliant.lingual.repository.MessageLabelRepository;
 
@@ -133,7 +133,7 @@ public class DatabaseMessageServiceImpl implements MessagePersistenceService{
 	@Override
 	public Map<String, String> getMessagesMap(Locale locale) {
 		List<MessageLabel> messages = this.getMessages(locale);
-		Map<String, String> messagesMap = ListUtility.createMap();
+		Map<String, String> messagesMap = CollectionsUtility.createMap();
 		for (MessageLabel mse :messages) {
 			messagesMap.put(mse.getKey(), mse.getContent());
 		}

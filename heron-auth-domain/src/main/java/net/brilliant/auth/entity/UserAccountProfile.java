@@ -46,7 +46,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import net.brilliant.common.DateTimeUtility;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.entity.Attachment;
 import net.brilliant.framework.entity.SsoEntityBase;
 import net.brilliant.framework.entity.auth.AuthenticationDetails;
@@ -113,7 +113,7 @@ public class UserAccountProfile extends SsoEntityBase implements AuthenticationD
 	@Builder.Default
 	@LazyCollection(LazyCollectionOption.FALSE)
   @OneToMany(mappedBy="userAccount", cascade=CascadeType.ALL)
-  private List<UserAccountPrivilege> privileges = ListUtility.createDataList();
+  private List<UserAccountPrivilege> privileges = CollectionsUtility.createDataList();
 	
 	@Column(name = "info", columnDefinition="text")
 	private String info;
@@ -231,7 +231,7 @@ public class UserAccountProfile extends SsoEntityBase implements AuthenticationD
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Set<GrantedAuthority> authorities = ListUtility.createHashSet();
+		Set<GrantedAuthority> authorities = CollectionsUtility.createHashSet();
 		for (UserAccountPrivilege userAccountPrivilege :this.privileges) {
 			authorities.add(userAccountPrivilege.getAuthority());
 		}

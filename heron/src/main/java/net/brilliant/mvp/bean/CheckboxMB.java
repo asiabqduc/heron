@@ -29,6 +29,10 @@ import javax.inject.Named;
 @ViewScoped
 public class CheckboxMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 2886570672001699683L;
     private String[] selectedConsoles;
     private String[] selectedConsoles2;
     private String[] selectedCities;

@@ -37,6 +37,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
     private static final Logger logger = Logger.getLogger(CustomExceptionHandler.class.getName());
     private ExceptionHandler wrapped;
 
+    @SuppressWarnings("deprecation")
     public CustomExceptionHandler(ExceptionHandler exceptionHandler) {
         this.wrapped = exceptionHandler;
     }
@@ -166,6 +167,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
     /**
      * Set primefaces validationFailled callback param
      */
+    @SuppressWarnings("unchecked")
     private void validationFailed(FacesContext context) {
         Map<Object, Object> callbackParams = (Map<Object, Object>) context.getAttributes().get("CALLBACK_PARAMS");
         if(callbackParams == null) {

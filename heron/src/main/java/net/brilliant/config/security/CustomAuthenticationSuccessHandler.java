@@ -13,10 +13,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author ducbq
  *
  */
+@Slf4j
 @Service
 public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 	/*@Inject 
@@ -30,7 +33,7 @@ public class CustomAuthenticationSuccessHandler extends SavedRequestAwareAuthent
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
-		System.out.println("Successfully");
+	  log.info("onAuthenticationSuccess");
 		//User userDetails = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		/*UserAccountProfile userAccount = null;
 		if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String) {

@@ -1255,7 +1255,7 @@ public class CommonUtility implements CommonConstants {
 	}
 
 	public static List<InputStream> getZipFileInputStreams(File file) throws CommonException {
-		List<InputStream> resp = ListUtility.createArrayList();
+		List<InputStream> resp = CollectionsUtility.createArrayList();
 		ZipFile zipFile;
 		try {
 			zipFile = new ZipFile(file);
@@ -1274,7 +1274,7 @@ public class CommonUtility implements CommonConstants {
 
 	/*
 	public static List<InputStream> getZipFileInputStreams(File file, String encryptionKey) throws EcosysException {
-		List<InputStream> resp = ListUtility.createArrayList();
+		List<InputStream> resp = CollectionsUtility.createArrayList();
 		ZipFile zipFile;
 		try {
 			ZipDecryptInputStream zipDecryptInputStream = new ZipDecryptInputStream(new FileInputStream(file), encryptionKey);
@@ -1298,7 +1298,7 @@ public class CommonUtility implements CommonConstants {
 	*/
 
 	public static List<InputStream> extractZipFile(File zipFile, List<String> zipEntryNames) throws CommonException {
-		List<InputStream> resp = ListUtility.createArrayList();
+		List<InputStream> resp = CollectionsUtility.createArrayList();
 		ZipFile innerZipFile = null;
 		Enumeration<? extends ZipEntry> zipEntries = null;
 		ZipEntry zipEntry = null;
@@ -1324,7 +1324,7 @@ public class CommonUtility implements CommonConstants {
 	}
 
 	public static Map<String, InputStream> extractZipInputStreams(File zipFile) throws CommonException {
-		Map<String, InputStream> resp = ListUtility.createMap();
+		Map<String, InputStream> resp = CollectionsUtility.createMap();
 		ZipFile innerZipFile = null;
 		Enumeration<? extends ZipEntry> zipEntries = null;
 		ZipEntry zipEntry = null;
@@ -1376,7 +1376,7 @@ public class CommonUtility implements CommonConstants {
 		if (CommonUtility.isEmpty(zipEntryNames))
 			return extractAllZipInputStreams(zipFile);
 
-		Map<String, InputStream> resp = ListUtility.createMap();
+		Map<String, InputStream> resp = CollectionsUtility.createMap();
 		ZipFile innerZipFile = null;
 		Enumeration<? extends ZipEntry> zipEntries = null;
 		ZipEntry zipEntry = null;
@@ -1409,7 +1409,7 @@ public class CommonUtility implements CommonConstants {
 	}
 
 	public static Map<String, InputStream> extractAllZipInputStreams(File zipFile) throws CommonException {
-		Map<String, InputStream> resp = ListUtility.createMap();
+		Map<String, InputStream> resp = CollectionsUtility.createMap();
 		ZipFile innerZipFile = null;
 		Enumeration<? extends ZipEntry> zipEntries = null;
 		ZipEntry zipEntry = null;

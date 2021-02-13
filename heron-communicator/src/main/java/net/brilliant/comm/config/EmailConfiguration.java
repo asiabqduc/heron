@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 import net.brilliant.comm.comp.EmailConfigurationHelper;
 import net.brilliant.comm.exceptions.CommunicationException;
-import net.brilliant.common.ListUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.framework.component.CompCore;
@@ -57,7 +57,7 @@ public class EmailConfiguration extends CompCore {
 		return mailSender;
 		/*
 		Optional<net.paramount.entity.config.Configuration> optConfig = configurationService.getByName("config.email");
-		Map<Object, Object> configDetailsMap = ListUtility.createMap();
+		Map<Object, Object> configDetailsMap = CollectionsUtility.createMap();
 		if (optConfig.isPresent()) {
 			configDetailsMap = optConfig.get().getConfigDetailsMap();
 			System.out.println(optConfig.get());
@@ -94,7 +94,7 @@ public class EmailConfiguration extends CompCore {
 	private JavaMailSender configEmailProfile() throws CommunicationException {
 		checkAndConfigureEmailService();
 		Optional<net.brilliant.entity.config.Configuration> optConfig = configurationService.getByName(GlobalConstants.CONFIG_ENTRY_NAME_EMAIL);
-		Map<Object, Object> configDetailsMap = ListUtility.createMap();
+		Map<Object, Object> configDetailsMap = CollectionsUtility.createMap();
 		if (!optConfig.isPresent()) {
 			throw new CommunicationException("There is no configuration for email!");
 		}

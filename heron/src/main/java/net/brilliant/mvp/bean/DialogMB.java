@@ -14,6 +14,11 @@ import java.io.Serializable;
 @ViewScoped
 public class DialogMB implements Serializable {
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = 8613697045143684378L;
+
     public void destroyWorld() {
         addMessage("System Error", "Please try again later.");
     }

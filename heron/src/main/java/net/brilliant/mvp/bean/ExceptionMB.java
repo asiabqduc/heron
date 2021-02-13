@@ -18,6 +18,11 @@ import com.github.adminfaces.template.exception.BusinessException;
 public class ExceptionMB implements Serializable {
 
 
+    /**
+   * 
+   */
+  private static final long serialVersionUID = -2261839018958598125L;
+
     public void throwBusinessException() {
         throw new BusinessException("This kind of exception generates a faces message with severity <code>error</code>.");
     }

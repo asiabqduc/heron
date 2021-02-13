@@ -73,7 +73,7 @@ public class BusinessUnitBrowse extends BrowserHome<BusinessUnit, CodeNameFilter
 	}
 
 	public List<String> completeModel(String query) {
-		List<String> result = ListUtility.createDataList();
+		List<String> result = CollectionsUtility.createDataList();
 		return result;
 	}
 
