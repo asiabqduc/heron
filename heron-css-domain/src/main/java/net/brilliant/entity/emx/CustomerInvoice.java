@@ -9,9 +9,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
@@ -28,6 +25,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.validation.InDateRange;
 
@@ -124,7 +122,7 @@ public class CustomerInvoice extends RepoEntity {
     private Boolean active = true;
 
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoice", orphanRemoval=true)

@@ -27,6 +27,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.InDateRange;
 
 /**
@@ -68,7 +69,7 @@ public class Partner implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name" , nullable = false)
+    @Column(name = GlobalSharedConstants.PROP_NAME , nullable = false)
     @NotNull
     @Size(min = 1, max = 128, message = "{LongString}")
     private String name;

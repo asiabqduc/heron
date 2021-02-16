@@ -22,7 +22,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.service.AuthorizationService;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 
 /**
@@ -33,7 +33,7 @@ import net.brilliant.global.GlobalConstants;
 @Named(value = "globalDispatcher")
 //@ViewScoped
 @SessionScoped
-public class GlobalDispatcher extends ComponentBase {
+public class GlobalDispatcher extends CompCore {
 	private static final long serialVersionUID = -4189926376687700775L;
 
 	@Inject

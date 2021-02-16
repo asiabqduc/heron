@@ -27,12 +27,8 @@ import lombok.Setter;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-public class CodeNameFilter extends FilterBase {
+public class CodeNameFilter extends NameFilter {
 	@Getter
 	@Setter
 	private String code;
-
-	@Getter
-	@Setter
-	private String name;
 }

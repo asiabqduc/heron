@@ -25,6 +25,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.Team;
 import net.brilliant.entity.crx.CRXGeneralType;
 import net.brilliant.entity.crx.CustomerAccount;
@@ -48,7 +49,7 @@ public class Payment extends RepoAuditable{
 	 */
 	private static final long serialVersionUID = -8271976867916463136L;
 
-	@Column(name = "name", nullable = false, unique=true, length=200)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, unique=true, length=200)
 	private String name;
 
 	@ManyToOne(fetch=FetchType.EAGER)

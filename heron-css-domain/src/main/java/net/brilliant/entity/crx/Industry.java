@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -27,7 +28,7 @@ public class Industry extends RepoAuditable{
 	private static final long serialVersionUID = -7468751835306200560L;
 
 	@Size(min = 5, max = 200)
-	@Column(name = "name", nullable = false, unique=true)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, unique=true)
 	private String name;
 
 	@Column(name = "info", columnDefinition="TEXT")

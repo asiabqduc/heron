@@ -1,20 +1,25 @@
 package com.github.adminfaces.starter.util;
 
-import com.github.adminfaces.starter.model.Car;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.inject.Named;
+
 import org.omnifaces.util.Messages;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
-import java.io.Serializable;
-import java.util.*;
-import java.util.stream.IntStream;
-import javax.inject.Named;
+import com.github.adminfaces.starter.model.Car;
+
+import net.brilliant.ccs.GlobalSharedConstants;
 
 /**
  * Created by rmpestano on 07/02/17.
@@ -36,7 +41,7 @@ public class Utils implements Serializable {
   }
 
   private static Car create(int i) {
-    return new Car(i).model("model " + i).name("name" + i).price(Double.valueOf(i));
+    return new Car(i).model("model " + i).name(GlobalSharedConstants.PROP_NAME + i).price(Double.valueOf(i));
   }
 
   public static void addDetailMessage(String message) {

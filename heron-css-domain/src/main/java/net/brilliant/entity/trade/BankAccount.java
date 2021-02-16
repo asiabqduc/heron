@@ -25,6 +25,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 @Entity
@@ -37,7 +38,7 @@ public class BankAccount extends RepoAuditable {
 	@JoinColumn(name="BANK_BRANCH_ID")
 	private BankBranch bankBranch;
 
-    @Column(name="NAME", length=50)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=50)
     @Size(max=50)
 	private String name;
 

@@ -29,6 +29,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.global.GlobalConstants;
 
@@ -49,10 +50,10 @@ public class Currency extends RepoEntity {
 
 	@NotNull
 	@Size(min = 3, max=GlobalConstants.SIZE_CURRENCY_CODE)
-	@Column(name="code", unique = true)
+	@Column(name=GlobalSharedConstants.PROP_CODE, unique = true)
 	private String code;
 
-  @Column(name="NAME", length=100)
+  @Column(name=GlobalSharedConstants.PROP_NAME, length=100)
   private String name;
 
   @Column(name="symbol", length=20)

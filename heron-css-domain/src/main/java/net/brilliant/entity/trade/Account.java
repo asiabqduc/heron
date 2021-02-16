@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.ContactPerson;
 import net.brilliant.entity.general.Organization;
 import net.brilliant.framework.entity.RepoAuditable;
@@ -43,7 +44,7 @@ public class Account extends RepoAuditable {
   @Column(name="CODE", length=20, nullable=false, unique=true) 
   private String code;
   
-  @Column(name="NAME", length=50) 
+  @Column(name=GlobalSharedConstants.PROP_NAME, length=50) 
   private String name;
   
   @Column(name="INFO") 

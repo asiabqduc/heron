@@ -20,6 +20,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.framework.validation.InDateRange;
 import net.brilliant.global.GlobalConstants;
@@ -94,7 +95,7 @@ public class StockTransaction extends RepoAuditable {
 	private Integer discount;
 
 	@Size(max = 64, message = "{LongString}")
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Size(max = 64, message = "{LongString}")

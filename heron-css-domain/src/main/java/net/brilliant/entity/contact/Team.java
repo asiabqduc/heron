@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -29,7 +30,7 @@ public class Team extends RepoAuditable {
 	 */
 	private static final long serialVersionUID = 9076437919776946515L;
 
-	@Column(name = "name", length=100)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length=100)
 	private String name;
 
 	@Lob

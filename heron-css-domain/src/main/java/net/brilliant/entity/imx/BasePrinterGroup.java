@@ -26,6 +26,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 
 /**
  * This is an object that contains data related to the PRINTER_GROUP table.
@@ -45,7 +47,7 @@ public abstract class BasePrinterGroup  implements Comparable, Serializable {
 	public static String REF = "PrinterGroup";
 	public static String PROP_IS_DEFAULT = "isDefault";
 	public static String PROP_ID = "id";
-	public static String PROP_NAME = "name";
+	public static String PROP_NAME = GlobalSharedConstants.PROP_NAME;
 
 
 	// constructors
@@ -85,7 +87,7 @@ public abstract class BasePrinterGroup  implements Comparable, Serializable {
 	private java.lang.Integer id;
 
 	// fields
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	protected java.lang.String name;
 
 	@Column(name = "is_default")

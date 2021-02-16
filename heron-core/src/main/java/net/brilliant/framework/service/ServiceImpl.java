@@ -19,17 +19,17 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.brilliant.common.BeanUtility;
-import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CollectionsUtility;
+import net.brilliant.common.CommonConstants;
 import net.brilliant.exceptions.CommonException;
 import net.brilliant.exceptions.ExecutionContextException;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.repository.BaseRepository;
 
 
 @Service
-public abstract class ServiceImpl<EntityType extends RepoEntity, Key extends Serializable> extends ComponentBase implements IService<EntityType, Key>{
+public abstract class ServiceImpl<EntityType extends RepoEntity, Key extends Serializable> extends CompCore implements IService<EntityType, Key>{
 	/**
 	 * 
 	 */

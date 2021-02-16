@@ -15,6 +15,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.UserAccountProfile;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.domain.entity.general.CatalogueItem;
 import net.brilliant.entity.base.BusinessEntity;
 import net.brilliant.global.GlobalConstants;
@@ -33,7 +34,7 @@ public class BusinessUnit extends BusinessEntity {
 	private static final long serialVersionUID = -1396860561985366652L;
 
 	@Size(min = 3, max = GlobalConstants.SIZE_SERIAL)
-	@Column(name = "code")
+	@Column(name = GlobalSharedConstants.PROP_CODE)
 	private String code;
 
 	@Size(min = 3, max = 200)
@@ -41,7 +42,7 @@ public class BusinessUnit extends BusinessEntity {
 	private String nameLocal;
 
 	@Size(min = 5, max = 200)
-	@Column(name = "name", nullable = false)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false)
 	private String name;
 
 	@ManyToOne

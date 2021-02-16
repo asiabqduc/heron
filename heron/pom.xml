@@ -20,10 +20,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mojarra.version>2.3.4</mojarra.version>
 
-		<version.joinfaces-dependencies>4.1.4</version.joinfaces-dependencies>
+		<version.joinfaces-dependencies>4.4.2</version.joinfaces-dependencies>
 		<maven.test.skip>true</maven.test.skip>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<omnifaces.version>3.10.1</omnifaces.version>
 	</properties>
 
 	<dependencyManagement>
@@ -52,6 +54,12 @@
 				<version>${version.primefaces}</version>
 				<!-- only for gravatar, adminfaces doesn't depend on extensions -->
 			</dependency>
+
+      <!-- <dependency>
+          <groupId>org.omnifaces</groupId>
+          <artifactId>omnifaces</artifactId>
+          <version>${omnifaces.version}</version>
+      </dependency>	 -->		
 		</dependencies>
 	</dependencyManagement>
 
@@ -98,11 +106,11 @@
 			<version>${project.version}</version>
 		</dependency>
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>heron-esi</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- analytics -->
 		<dependency>

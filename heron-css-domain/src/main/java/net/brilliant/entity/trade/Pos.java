@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.Organization;
 import net.brilliant.framework.entity.RepoAuditable;
 
@@ -30,7 +31,7 @@ public class Pos extends RepoAuditable {
 
 	@Setter
 	@Getter
-	@Column(name = "NAME")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Setter

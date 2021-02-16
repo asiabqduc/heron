@@ -28,6 +28,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.InDateRange;
 
 
@@ -115,7 +116,7 @@ public class SaleOrder implements Serializable {
     private Boolean active = true;
 
     @Size(max = 40, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
 
     @JoinColumn(name = "partner_id", referencedColumnName = "id")

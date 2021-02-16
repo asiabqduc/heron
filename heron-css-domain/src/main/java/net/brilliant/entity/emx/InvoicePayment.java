@@ -19,6 +19,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 
 /**
  * 
@@ -43,7 +45,7 @@ public class InvoicePayment implements Serializable {
     @Column(name = "paid_amount")
     private Double paidAmount;
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @NotNull
     @Column(name = "date")

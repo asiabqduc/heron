@@ -8,6 +8,7 @@ import java.io.Serializable;
 import javax.inject.Inject;
 
 import net.brilliant.framework.logging.LogService;
+import net.brilliant.global.GlobalConstants;
 
 /**
  * @author bqduc
@@ -21,4 +22,9 @@ public abstract class CompCore implements Serializable {
 
 	@Inject
 	protected LogService log;
+
+  protected static final String LOG_ENTRY_ENTER = "Enter";
+  protected static final String LOG_ENTRY_LEAVE = "Leave";
+
+  protected static final String PACKAGE_PREFIX = GlobalConstants.QNS_PACKAGE + ".";
 }

@@ -54,9 +54,33 @@
 		</dependency>
 	<!-- End of Quartz JOb Scheduling-->
 
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-quartz</artifactId>
-		</dependency> -->		
+<!-- https://mvnrepository.com/artifact/net.redhogs.cronparser/cron-parser -->
+	<dependency>
+	    <groupId>net.redhogs.cronparser</groupId>
+	    <artifactId>cron-parser</artifactId>
+	    <version>3.5</version>
+	    <type>pom</type>
+	</dependency>
+<!-- https://mvnrepository.com/artifact/net.redhogs.cronparser/cron-parser-core -->
+<dependency>
+    <groupId>net.redhogs.cronparser</groupId>
+    <artifactId>cron-parser-core</artifactId>
+    <version>3.5</version>
+</dependency>
+
+	<!-- <dependency>
+		<groupId>javax.faces</groupId>
+		<artifactId>javax.faces-api</artifactId>
+		<version>${version.javax.faces-api}</version>
+		<scope>compile</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>org.primefaces</groupId>
+		<artifactId>primefaces</artifactId>
+		<version>${version.primefaces}</version>
+		<scope>compile</scope>
+	</dependency> -->
+			
 	</dependencies>
 </project>

@@ -8,6 +8,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.brilliant.ccs.GlobalSharedConstants;
 
 /**
  * @author ducbq
@@ -76,7 +77,7 @@ public class Repository implements IRepository{
 		StringBuilder objectSpec = new StringBuilder();
 		String objectCode = null;
 		try {
-			objectCode = BeanUtils.getProperty(this, "code");
+			objectCode = BeanUtils.getProperty(this, GlobalSharedConstants.PROP_CODE);
 		} catch (Exception e) {
 			objectCode = "Unknown";
 			//logger.error("Object " + this + " does not have code property. ");

@@ -22,22 +22,22 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
-                        <p:commandButton value="#{messages['lbl.general.save']}" action="#{userAccountDetail.save}" update="@form"
-                                         icon="fa fa-check" styleClass="btn-primary"/>
+                        <p:commandButton title="#{messages['lbl.general.save']}" action="#{userAccountDetail.save}" update="@form"
+                                         icon="fa fa-save" styleClass="btn-primary"/>
                         <p:spacer width="5" rendered="#{userAccountDetail.isNew()}"/>
-                        <p:commandButton value="#{messages['lbl.general.clear']}" action="#{userAccountDetail.clear}" process="@this"
+                        <p:commandButton title="#{messages['lbl.general.clear']}" action="#{userAccountDetail.clear}" process="@this"
                                          icon="fa fa-refresh" styleClass="btn-success"
                                          update="@form" rendered="#{userAccountDetail.isNew()}" resetValues="true"/>
                         <p:spacer width="5" rendered="#{not userAccountDetail.isNew()}"/>
 
-                        <p:commandButton value="#{messages['lbl.general.delete']}" action="#{userAccountDetail.remove}" process="@this"
+                        <p:commandButton title="#{messages['lbl.general.delete']}" action="#{userAccountDetail.remove}" process="@this"
                                          rendered="#{not userAccountDetail.isNew()}" icon="fa fa-trash"
                                          styleClass="btn-danger">
                             <f:setPropertyActionListener value="true" target="#{facesContext.externalContext.flash.keepMessages}"/>
                             <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                         </p:commandButton>
                         <p:spacer width="5"/>
-                        <p:commandButton value="#{messages['lbl.general.goBack']}" immediate="true"
+                        <p:commandButton title="#{messages['lbl.general.goBack']}" immediate="true"
                                          action="userAccountBrowse?faces-redirect=true"
                                          process="@this"
                                          icon="fa fa-reply"/>

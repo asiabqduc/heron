@@ -16,6 +16,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 /**
@@ -29,7 +30,7 @@ public class OrganizationLevel extends RepoEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "NAME")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Column(name = "LEVEL")

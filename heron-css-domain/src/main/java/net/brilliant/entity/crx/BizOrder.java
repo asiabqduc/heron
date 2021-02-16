@@ -26,6 +26,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.embeddable.Address;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.entity.contact.Team;
@@ -48,10 +49,10 @@ public class BizOrder extends RepoAuditable{
 	 */
 	private static final long serialVersionUID = -4559667558473846206L;
 
-	@Column(name="code", length=GlobalConstants.SIZE_SERIAL, unique=true)
+	@Column(name=GlobalSharedConstants.PROP_CODE, length=GlobalConstants.SIZE_SERIAL, unique=true)
 	private String code;
 
-	@Column(name = "name", nullable = false, length=200)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, length=200)
 	private String name;
 
 	@ManyToOne

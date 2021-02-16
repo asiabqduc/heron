@@ -26,6 +26,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.framework.entity.RepoEntity;
 
@@ -52,7 +53,7 @@ public class WorkBunch extends RepoEntity {
     @Size(max=20, min=1)
     private String code;
 
-    @Column(name="NAME",length=40)
+    @Column(name=GlobalSharedConstants.PROP_NAME,length=40)
     private String name;
 
 	@Enumerated(EnumType.ORDINAL)

@@ -18,11 +18,12 @@ import net.brilliant.auth.model.AccessDecision;
 import net.brilliant.auth.service.AccessDecisionPolicyService;
 import net.brilliant.auth.service.AuthorityService;
 import net.brilliant.auth.service.UserAccountService;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.common.Base64Utils;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.entity.config.Configuration;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 
 /**
@@ -30,7 +31,7 @@ import net.brilliant.global.GlobalConstants;
  *
  */
 @Component
-public class AuthDataDispatchRepositoryHelper extends ComponentBase {
+public class AuthDataDispatchRepositoryHelper extends CompCore {
 	/**
 	 * 
 	 */
@@ -139,7 +140,7 @@ public class AuthDataDispatchRepositoryHelper extends ComponentBase {
 		}
 
 		private void setupMasterAuthorities() {
-			String propName = "name";
+			String propName = GlobalSharedConstants.PROP_NAME;
 			//Setup master data for authorities
 			if (!authorityService.exists(propName, BaseACL.SYS_ADMIN.getAuthority())) {
 				authorityService.saveOrUpdate(Authority.builder()

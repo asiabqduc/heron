@@ -17,13 +17,11 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.doc.DocumentType;
 import net.brilliant.framework.entity.RepoEntity;
 
@@ -44,7 +42,7 @@ public class TaxReturnType extends RepoEntity {
 	@Size(min=1, max=20)
 	private String code;
 	
-	@Column(name="NAME", length=30)
+	@Column(name=GlobalSharedConstants.PROP_NAME, length=30)
 	private String name;
 	
 	@Column(name="INFO", length=200)

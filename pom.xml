@@ -71,6 +71,7 @@
 	</properties>
  
 	<modules>
+    <module>heron-crossed-common</module>
 		<module>heron-utility</module>
 		<module>heron-codec</module>
 		<module>heron-core</module>

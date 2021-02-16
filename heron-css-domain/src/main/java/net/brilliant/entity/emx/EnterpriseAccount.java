@@ -6,9 +6,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -19,6 +16,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 /**
@@ -41,7 +39,7 @@ public class EnterpriseAccount extends RepoEntity {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 256, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name; 
 
     @Basic(optional = false)
@@ -59,7 +57,7 @@ public class EnterpriseAccount extends RepoEntity {
     @NotNull
     @Basic(optional = false)
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "code")
+    @Column(name = GlobalSharedConstants.PROP_CODE)
     private String code;    
 
     @Basic(optional = false)

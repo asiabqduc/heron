@@ -4,8 +4,6 @@
 package net.brilliant.entity.trade;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -22,13 +20,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import net.brilliant.auth.entity.UserAccountProfile;
-import net.brilliant.entity.contact.ContactAddress;
-import net.brilliant.entity.contact.ContactAssignment;
-import net.brilliant.entity.contact.ContactCommunication;
-import net.brilliant.entity.contact.ContactCore;
-import net.brilliant.entity.contact.ContactHierarchy;
-import net.brilliant.entity.contact.ContactProfile;
 import net.brilliant.entity.general.Money;
 import net.brilliant.entity.general.MoneySet;
 import net.brilliant.entity.general.Quantity;

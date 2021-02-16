@@ -16,6 +16,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 /**
@@ -32,7 +33,7 @@ public class ProductGroup extends RepoEntity {
 	@Column(name = "CODE")
 	private String code;
 
-	@Column(name = "NAME")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Column(name = "INFO")

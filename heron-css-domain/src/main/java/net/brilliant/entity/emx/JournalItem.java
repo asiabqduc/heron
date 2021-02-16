@@ -20,6 +20,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 /**
  * 
  * @author MOHAMMED BOUNAGA
@@ -71,7 +73,7 @@ public class JournalItem implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @Size(max = 64, message = "{LongString}")
     @Column(name = "ref")

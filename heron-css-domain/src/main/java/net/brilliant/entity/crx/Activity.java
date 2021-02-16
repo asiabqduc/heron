@@ -37,6 +37,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.Currency;
 import net.brilliant.entity.general.GeneralCatalogue;
 import net.brilliant.framework.entity.RepoAuditable;
@@ -73,7 +74,7 @@ public class Activity extends RepoAuditable {
 	private String purpose;
 	
 	@Size(max = 500)
-	@Column(name="name")
+	@Column(name=GlobalSharedConstants.PROP_NAME)
 	private String name;
 	
 	@Size(max = 150)

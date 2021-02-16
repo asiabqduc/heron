@@ -14,6 +14,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -33,10 +34,10 @@ public class MeasureUnit extends RepoAuditable {
 	 */
 	private static final long serialVersionUID = -4182427455638019608L;
 
-	@Column(name = "code", unique = true)
+	@Column(name = GlobalSharedConstants.PROP_CODE, unique = true)
 	private String code;
 
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Column(name = "name_local")

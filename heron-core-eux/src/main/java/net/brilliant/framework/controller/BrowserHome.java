@@ -37,14 +37,14 @@ public abstract class BrowserHome<E, F extends FilterBase> extends Home <E, F> {
 	@Getter
   protected List<E> filteredObjects = CollectionsUtility.createList();
 
-	protected abstract List<E> doGetBusinessObjects();
+	protected abstract List<E> requestBusinessObjects();
 
 	@PostConstruct
   void init() {
   	this.filterModel = createFilterModel();
 
   	//Loading mandatory business objects
-  	this.businessObjects = this.doGetBusinessObjects();
+  	this.businessObjects = this.requestBusinessObjects();
   }
 
   public F createFilterModel() {

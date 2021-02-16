@@ -27,8 +27,8 @@ public class BusinessUnitBrowse extends BrowserHome<BusinessUnit, CodeNameFilter
 	private BusinessUnitService businessService;
 
 	@Override
-	protected List<BusinessUnit> doGetBusinessObjects() {
-		Object workingData = this.cacheGet(cachedDataProp);
+	protected List<BusinessUnit> requestBusinessObjects() {
+		Object workingData = this.fetchCachedData(cachedDataProp);
 		if (null == workingData) {
 			workingData = businessService.getObjects();
 			this.cachePut(cachedDataProp, workingData);

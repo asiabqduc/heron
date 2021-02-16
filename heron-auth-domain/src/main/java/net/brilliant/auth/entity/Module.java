@@ -28,6 +28,7 @@ import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -45,7 +46,7 @@ public class Module extends RepoAuditable {
 
 	@NotNull
 	@Size(min = 1, max = 100)
-	@Column(name = "name", unique=true)
+	@Column(name = GlobalSharedConstants.PROP_NAME, unique=true)
 	private String name;
 
 	@Column(name = "alias", length=15)

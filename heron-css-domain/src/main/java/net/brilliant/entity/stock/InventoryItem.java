@@ -41,6 +41,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.entity.general.Catalogue;
 import net.brilliant.entity.general.GeneralCatalogue;
@@ -76,7 +77,7 @@ public class InventoryItem extends RepoAuditable {
 	private String barcode;
 
 	@Size(max = GlobalConstants.SIZE_NAME)
-	@Column(name="name")
+	@Column(name=GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Size(max = GlobalConstants.SIZE_NAME)

@@ -18,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -36,7 +37,7 @@ public class Province extends RepoAuditable {
 	@Column(name = "plate", length = 8, nullable = false)
 	private String plate;
 
-	@Column(name = "name", length = 50)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length = 50)
 	private String name;
 
 	@ManyToOne

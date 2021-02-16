@@ -60,7 +60,7 @@ public class CollectionsUtility {
 	}
 
 	public static <T> List<T> createArrayList(){
-		return new ArrayList<T>();
+		return new DataList<T>();
 	}
 
 	public static <K, T> HashMap <K, T> createMap(){
@@ -91,10 +91,6 @@ public class CollectionsUtility {
 
 	public static <T> HashSet <T> newHashSet(){
 		return new HashSet<>();
-	}
-
-	public static <T> List<T> newArrayList(List<T> objects){
-		return new ArrayList<>(objects);
 	}
 
 	public static <T> List<T> arraysAsList(T [] objects){
@@ -190,9 +186,9 @@ public class CollectionsUtility {
 
 			if (CommonUtility.isNotEmpty(objectAttributeMap)){
 				suggestedItems.add(UISelectItem.builder()
-						.id((Long)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROPERTY_KEY)))
-						.code((String)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROPERTY_CODE)))
-						.name((String)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROPERTY_NAME)))
+						.id((Long)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROP_ID)))
+						.code((String)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROP_CODE)))
+						.name((String)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROP_NAME)))
 						.nameLocal((String)objectAttributeMap.get(mappedAttributes.get(CommonConstants.PROPERTY_NAME_LOCAL)))
 						.build());
 			}

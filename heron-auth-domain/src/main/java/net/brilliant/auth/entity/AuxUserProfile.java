@@ -45,7 +45,7 @@ public class AuxUserProfile extends ObjectBase {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROPERTY_NAME)
     private String name;
 
     @Size(max = 64, message = "{LongString}")

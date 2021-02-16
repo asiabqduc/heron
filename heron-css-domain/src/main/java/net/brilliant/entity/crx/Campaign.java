@@ -21,6 +21,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.Team;
 import net.brilliant.entity.general.Currency;
 import net.brilliant.framework.entity.RepoAuditable;
@@ -42,7 +43,7 @@ public class Campaign extends RepoAuditable{
 	 */
 	private static final long serialVersionUID = -2519286162124918877L;
 
-	@Column(name = "name", nullable = false, unique=true, length=200)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, unique=true, length=200)
 	private String name;
 
 	@ManyToOne(targetEntity=AuthenticateAccount.class, fetch=FetchType.EAGER)

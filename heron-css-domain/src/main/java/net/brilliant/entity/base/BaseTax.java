@@ -3,6 +3,7 @@ package net.brilliant.entity.base;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -20,8 +21,6 @@ public abstract class BaseTax extends RepoAuditable {
 	private static final long serialVersionUID = 6216186291755321219L;
 	public static String REF = "Tax"; 
 	public static String PROP_RATE = "rate"; 
-	public static String PROP_ID = "id"; 
-	public static String PROP_NAME = "name"; 
 
 	public BaseTax() {
 		initialize();
@@ -49,7 +48,7 @@ public abstract class BaseTax extends RepoAuditable {
 	}
 
 	// fields
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	protected java.lang.String name;
 
 	@Column(name = "rate")

@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.MappedSuperclass;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.PosTax;
 import net.brilliant.framework.entity.RepoEntity;
 
@@ -26,7 +27,7 @@ public abstract class BaseTaxGroup extends RepoEntity {
 	private static final long serialVersionUID = 2607451700515581301L;
 	public static String REF = "TaxGroup"; 
 	public static String PROP_ID = "id"; 
-	public static String PROP_NAME = "name"; 
+	public static String PROP_NAME = GlobalSharedConstants.PROP_NAME; 
 
 
 	// constructors
@@ -57,7 +58,7 @@ public abstract class BaseTaxGroup extends RepoEntity {
 	protected void initialize () {}
 
 	// fields
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	protected java.lang.String name;
 
 	// collections

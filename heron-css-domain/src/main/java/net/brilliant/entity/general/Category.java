@@ -33,6 +33,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.global.GlobalConstants;
 
@@ -57,7 +58,7 @@ public class Category extends RepoAuditable {
 	private String code;
 
 	@Size(max = 150)
-	@Column(name="name")
+	@Column(name=GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Size(max = 150)

@@ -16,11 +16,11 @@ import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.exceptions.CommunicatorException;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.model.ExecutionContext;
 
 @Component
-public class CommunicatorServiceHelper extends ComponentBase {
+public class CommunicatorServiceHelper extends CompCore {
 	private static final long serialVersionUID = -7426015807103285508L;
 
 	@Inject

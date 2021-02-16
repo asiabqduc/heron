@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 /**
  * 
  * @author MOHAMMED BOUNAGA
@@ -40,7 +42,7 @@ public class ProductUomCategory implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @OneToMany(mappedBy = "category")
     private List<ProductUom> uoms;

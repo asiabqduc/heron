@@ -21,6 +21,7 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.Team;
 import net.brilliant.entity.general.Currency;
 import net.brilliant.framework.entity.RepoAuditable;
@@ -42,10 +43,10 @@ public class Contract extends RepoAuditable{
 	 */
 	private static final long serialVersionUID = 2185824208770219101L;
 
-	@Column(name="code", length=GlobalConstants.SIZE_SERIAL, unique=true)
+	@Column(name=GlobalSharedConstants.PROP_CODE, length=GlobalConstants.SIZE_SERIAL, unique=true)
 	private String code;
 
-	@Column(name = "name", nullable = false, unique=true, length=200)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, unique=true, length=200)
 	private String name;
 
 	@ManyToOne(targetEntity=AuthenticateAccount.class, fetch=FetchType.EAGER)

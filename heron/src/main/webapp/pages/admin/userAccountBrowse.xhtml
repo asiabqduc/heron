@@ -17,9 +17,9 @@
             <h:form prependId="false">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
                         <p:commandButton action="userAccountDetail?faces-redirect=true" icon="fa fa-plus"
-                                         value="#{messages['lbl.general.new']}" styleClass="btn-primary"/>
+                                         title="#{messages['lbl.general.new']}" styleClass="btn-primary"/>
                         <p:spacer width="5"/>
-                        <p:commandButton value="#{messages['lbl.general.deleteSelected']}" icon="fa fa-trash" styleClass="btn-danger"
+                        <p:commandButton title="#{messages['lbl.general.deleteSelected']}" icon="fa fa-trash" styleClass="btn-danger"
                                          action="#{userAccountBrowser.delete}"
                                          disabled="#{empty userAccountBrowser.selectedObjects or userAccountBrowser.selectedObjects.size() == 0}"
                                          process="@this" update="@form"
@@ -27,21 +27,21 @@
                             <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                         </p:commandButton>
                         <p:spacer width="5"/>
-                        <p:commandButton value="#{messages['lbl.general.viewSelected']}" update="@(.ui-dialog)" styleClass="btn-info"
+                        <p:commandButton title="#{messages['lbl.general.viewSelected']}" update="@(.ui-dialog)" styleClass="btn-info"
                                          disabled="#{empty userAccountBrowser.selectedObjects or userAccountBrowser.selectedObjects.size() == 0}"
                                          oncomplete="PF('selectedContact').show()" icon="fa fa-search"/>
                     </div>
 
-                    <p:splitButton value="#{messages['lbl.general.new']}" action="userAccountDetail?faces-redirect=true"
+                    <p:splitButton title="#{messages['lbl.general.new']}" action="userAccountDetail?faces-redirect=true"
                                    icon="fa fa-plus"
                                    styleClass="hidden-md hidden-lg btn-primary">
-                        <p:menuitem value="#{messages['lbl.general.deleteSelected']}" action="#{userAccountBrowser.delete}"
+                        <p:menuitem title="#{messages['lbl.general.deleteSelected']}" action="#{userAccountBrowser.delete}"
                                     process="@this" update="@form"
                                     disabled="#{empty userAccountBrowser.selectedObjects or userAccountBrowser.selectedObjects.size() == 0}"
                                     icon="fa fa-trash">
                             <p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-danger"/>
                         </p:menuitem>
-                        <p:menuitem value="#{messages['lbl.general.viewSelected']}" update="@(.ui-dialog)"
+                        <p:menuitem title="#{messages['lbl.general.viewSelected']}" update="@(.ui-dialog)"
                                     oncomplete="PF('selectedContact').show()"
                                     disabled="#{empty userAccountBrowser.selectedObjects or userAccountBrowser.selectedObjects.size() == 0}"
                                     icon="fa fa-search"
@@ -74,7 +74,7 @@
 
                         <p:column filterBy="#{currBizObject.id}" sortBy="#{currBizObject.id}" headerText="Id" footerText="contains"
                                   filterMatchMode="contains" priority="1">
-                            <p:link value="#{currBizObject.id}" outcome="/bszone/auxadmin/userAccountDetail.jsf">
+                            <p:link value="#{currBizObject.id}" outcome="/pages/admin/userAccountDetail.jsf">
                                 <f:param name="id" value="#{currBizObject.id}"/>
                             </p:link>
                         </p:column>

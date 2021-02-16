@@ -24,6 +24,7 @@ import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -41,7 +42,7 @@ public class AccessRight extends RepoAuditable {
 
 	@NotNull
 	@Size(min = 1, max = 50)
-	@Column(name = "name")
+	@Column(name = GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	@Column(name = "info", columnDefinition="text")

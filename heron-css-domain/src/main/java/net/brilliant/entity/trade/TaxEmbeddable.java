@@ -26,7 +26,6 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 import net.brilliant.common.CommonConstants;
-import net.brilliant.entity.base.BaseConsts;
 
 /**
  * @author sinan.yumak

@@ -6,13 +6,13 @@ package net.brilliant.framework.specification;
 import org.springframework.data.jpa.domain.Specification;
 
 import net.brilliant.common.CommonUtility;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.framework.model.SearchParameter;
 
 /**
  * @author bqduc
  */
-public abstract class BaseSpecification<UserType, UserRequest> extends ComponentBase {
+public abstract class BaseSpecification<UserType, UserRequest> extends CompCore {
 	/**
 	 * 
 	 */

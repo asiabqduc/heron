@@ -10,6 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 /**
@@ -25,7 +26,7 @@ import net.brilliant.framework.entity.RepoEntity;
 public class Attachment extends RepoEntity {
 	private static final long serialVersionUID = 5803112544828198887L;
 
-	@Column(name = "name", nullable = false, length=200)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, length=200)
 	private String name;
 
   @Column(name = "mimetype", length=200)

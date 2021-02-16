@@ -15,7 +15,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -41,10 +40,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.common.BeanUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.CollectionsUtility;
 import net.brilliant.domain.model.SelectItem;
 import net.brilliant.exceptions.ExecutionContextException;
 import net.brilliant.framework.constants.ControllerConstants;
@@ -137,7 +137,7 @@ public abstract class BaseController extends RootController {
 				try {
 					objectId = (Long) BeanUtility.getBeanProperty(object, "id");
 					objectCode = (String) BeanUtility.getBeanProperty(object, "code");
-					objectName = (String) BeanUtility.getBeanProperty(object, "name");
+					objectName = (String) BeanUtility.getBeanProperty(object, GlobalSharedConstants.PROP_NAME);
 					selectItems.add(SelectItem.builder().id(objectId).code(objectCode).name(objectName).build());
 				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 					log.error(e);
@@ -173,7 +173,7 @@ public abstract class BaseController extends RootController {
 			try {
 				objectId = (Long) BeanUtility.getBeanProperty(object, "id");
 				objectCode = (String) BeanUtility.getBeanProperty(object, "code");
-				objectName = (String) BeanUtility.getBeanProperty(object, "name");
+				objectName = (String) BeanUtility.getBeanProperty(object, GlobalSharedConstants.PROP_NAME);
 				selectItems.add(SelectItem.builder().id(objectId).code(objectCode).name(objectName).build());
 			} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
 				log.error(e);

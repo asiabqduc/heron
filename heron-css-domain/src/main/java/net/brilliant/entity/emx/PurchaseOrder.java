@@ -21,6 +21,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.framework.validation.InDateRange;
 
@@ -96,7 +97,7 @@ public class PurchaseOrder extends RepoAuditable {
     private Boolean active = true;
     
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     
     @Size(max = 64, message = "{LongString}")

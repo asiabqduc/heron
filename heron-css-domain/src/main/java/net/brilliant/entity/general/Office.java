@@ -23,6 +23,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import net.brilliant.auth.entity.AuthenticateAccount;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.embeddable.Address;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.global.GlobalConstants;
@@ -48,11 +49,11 @@ public class Office extends RepoAuditable{
 	private Integer version;
 
 	@Size(min = 5, max=GlobalConstants.SIZE_SERIAL)
-	@Column(name = "code")
+	@Column(name = GlobalSharedConstants.PROP_CODE)
 	private String code;
 
 	@Size(min = 5, max = 200)
-	@Column(name = "name", nullable = false)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false)
 	private String name;
 
 	@ManyToOne

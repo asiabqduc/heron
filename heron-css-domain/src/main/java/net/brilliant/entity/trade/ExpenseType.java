@@ -17,6 +17,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 /**
@@ -34,7 +35,7 @@ public class ExpenseType extends RepoEntity {
     @Column(name="CODE", length=20, unique=true, nullable=false)
 	private String code;
 
-    @Column(name="NAME", length=50)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=50)
     private String name;
     
     @Column(name="INFO")

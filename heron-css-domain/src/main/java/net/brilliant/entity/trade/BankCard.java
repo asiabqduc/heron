@@ -24,6 +24,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.Country;
 import net.brilliant.framework.entity.RepoAuditable;
 
@@ -52,7 +53,7 @@ public class BankCard extends RepoAuditable{
     @NotNull
 	private String code;
 
-    @Column(name="NAME", length=50)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=50)
     @Size(max=50)
     private String name;
     

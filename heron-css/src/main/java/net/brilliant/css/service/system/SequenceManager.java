@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.entity.system.Option;
 import net.brilliant.entity.system.Sequence;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 
 /**
@@ -20,7 +20,7 @@ import net.brilliant.global.GlobalConstants;
  *
  */
 @Component
-public class SequenceManager extends ComponentBase {
+public class SequenceManager extends CompCore {
 	/**
 	 * 
 	 */

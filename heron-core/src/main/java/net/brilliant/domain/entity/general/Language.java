@@ -25,6 +25,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.global.GlobalConstants;
 
@@ -48,7 +49,7 @@ public class Language extends RepoAuditable {
 	private String code;
 
 	@Size(max = 50)
-	@Column(name="name")
+	@Column(name=GlobalSharedConstants.PROP_NAME)
 	private String name;
 
 	public String getCode() {

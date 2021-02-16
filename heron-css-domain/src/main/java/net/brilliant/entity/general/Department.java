@@ -33,6 +33,7 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.domain.entity.general.Catalogue;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.global.GlobalConstants;
@@ -55,7 +56,7 @@ public class Department extends RepoAuditable {
 	private String code;
 
 	@Size(max = 150)
-	@Column(name="name")
+	@Column(name=GlobalSharedConstants.PROP_NAME)
 	private String name;
 	
 	@Size(max = 150)

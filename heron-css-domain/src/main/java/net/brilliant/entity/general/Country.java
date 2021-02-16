@@ -20,6 +20,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -35,7 +36,7 @@ import net.brilliant.framework.entity.RepoAuditable;
 public class Country extends RepoAuditable {
 	private static final long serialVersionUID = -8233303460213700583L;
 
-	@Column(name = "code", nullable = false, unique = true, length = 2)
+	@Column(name = GlobalSharedConstants.PROP_CODE, nullable = false, unique = true, length = 2)
 	private String code;
 
 	@Column(name = "iso_code", nullable = false, unique = true, length = 3)
@@ -44,7 +45,7 @@ public class Country extends RepoAuditable {
 	@Column(name = "iso_language_code", length = 2)
 	private String isoLanguageCode;
 
-	@Column(name = "name", length = 50)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length = 50)
 	private String name;
 
 	@Column(name = "name_local", length = 50)

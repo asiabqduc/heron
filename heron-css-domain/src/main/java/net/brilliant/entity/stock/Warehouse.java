@@ -20,6 +20,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.embeddable.Address;
 import net.brilliant.entity.contact.ContactPerson;
 import net.brilliant.entity.general.City;
@@ -42,7 +43,7 @@ public class Warehouse extends RepoAuditable {
 	@Size(max = 20, min = 1)
 	private String code;
 
-	@Column(name = "NAME", length = 50)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length = 50)
 	@Size(max = 50, min = 1)
 	private String name;
 

@@ -24,6 +24,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.StrictlyPositiveNumber;
 
 /**
@@ -81,7 +82,7 @@ public class SaleOrderLine implements Serializable {
     @Column(name = "discount")
     private double discount = 0d;
     @Size(max = 128, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @Basic(optional = false)
     @NotNull

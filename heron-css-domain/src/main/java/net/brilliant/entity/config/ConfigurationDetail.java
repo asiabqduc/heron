@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Builder;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -22,7 +23,7 @@ import net.brilliant.framework.entity.RepoAuditable;
 public class ConfigurationDetail extends RepoAuditable {
 	private static final long serialVersionUID = -6404039963892756706L;
 
-	@Column(name = "name", length=50, nullable=false)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length=50, nullable=false)
 	private String name;
 
 	@Column(name = "value", length=200, nullable=false)

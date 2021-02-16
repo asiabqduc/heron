@@ -23,6 +23,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.StrictlyPositiveNumber;
 
 /**
@@ -58,7 +59,7 @@ public class InvoiceLine implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Size(max = 128, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @Size(max = 40, message = "{LongString}")
     @Column(name = "uom")

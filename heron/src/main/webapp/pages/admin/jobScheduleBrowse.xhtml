@@ -1,0 +1,182 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                template="#{customLayoutMB.template}">
+ <style>
+ 
+ </style>
+  <ui:define name="metadata">
+    <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
+    <ui:param name="autoShowNavbar" value="false"/> <!-- disables auto show navbar (only on this page) on small devices -->
+  </ui:define>
+  <ui:define name="title">
+    <adm:breadcrumb title="#{messages['lbl.ams.schedulers']}"/>
+    #{messages['lbl.ams.schedulers']}
+  </ui:define>
+  <ui:define name="body">
+            <h:form>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <div id="main-buttons" class="hidden-sm hidden-xs">
+                        <p:commandButton action="jobScheduleDetail?faces-redirect=true" icon="fa fa-plus" title="#{messages['lbl.general.new']}" styleClass="btn-primary"/>
+                        <p:spacer width="5"/>
+                        <p:commandButton title="#{messages['lbl.general.deleteSelected']}" icon="fa fa-trash" styleClass="btn-danger" action="#{jobScheduleBrowse.delete()}"
+                                         disabled="#{empty jobScheduleBrowse.selectedObjects or jobScheduleBrowse.selectedObjects.size() == 0}" process="@this" update="@form" id="deleteSelected">
+                          <p:confirm header="#{messages['lbl.general.confirmation']}" message="#{messages['lbl.general.areYouSure']}" icon="ui-icon-danger"></p:confirm>
+                        </p:commandButton>
+                    </div>
+            <p:panel id="toggleable" header="Toggleable" toggleable="true" toggleSpeed="50"
+                     closeSpeed="50" widgetVar="panel">
+
+                <p:ajax event="close" listener="#{panelMB.onClose}" ignoreAutoUpdate="true"/>
+                <p:ajax event="toggle" listener="#{panelMB.onToggle}" ignoreAutoUpdate="true"/>
+
+                <h:panelGrid columns="2" cellpadding="10">
+                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
+                </h:panelGrid>
+                <h:panelGrid columns="2" cellpadding="10">
+                    <p:graphicImage name="demo/images/godfather2.jpg"/>
+                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
+                </h:panelGrid>
+
+                <f:facet name="options">
+                    <p:menu>
+                        <p:submenu label="Settings">
+                            <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
+                            <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
+                        </p:submenu>
+                    </p:menu>
+                </f:facet>
+            </p:panel>
+                    <p:separator/>
+                    <p:dataTable var="currBizObject" value="#{jobScheduleBrowse.businessObjects}" widgetVar="bizObjectTable" paginator="true" styleClass="header-right #{customLayoutMB.borderless ? 'no-border':''}"
+                                 paginatorPosition="bottom" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,15,20,50,100,250" rows="15" rowKey="#{currBizObject.id}"
+                                 emptyMessage="No cars found with given criteria" stickyHeader="false" selection="#{jobScheduleBrowse.selectedObjects}"
+                                 filteredValue="#{jobScheduleBrowse.filteredObjects}" resizableColumns="true" expandableRowGroups="true">
+
+                        <p:ajax event="rowSelectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowSelect" update="@(.ui-button, .ui-confirm-dialog)"/>
+                        <p:ajax event="rowUnselect" update="@(.ui-button, .ui-confirm-dialog)"/>
+
+                        <p:column width="5%" selectionMode="multiple" styleClass="align-center" priority="1"/>
+                        <p:column headerText="#{messages['lbl.general.code']}" sortBy="#{currBizObject.id}" priority="1">
+                            <p:link value="#{currBizObject.code}" outcome="/pages/admin/jobScheduleDetail.jsf">
+                                <f:param name="id" value="#{currBizObject.id}"/>
+                            </p:link>
+                        </p:column>
+
+                        <p:column headerText="#{messages['lbl.general.name']}" sortBy="#{currBizObject.name}" priority="2">
+                            <p:link value="#{currBizObject.name}" outcome="/pages/admin/jobScheduleDetail.jsf">
+                                <f:param name="id" value="#{currBizObject.id}"/>
+                            </p:link>
+                        </p:column>
+
+                        <p:column sortBy="#{currBizObject.lastTriggerTime}" headerText="Year" priority="2">
+                            <f:facet name="filter">
+                                <p:calendar pattern="dd/MM/yyyy" navigator="true">
+                                    <f:converter converterId="calendarYearConverter"/>
+                                    <p:ajax process="@this" event="change" oncomplete="PF('bizObjectTable').filter()"/>
+                                    <p:ajax process="@this" event="dateSelect" oncomplete="PF('bizObjectTable').filter()"/>
+                                </p:calendar>
+                            </f:facet>
+                            <h:outputText value="#{currBizObject.lastTriggerTime}"/>
+                        </p:column>
+
+                        <p:column headerText="Color" footerText="in"
+                                  priority="3">
+                            <f:facet name="filter">
+                                <p:selectCheckboxMenu label="Colors" onchange="PF('bizObjectTable').filter()"
+                                                      panelStyle="width:125px" scrollHeight="150">
+                                </p:selectCheckboxMenu>
+                            </f:facet>
+                            <h:outputText value="#{currBizObject.displayName}"/>
+                        </p:column>
+
+                        <p:column headerText="#{messages['lbl.general.category']}" priority="3">
+                            <h:outputText value="#{currBizObject.category}"/>
+                        </p:column>
+
+                        <p:column headerText="#{messages['lbl.general.status']}" priority="3">
+                            <h:outputText value="#{currBizObject.cronExpressionReadable}"/>
+                        </p:column>
+
+                        <p:column headerText="#{messages['lbl.general.status']}" priority="3">
+                            <h:outputText value="#{currBizObject.enabled}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
+                                 icon="fa fa-check"/>
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
+                                 icon="fa fa-close"/>
+            </p:confirmDialog>
+        </h:form>
+
+	        <p:dialog header="Selected contact" widgetVar="selectedContact" height="250"
+	                  width="400" responsive="true" styleClass="box-success">
+	            <p:dataList id="selectedCarsList" value="#{jobScheduleBrowse.selectedObjects}" var="currBizObject"
+	                        type="definition">
+	                ID: #{currBizObject.id} - Brand: #{currBizObject.name} - Color: {currBizObject.color} - Price: {currBizObject.price}
+	            </p:dataList>
+	        </p:dialog>
+        <p:separator/>
+    </ui:define>
+
+    <ui:define name="code">
+        <p:tabView styleClass="hidden-sm hidden-xs">
+            <p:tab title="datatable">
+                <pre>
+               <code class="language-html"><h:outputText
+                       value="Table of contacts" escape="true"/>
+               </code>
+                </pre>
+            </p:tab>
+
+            <p:tab title="DatatableMB">
+                <pre>
+               <code class="language-java">
+                   <h:outputText
+                           value="Related information"
+                           escape="false"/>
+               </code>
+                </pre>
+            </p:tab>
+        </p:tabView>
+
+        <p:accordionPanel styleClass="hidden-md hidden-lg no-icon">
+            <p:tab title="datatable">
+                <pre>
+               <code class="language-html"><h:outputText
+                       value="#{sourceCodeMB.getPageSource()}" escape="true"/>
+               </code>
+                </pre>
+            </p:tab>
+
+            <p:tab title="DatatableMB">
+                <pre>
+               <code class="language-java">
+                   <h:outputText
+                           value="#{sourceCodeMB.getJavaSource('com.github.adminfaces.showcase.bean.DatatableMB')}"
+                           escape="false"/>
+               </code>
+                </pre>
+            </p:tab>
+        </p:accordionPanel>
+    </ui:define>
+</ui:composition>

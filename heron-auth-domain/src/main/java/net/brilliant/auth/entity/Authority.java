@@ -17,6 +17,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.domain.entity.general.Catalogue;
 import net.brilliant.framework.entity.RepoEntity;
 
@@ -37,7 +38,7 @@ public class Authority extends RepoEntity implements GrantedAuthority {
 	@Basic(optional = false)
 	@NotNull
 	@Size(min = 1, max = 64, message = "{LongString}")
-	@Column(name = "name", unique=true)
+	@Column(name = GlobalSharedConstants.PROP_NAME, unique=true)
 	private String name;
 
 	@Setter

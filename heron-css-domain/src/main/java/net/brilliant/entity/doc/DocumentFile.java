@@ -24,6 +24,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.entity.trade.OwnerType;
 import net.brilliant.framework.entity.RepoEntity;
@@ -43,7 +44,7 @@ public class DocumentFile extends RepoEntity {
 	@JoinColumn(name="CONTACT_ID")
 	private CTAContact contact;
 
-    @Column(name="NAME")
+    @Column(name=GlobalSharedConstants.PROP_NAME)
     private String name;
     
     @Column(name="UPDATE_DATE")

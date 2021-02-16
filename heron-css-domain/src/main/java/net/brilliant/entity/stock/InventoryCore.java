@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.MeasureUnit;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.global.GlobalConstants;
@@ -46,13 +47,13 @@ public class InventoryCore extends RepoAuditable {
 	@Enumerated(EnumType.ORDINAL)
 	private ProductType productType = ProductType.Product;
 
-	@Column(name = "code", length = GlobalConstants.SIZE_CODE)
+	@Column(name = GlobalSharedConstants.PROP_CODE, length = GlobalConstants.SIZE_CODE)
 	private String code;
 
 	@Column(name = "barcode", length = GlobalConstants.SIZE_BARCODE)
 	private String barcode;
 
-	@Column(name = "NAME", length = GlobalConstants.SIZE_NAME)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length = GlobalConstants.SIZE_NAME)
 	private String name;
 
 	/**

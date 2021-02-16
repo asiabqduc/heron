@@ -6,11 +6,13 @@ package net.brilliant.common;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 /**
  * @author bqduc
  *
  */
-public interface CommonConstants {
+public interface CommonConstants extends GlobalSharedConstants {
 	static final Long ANONYMOUS_USER_ID = Long.valueOf(-1l);
 	static final String ANONYMOUS_USER = "anonymousUser";
 	static final String AT_SIGN = "@";
@@ -28,9 +30,6 @@ public interface CommonConstants {
 
 	static final int DUMMY_LARGE_COUNT = 5000000;
 	static final String TRUE_STRING = Boolean.TRUE.toString();
-	static final String PROPERTY_KEY = "id";
-	static final String PROPERTY_CODE = "code";
-	static final String PROPERTY_NAME = "name";
 	static final String PROPERTY_NAME_LOCAL = "nameLocal";
 
 	static final String SEPARATOR_SEMICOLON = ";";
@@ -71,8 +70,11 @@ public interface CommonConstants {
 	static final String RIGHT_BRACKET = "]";
 	static final String STRING_BLANK_CAPTION = LEFT_BRACKET + RIGHT_BRACKET;
 
-	static final String PERSPECTIVE_DEFAULT_EN = "en";
-	static final String PERSPECTIVE_DEFAULT_VI = "vi";
+  static final String LOCALE_VIETNAM_LANGUAGE = "vi";
+  static final String LOCALE_VIETNAM_COUNTRY = "VN";
+
+  static final String PERSPECTIVE_DEFAULT_EN = "en";
+	static final String PERSPECTIVE_DEFAULT_VI = LOCALE_VIETNAM_LANGUAGE;
 	
 	static final int ENTITY_REFERENCE_SIZE = 15;
 
@@ -99,15 +101,6 @@ public interface CommonConstants {
 	static final String IMAGE_FOLDER = "/Upload";
 	static final String PHOTOALBUM_FOLDER = "richfaces_photoalbum";
 
-	//Persistence constants
-	static final String BEAN_PROPERTY_OBJECT_ID = "id";
-	static final String BEAN_PROPERTY_CODE = "code";
-	static final String BEAN_PROPERTY_NAME = "name";
-	static final String BEAN_PROPERTY_ACTIVE = "active";
-	static final String BEAN_PROPERTY_SYSTEM = "system";
-	static final String BEAN_PROPERTY_MODULE = "module";
-	static final String BEAN_PROPERTY_TYPE = "type";
-
 	//Service -constants
 	static final String USER_EXIST_QUERY = "user-exist";
 	static final String USER_LOGIN_QUERY = "user-login";
@@ -132,7 +125,7 @@ public interface CommonConstants {
 	static final String SEARCH_IMAGE_MY_ADDON = " and i.album.shelf.owner.login=:login";
 	static final String SEARCH_IMAGE_QUERY = "from Image i where (lower(i.name) like :name or lower(i.info) like :name or lower(i.cameraModel) like :name) ";
 	static final String SHARED_PARAMETER = "shared";
-	static final String NAME_PARAMETER = "name";
+	static final String NAME_PARAMETER = GlobalSharedConstants.PROP_NAME;
 	static final String SEARCH_ALBUM_SHARED_ADDON = " and a.shelf.shared=true";
 	static final String SEARCH_ALBUM_MY_ADDON = " and a.shelf.owner.login=:login";
 	static final String SEARCH_ALBUM_QUERY = "from Album a where (lower(a.name) like :name or lower(a.info) like :name)";

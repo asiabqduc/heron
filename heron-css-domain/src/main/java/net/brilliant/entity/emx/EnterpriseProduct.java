@@ -26,6 +26,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.stock.ProductCategory;
 import net.brilliant.framework.validation.StrictlyPositiveNumber;
 
@@ -71,7 +72,7 @@ public class EnterpriseProduct implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(max = 45, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
 
     @Basic(fetch = FetchType.LAZY)

@@ -58,8 +58,8 @@ public class SelectItem {
 	public SelectItem instance(Long key, Map<String, Object> properties){
 		return SelectItem.builder()
 				.id(key)
-				.code((String)properties.get(CommonConstants.PROPERTY_CODE))
-				.name(properties.containsKey(CommonConstants.PROPERTY_NAME)?(String)properties.get(CommonConstants.PROPERTY_NAME):"")
+				.code((String)properties.get(CommonConstants.PROP_CODE))
+				.name(properties.containsKey(CommonConstants.PROP_NAME)?(String)properties.get(CommonConstants.PROP_NAME):"")
 				.translatedName(properties.containsKey(CommonConstants.PROPERTY_NAME_LOCAL)?(String)properties.get(CommonConstants.PROPERTY_NAME_LOCAL):"")
 				.build();
 	}

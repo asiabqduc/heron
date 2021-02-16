@@ -34,6 +34,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.general.TaxGroup;
 import net.brilliant.framework.entity.RepoEntity;
 
@@ -56,7 +57,7 @@ public class Tax extends RepoEntity {
 	@Size(max = 10, min = 1)
 	private String code;
 
-	@Column(name = "NAME", length = 50)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length = 50)
 	@Size(max = 50)
 	private String name;
 

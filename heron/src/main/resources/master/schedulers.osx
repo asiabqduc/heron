@@ -1,0 +1,85 @@
+1 0/2 * * * ?||TBTCP|background job Step Overview|Basis - Background Processing|Transparent Table
+3 0/2 * * * ?||ABAP|ABAP/4 language-internal type declarations|630 - Workbench Tools: Editors|Structure
+5 0/2 * * * ?||ABAPLIST|Structure for Internal Table as List Container|40A - Syntax|Structure
+7 0/2 * * * ?||ADURI|URI Address Transfer Structure (Business Address Services)|BC - Address Management/Business Address|Structure
+9 0/2 * * * ?||AGS_JOB_DEF|Definition of a background job|PP - Process Message|Transparent Table
+11 0/2 * * * ?||APQI|Queue info definition|Basis - UI Services, Screen, Batch Input|Transparent Table
+13 0/2 * * * ?||BDCMSGCOLL|Collecting messages in the SAP System|700 - UI Services|Structure
+15 0/2 * * * ?||BKPF|Accounting Document Header|FI - Financial Accounting|Transparent Table
+17 0/2 * * * ?||BPABAPJOB|background job table for ABAP jobs|Basis - Background Processing|Transparent Table
+19 0/2 * * * ?||BPJOB|Structure for background jobs|BC - Background Processing|Structure
+21 0/2 * * * ?||BPXCMDJOB|background job table for external command jobs|Basis - Background Processing|Transparent Table
+23 0/2 * * * ?||BPXPRGJOB|background job table for external command jobs|Basis - Background Processing|Transparent Table
+25 0/2 * * * ?||BSEG|Accounting Document Segment|FI - Financial Accounting|Cluster Table
+27 0/2 * * * ?||BTCEVTJOB|List of jobs waiting for events|Basis - Background Processing|Transparent Table
+29 0/2 * * * ?||BTCH|Batches for Availability Check|PP - KANBAN|Structure
+31 0/2 * * * ?||BTCH0000|Fields used as ref. types for function module parameters|BC - Background Processing|Structure
+33 0/2 * * * ?||BTCJOBEPP|Assignment: Extended Passport to background job|Basis - Background Processing|Transparent Table
+35 0/2 * * * ?||BTCJSTAT|Run-time statistics for background jobs|Basis - Background Processing|Transparent Table
+37 0/2 * * * ?||CTU_PARAMS|Parameter string for runtime of CALL TRANSACTION USING...|700 - UI Services|Structure
+39 0/2 * * * ?||E000|Condition Table for Rebate $|SD - Conditions|Transparent Table
+41 0/2 * * * ?||EWJOBSCHED|Scheduling parameters for EarlyWatch background jobs|Basis - Performance Monitors (TCC)|Transparent Table
+43 0/2 * * * ?||GRACTASKEXECSTMP|Executed background jobs Table|PP - Process Message|Transparent Table
+45 0/2 * * * ?||GRPCCLOSINGBG|Carry Forward list in background job for Closing|PP - Process Message|Transparent Table
+47 0/2 * * * ?||I000|Conditions for certificate profile|QM - Basic Data for Certificates|Transparent Table
+49 0/2 * * * ?||INSTCNTLJ|background jobs During the Installation|Basis - Installation Tools|Transparent Table
+51 0/2 * * * ?||LFA1|Vendor Master (General Section)|FI - Financial Accounting|Transparent Table
+53 0/2 * * * ?||LISPL|background job for LIS Planning|PP - Sales Plan|Transparent Table
+55 0/2 * * * ?||LXE_BTC_OB|Object Type Selection for background job|Basis - Translation Tools|Transparent Table
+57 0/2 * * * ?||MAKT|Material Descriptions|Logistics - Material Master|Transparent Table
+59 0/2 * * * ?||MARA|General Material Data|Logistics - Material Master|Transparent Table
+2 0/4 * * * ?||MARC|Plant Data for Material|Logistics - Material Master|Transparent Table
+4 0/4 * * * ?||N1PMD_MGEN|Mass Generation PMD background jobs|PP - Process Message|Transparent Table
+6 0/4 * * * ?||OBJECT_HEADER|Classification System: Object Description|CA - Environment|Structure
+8 0/4 * * * ?||PRI_PARAMS|Structure for Passing Print Parameters|BC - List Processing|Structure
+10 0/4 * * * ?||PTREQ_BATCH|Time Stamp for Run of background jobs|Personnel Time Management - Personnel Time Management|Transparent Table
+12 0/4 * * * ?||RCOCB003_LOCK_KEY|Lock Table for background jobs for Message Processing|PP - Process Message|Structure
+14 0/4 * * * ?||REC_TYPE|Structure with Instantiated Recipient Types|30A - Communication Services: Mail|Structure
+16 0/4 * * * ?||RSJOBTAB|Table for background job Control Data (Auto Rescheduling)|Basis - Upgrade - General|Transparent Table
+18 0/4 * * * ?||RSPARAMS|ABAP: General Structure for PARAMETERS and SELECT-OPTIONS|610 - Logical DB|Structure
+20 0/4 * * * ?||SCAL|Structure for factory calendar function modules|33E9B1F6AFAB0F11E000080009877E0A - Holiday Calendar|Structure
+22 0/4 * * * ?||SODOCCHGI1|Data of an object which can be changed|30A - Communication Services: Mail|Structure
+24 0/4 * * * ?||SOLISTI1|SAPoffice: Single List with Column Length 255|30A - Communication Services: Mail|Structure
+26 0/4 * * * ?||SOMLRECI1|SAPoffice: Structure of the API Recipient List|30A - Communication Services: Mail|Structure
+28 0/4 * * * ?||SOPCKLSTI1|SAPoffice: Description of Imported Object Components|30A - Communication Services: Mail|Structure
+30 0/4 * * * ?||SWEQJOB|Event Queue: Administration Data for background jobs|Basis - SAP Business Workflow|Transparent Table
+32 0/4 * * * ?||SWWREPSTATUS|Table for Status of Workflow Runtime background jobs|Basis - SAP Business Workflow|Transparent Table
+34 0/4 * * * ?||T001|Company Codes|FI - Financial Accounting|Transparent Table
+36 0/4 * * * ?||T100|Messages|Basis - Activation Program, Conversion Program, DB Utility, MC, SPDD|Transparent Table
+38 0/4 * * * ?||T77S0|System Table|Basis - Organizational Management|Transparent Table
+40 0/4 * * * ?||TBTCCTXTT|Description of Reference Types for background jobs|Basis - Background Processing|Transparent Table
+42 0/4 * * * ?||TBTCJOB|Structure for Transferring job Header Data (BI-API)|BC - Background Processing|Structure
+44 0/4 * * * ?||TBTCJSTEP|background job Step Overview|Basis - Background Processing|Transparent Table
+46 0/4 * * * ?||TBTCO|job Status Overview Table|Basis - Background Processing|Transparent Table
+48 0/4 * * * ?||TBTCS|background Processing: Time Schedule Table|Basis - Background Processing|Transparent Table
+50 0/4 * * * ?||TBTCSTRT|Start data description / Repetition period of background job|BC - Background Processing|Structure
+52 0/4 * * * ?||TLINE|SAPscript: Text Lines|BC - SAPscript|Structure
+54 0/4 * * * ?||TSP01|Spool Requests|Basis - Print and Output Management|Transparent Table
+56 0/4 * * * ?||TTREE_JOB|Hierarchy Tool: background jobs|BC - Hierarchy Storage|Transparent Table
+58 0/4 * * * ?||TVARV|Table of variables in selection criteria|Basis - Logical DB, Selection Screens, Selection Variants|Transparent Table
+1 0/7 * * * ?||UMGPMBAT|Info on Running background jobs|BC - I18N Unicode|Transparent Table
+3 0/7 * * * ?||VBAK|Sales Document: Header Data|SD - Sales|Transparent Table
+5 0/7 * * * ?||VBAP|Sales Document: Item Data|SD - Sales|Transparent Table
+7 0/7 * * * ?|net.brilliant.esi.scheduler.AquariumRemindersJob|AQUA|AquariumRemindersJob|FI - Financial Accounting|Basis - VAP Business
+9 0/7 * * * ?|net.brilliant.esi.scheduler.AssetManagementJobSchedule|ASSET|AssetManagementJobSchedule|Basis - Background Processing|Basis - VAP Business
+11 0/7 * * * ?|net.brilliant.esi.scheduler.BusinessIntelligenceJobSchedule|BI|BusinessIntelligenceJobSchedule|PP - KANBAN|Basis - VAP Business
+13 0/7 * * * ?|net.brilliant.esi.scheduler.CrmJobSchedule|CRM|CrmJobSchedule|BC - Background Processing|Basis - VAP Business
+15 0/7 * * * ?|net.brilliant.esi.scheduler.FinancialJobSchedule|FIN|FinancialJobSchedule|Basis - Print and Output Management|Basis - VAP Business
+17 0/8 * * * ?|net.brilliant.esi.scheduler.HumanResourcesJobSchedule|HRM|HumanResourcesJobSchedule|BC - Hierarchy Storage|Basis - VAP Business
+19 0/8 * * * ?|net.brilliant.esi.scheduler.InventoryControlJobSchedule|INVCTRL|InventoryControlJobSchedule|Basis - Logical DB, Selection Screens, Selection Variants|Basis - VAP Business
+21 0/8 * * * ?|net.brilliant.esi.scheduler.ManufacturingJobSchedule|MANUFACT|ManufacturingJobSchedule|PP - Sales Plan|Basis - VAP Business
+23 0/8 * * * ?|net.brilliant.esi.scheduler.MrpJobSchedule|MRP|MrpJobSchedule|Basis - Translation Tools|Basis - VAP Business
+25 0/8 * * * ?|net.brilliant.esi.scheduler.PlantMaintenanceJobSchedule|PLTMTNT|PlantMaintenanceJobSchedule|Logistics - Material Master|Basis - VAP Business
+27 0/9 * * * ?|net.brilliant.esi.scheduler.ProcurementJobSchedule|PROCUR|ProcurementJobSchedule|PP - Sales Plan|Basis - VAP Business
+29 0/9 * * * ?|net.brilliant.esi.scheduler.ProductionJobSchedule|PROD|ProductionJobSchedule|Basis - Translation Tools|Basis - VAP Business
+31 0/9 * * * ?|net.brilliant.esi.scheduler.ProjectManagementJobSchedule|PROJMGT|ProjectManagementJobSchedule|Logistics - Material Master|Basis - VAP Business
+33 0/9 * * * ?|net.brilliant.esi.scheduler.ReconcileAuthServicesJob|RECONAUTH|ReconcileAuthServicesJob|PP - Sales Plan|Basis - VAP Business
+35 0/9 * * * ?|net.brilliant.esi.scheduler.SalesJobSchedule|SALES|SalesJobSchedule|Basis - Translation Tools|Basis - VAP Business
+37 0/9 * * * ?|net.brilliant.esi.scheduler.SCMJobSchedule|SCM|SCMJobSchedule|Logistics - Material Master|Basis - VAP Business
+39 0/9 * * * ?|net.brilliant.esi.scheduler.ServiceManagementJobSchedule|SVCMGMT|ServiceManagementJobSchedule|FI - Financial Accounting|Basis - VAP Business
+41 0/9 * * * ?|net.brilliant.esi.scheduler.SyncGeneralServicesJob|SYNCGEN|SyncGeneralServicesJob|Basis - Activation Program, Conversion Program, DB Utility, MC, SPDD|Basis - VAP Business
+43 0/9 * * * ?|net.brilliant.esi.scheduler.SyncPOSServicesJob|SYNCPOS|SyncPOSServicesJob|Basis - Organizational Management|Basis - VAP Business
+45 0/9 * * * ?|net.brilliant.esi.scheduler.TransportationGeneratorsJob|TRANSPGEN|TransportationGeneratorsJob|30A - Communication Services: Mail|Basis - VAP Business
+47 0/9 * * * ?|net.brilliant.esi.scheduler.WarehouseManagementJobSchedule|WAREHOUSE|WarehouseManagementJobSchedule|Basis - Upgrade - General|Basis - VAP Business
+49 0/9 * * * ?|net.brilliant.esi.scheduler.WorkforceManagementJobSchedule|WORKFORCE|WorkforceManagementJobSchedule|610 - Logical DB|Basis - VAP Business
+51 0/9 * * * ?|net.brilliant.esi.scheduler.QualityManagementJobSchedule|QMS|QualityManagementJobSchedule|PP - KANBAN|Basis - VAP Business

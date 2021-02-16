@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -25,7 +26,7 @@ import net.brilliant.framework.entity.RepoAuditable;
 public class City extends RepoAuditable {
 	private static final long serialVersionUID = -292350370506500701L;
 
-	@Column(name = "name", nullable = false, unique=true, length=100)
+	@Column(name = GlobalSharedConstants.PROP_NAME, nullable = false, unique=true, length=100)
 	private String name;
 
 	@ManyToOne

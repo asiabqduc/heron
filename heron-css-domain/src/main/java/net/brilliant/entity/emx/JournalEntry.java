@@ -28,6 +28,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import net.brilliant.ccs.GlobalSharedConstants;
+
 /**
  * 
  * @author MOHAMMED BOUNAGA
@@ -56,7 +58,7 @@ public class JournalEntry implements Serializable {
     private Integer id;
 
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
 
     @Size(max = 64, message = "{LongString}")

@@ -17,14 +17,14 @@ import org.springframework.stereotype.Component;
 
 import net.brilliant.common.CommonUtility;
 import net.brilliant.exceptions.EcosphereResourceException;
-import net.brilliant.framework.component.ComponentBase;
+import net.brilliant.framework.component.CompCore;
 
 /**
  * @author ducbui
  *
  */
 @Component
-public class ResourcesServicesHelper extends ComponentBase {
+public class ResourcesServicesHelper extends CompCore {
 	private static final String CLASSPATH = "classpath:/";
 	/**
 	 * 

@@ -16,8 +16,9 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import net.brilliant.common.CommonUtility;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.common.CollectionsUtility;
+import net.brilliant.common.CommonUtility;
 import net.brilliant.framework.entity.RepoAuditable;
 
 /**
@@ -35,7 +36,7 @@ public class Configuration extends RepoAuditable {
 	 */
 	private static final long serialVersionUID = -7122460417089959400L;
 
-	@Column(name = "name", length=50, nullable=false, unique=true)
+	@Column(name = GlobalSharedConstants.PROP_NAME, length=50, nullable=false, unique=true)
 	private String name;
 
 	@Column(name = "value", length=200, nullable=false)

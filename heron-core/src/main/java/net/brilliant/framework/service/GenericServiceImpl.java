@@ -23,10 +23,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.brilliant.autx.SecurityServiceContextHelper;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.common.BeanUtility;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.common.CollectionsUtility;
 import net.brilliant.exceptions.AppException;
 import net.brilliant.exceptions.CommonException;
 import net.brilliant.exceptions.ExecutionContextException;
@@ -37,6 +38,7 @@ import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.model.SearchSpec;
 import net.brilliant.framework.predicator.BrilliancePredicator;
 import net.brilliant.framework.repository.BaseRepository;
+import net.brilliant.framework.repository.CodeRepository;
 import net.brilliant.framework.repository.CodeSerialRepository;
 import net.brilliant.framework.specification.DefaultSpecification;
 import net.brilliant.model.ExecutionContext;
@@ -118,7 +120,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 	}
 
 	protected Optional<ClassType> getBizObject(String defaultOperationName, Object param) throws ObjectNotFoundException {
-		Map<String, Object> paramData = CommonUtility.createParameterMap("name", param);
+		Map<String, Object> paramData = CommonUtility.createParameterMap(GlobalSharedConstants.PROP_NAME, param);
 		Map<String, Object> contextParams = CommonUtility.createParameterMap(CommonConstants.PARAM_OPERATION, defaultOperationName, CommonConstants.PARAM_DATA, paramData);
 
 		return getBizObject(contextParams);
@@ -342,7 +344,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 	}
 
 	public Optional<ClassType> getByCode(String code) throws ObjectNotFoundException {
-		return ((CodeSerialRepository<ClassType, Key>)getRepository()).findByCode(code);
+		return ((CodeRepository<ClassType, Key>)getRepository()).findByCode(code);
 	}
 
 	public Optional<ClassType> getBySerial(String serial) throws ObjectNotFoundException {

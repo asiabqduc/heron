@@ -21,6 +21,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.framework.entity.RepoAuditable;
 
@@ -40,7 +41,7 @@ public class Foundation extends RepoAuditable {
     @NotNull
 	private String code;
 
-    @Column(name="NAME", length=50)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=50)
     @Size(max=50)
     private String name;
 

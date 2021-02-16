@@ -24,6 +24,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.model.GeneralStatus;
 
@@ -100,7 +101,7 @@ public abstract class DocumentBase extends RepoAuditable implements Document {
     @Column(name="INTEGRATION_TEMPLATE_NAME")
     private String integrationTemplateName;
 
-  	@Column(name="name", length=20)
+  	@Column(name=GlobalSharedConstants.PROP_NAME, length=20)
   	private String name;
 
   	@Column(name="issue_date")

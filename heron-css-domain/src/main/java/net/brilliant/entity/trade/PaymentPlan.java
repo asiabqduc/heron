@@ -28,6 +28,7 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.Cascade;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.entity.RepoEntity;
 
 @Entity
@@ -38,7 +39,7 @@ public class PaymentPlan extends RepoEntity {
     @Column(name="CODE", length=20, unique=true, nullable=false)
 	private String code;
 
-    @Column(name="NAME", length=50)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=50)
     private String name;
     
     @Column(name="INFO")

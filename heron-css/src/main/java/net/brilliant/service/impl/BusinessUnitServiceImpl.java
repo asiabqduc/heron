@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.css.repository.org.BusinessUnitRepository;
 import net.brilliant.css.service.org.BusinessUnitService;
 import net.brilliant.css.specification.BusinessUnitSpecification;
@@ -78,10 +79,10 @@ public class BusinessUnitServiceImpl extends GenericServiceImpl<BusinessUnit, Lo
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = true)
 	public Long count(String countByProperty, Object value) {
-		if ("code".equalsIgnoreCase(countByProperty))
+		if (GlobalSharedConstants.PROP_CODE.equalsIgnoreCase(countByProperty))
 			return this.repository.countByCode(value.toString());
 
-		if ("name".equalsIgnoreCase(countByProperty))
+		if (GlobalSharedConstants.PROP_NAME.equalsIgnoreCase(countByProperty))
 			return this.repository.countByName((String)value);
 
 		throw new RuntimeException(String.join("Count by property[", countByProperty, "] with value[", (String)value, "] Not implemented yet!"));

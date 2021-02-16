@@ -18,6 +18,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.StrictlyPositiveNumber;
 
 /**
@@ -48,7 +49,7 @@ public class EnterpriseTax implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     
     @Basic(optional = false)

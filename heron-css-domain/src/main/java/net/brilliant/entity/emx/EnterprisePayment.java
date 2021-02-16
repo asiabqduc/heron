@@ -22,6 +22,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.framework.validation.InDateRange;
 import net.brilliant.framework.validation.StrictlyPositiveNumber;
 
@@ -76,7 +77,7 @@ public class EnterprisePayment implements Serializable {
     @Column(name = "partner_type")
     private String partnerType;
     @Size(max = 64, message = "{LongString}")
-    @Column(name = "name")
+    @Column(name = GlobalSharedConstants.PROP_NAME)
     private String name;
     @Size(max = 64, message = "{LongString}")
     @Column(name = "reference")

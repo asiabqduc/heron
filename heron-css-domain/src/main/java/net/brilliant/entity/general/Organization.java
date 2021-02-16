@@ -26,6 +26,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.validation.Valid;
 
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.embeddable.Address;
 import net.brilliant.entity.contact.ContactPerson;
 import net.brilliant.framework.entity.RepoEntity;
@@ -45,7 +46,7 @@ public class Organization extends RepoEntity {
     @Column(name="CODE", nullable=false, unique=true, length=20)
     private String code;
     
-    @Column(name="NAME", length=30)
+    @Column(name=GlobalSharedConstants.PROP_NAME, length=30)
     private String name;
 
     @Column(name="IS_ACTIVE")

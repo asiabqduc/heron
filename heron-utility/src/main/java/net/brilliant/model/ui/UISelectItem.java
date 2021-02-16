@@ -56,8 +56,8 @@ public class UISelectItem implements Serializable {
 	public UISelectItem instance(Long key, Map<String, Object> properties){
 		return UISelectItem.builder()
 				.id(key)
-				.code((String)properties.get(CommonConstants.PROPERTY_CODE))
-				.name(properties.containsKey(CommonConstants.PROPERTY_NAME)?(String)properties.get(CommonConstants.PROPERTY_NAME):"")
+				.code((String)properties.get(CommonConstants.PROP_CODE))
+				.name(properties.containsKey(CommonConstants.PROP_NAME)?(String)properties.get(CommonConstants.PROP_NAME):"")
 				.nameLocal(properties.containsKey(CommonConstants.PROPERTY_NAME_LOCAL)?(String)properties.get(CommonConstants.PROPERTY_NAME_LOCAL):"")
 				.build();
 	}
