@@ -28,38 +28,141 @@
                           <p:confirm header="#{messages['lbl.general.confirmation']}" message="#{messages['lbl.general.areYouSure']}" icon="ui-icon-danger"></p:confirm>
                         </p:commandButton>
                     </div>
-            <p:panel id="toggleable" header="Toggleable" toggleable="true" toggleSpeed="50"
-                     closeSpeed="50" widgetVar="panel">
+                    <p:spacer/>
+				            <p:panel id="toggleable" header="#{messages['lbl.general.search']}" toggleable="true" toggleSpeed="50" closeSpeed="50" widgetVar="panel" collapsed="true">
+				
+				                <p:ajax event="close" listener="#{panelMB.onClose}" ignoreAutoUpdate="true"/>
+				                <p:ajax event="toggle" listener="#{panelMB.onToggle}" ignoreAutoUpdate="true"/>
+				
+                        <div class="ui-g ui-fluid">
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="id" value="#{messages['lbl.general.code']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:inputText id="id" value="#{samplePageMB.entity.id}" styleClass="form-control" />
+                                <span class="help-block"> 
+                                    <p:message for="id"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="firstname" value="#{messages['lbl.general.name']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:inputText id="firstname" value="#{samplePageMB.entity.firstname}" maxlength="50"
+                                             required="true" requiredMessage="Firstname is required."/>
+                                <span class="help-block"> 
+                                    <p:message for="firstname"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="surname" value="#{messages['lbl.general.displayName']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:inputText id="surname" value="#{samplePageMB.entity.surname}" maxlength="50"
+                                             required="true" requiredMessage="Surname is required."/>
+                                <span class="help-block"> 
+                                    <p:message for="surname"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="age" value="#{messages['lbl.type']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:spinner id="age" value="#{samplePageMB.entity.age}" required="true" requiredMessage="Age is required."/>
+                                <span class="help-block"> 
+                                    <p:message for="age" escape="false"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="talk" value="#{messages['lbl.jobType']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:autoComplete id="talk" value="#{samplePageMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" required="true" requiredMessage="Talk is required." var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
+                                <span class="help-block">
+                                    <p:message for="talk" />
+                                </span>
+                            </div>
+                        </div>
 
-                <p:ajax event="close" listener="#{panelMB.onClose}" ignoreAutoUpdate="true"/>
-                <p:ajax event="toggle" listener="#{panelMB.onToggle}" ignoreAutoUpdate="true"/>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="cities" value="#{messages['lbl.general.category']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:selectCheckboxMenu id="cities" value="#{samplePageMB.entity.cities}" label="Cities"
+                                                      multiple="true" filter="true" filterMatchMode="contains">
+                                    <f:selectItems value="#{samplePageMB.cities}" var="city" itemLabel="#{city}"
+                                                   itemValue="#{city}"/>
+                                </p:selectCheckboxMenu>
+                                <span class="help-block"> 
+                                    <p:message for="cities"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="date" value="#{messages['lbl.lastTriggerTime']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:datePicker id="date" value="#{samplePageMB.entity.date}" showIcon="true"/>
+                                <span class="help-block"> 
+                                    <p:message for="date"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="useSpaces" value="#{messages['lbl.general.status']}"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:inputSwitch id="useSpaces" value="#{samplePageMB.entity.useSpacesOverTabs}"/>
+                                <span class="help-block">
+                                    <p:message for="useSpaces" />
+                                </span>
+                            </div>
+                        </div>
 
-                <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
-                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
-                </h:panelGrid>
-                <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
-                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
-                </h:panelGrid>
-                <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
-                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
-                </h:panelGrid>
-                <h:panelGrid columns="2" cellpadding="10">
-                    <p:graphicImage name="demo/images/godfather2.jpg"/>
-                    <h:outputText value="Francis Ford Coppola's legendary continuation..."/>
-                </h:panelGrid>
-
-                <f:facet name="options">
-                    <p:menu>
-                        <p:submenu label="Settings">
-                            <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
-                            <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
-                        </p:submenu>
-                    </p:menu>
-                </f:facet>
-            </p:panel>
+                        <div class="ui-g-12 ui-g-nopad">
+                            <div class="ui-g-12">
+                                <p:outputLabel for="bio" value="#{messages['lbl.general.info']}"/>
+                            </div>
+                            <div class="ui-g-12">
+                                <p:inputTextarea id="bio" rows="3" cols="20" counter="display" maxlength="2000"
+                                                 counterTemplate="{0} remaining chars"
+                                                 autoResize="true"/>
+                                <span class="help-block"> 
+                                    <h:outputText id="display"/> 
+                                    <p:message for="bio"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                            <div class="ui-g-12">
+                                <p:outputLabel value=""/>
+                            </div>
+                            <div class="ui-g-12">
+                              <p:button styleClass="btn-block btn-default" value="#{messages['lbl.execute']}" style="width: 95px" />
+                            </div>
+                        </div>
+                        </div>
+				                <f:facet name="options">
+				                    <p:menu>
+				                        <p:submenu label="Settings">
+				                            <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="PF('panel').toggle()"/>
+				                            <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="PF('panel').close()"/>
+				                        </p:submenu>
+				                    </p:menu>
+				                </f:facet>
+				            </p:panel>
                     <p:separator/>
                     <p:dataTable var="currBizObject" value="#{jobScheduleBrowse.businessObjects}" widgetVar="bizObjectTable" paginator="true" styleClass="header-right #{customLayoutMB.borderless ? 'no-border':''}"
                                  paginatorPosition="bottom" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
