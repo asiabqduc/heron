@@ -63,7 +63,8 @@ public class SystemEventManager extends CompCore {
 	private void initSchedulers() throws SchedulerException, ClassNotFoundException, IOException, CsvException{
     Context context = prepareSchedulesData();
 	  log.info("Enter initSchedulers");
-    globalSchedulerService.start(context);
+	  globalSchedulerService.initSchedulers(context);
+    //globalSchedulerService.start(context);
     log.info("Leave initSchedulers");
 	}
 

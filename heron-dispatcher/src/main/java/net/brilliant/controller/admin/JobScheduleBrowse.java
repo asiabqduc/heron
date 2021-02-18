@@ -1,8 +1,11 @@
 package net.brilliant.controller.admin;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -10,6 +13,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import lombok.Getter;
+import lombok.Setter;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
@@ -44,9 +49,16 @@ public class JobScheduleBrowse implements Serializable {
 
 	List<JobSchedule> filteredValue;// datatable filteredValue attribute (column filters)
 
+	@Setter @Getter
+	private Map<String, ?> searchParameters;
+
+  @Setter @Getter
+  private Date searchDate;
+
 	@PostConstruct
 	public void initDataModel() {
 		try {
+		  this.searchParameters = CollectionsUtility.createMap();
 			this.businessObjects = businessService.getObjects();
 			Locale locale = new Locale(CommonConstants.LOCALE_VIETNAM_LANGUAGE, CommonConstants.LOCALE_VIETNAM_COUNTRY);
 			
@@ -79,7 +91,15 @@ public class JobScheduleBrowse implements Serializable {
 		 */
 	}
 
-	public void delete() {
+  public void search() {
+    System.out.println("Searching parameters");
+    /*
+     * if (id == null) { throw new BusinessException("Provide Car ID to load"); }
+     * selectedCars.add(carService.findById(id));
+     */
+  }
+
+  public void delete() {
 		if (CommonUtility.isNotEmpty(this.selectedObjects)) {
 			for (JobSchedule removalItem : this.selectedObjects) {
 				System.out.println("#" + removalItem.getDisplayName());

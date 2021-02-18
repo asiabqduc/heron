@@ -51,7 +51,11 @@ import net.brilliant.model.Context;
  */
 @Slf4j
 @Component
+@SuppressWarnings("unchecked")
 public class SchedulerServicesHelper {
+  @Inject
+  private Scheduler scheduler;
+
   @Inject
   private JobScheduleService jobScheduleService;
 
@@ -206,5 +210,48 @@ public class SchedulerServicesHelper {
           .build();
     }
     throw new IllegalStateException("unsupported trigger descriptor " + this);
+  }
+
+  @Async
+  public void initSchedulers(Context context) throws SchedulerException, ClassNotFoundException {
+    log.info("Enter startScheduleEngine()");
+
+    List<JobSchedule> jobSchedules = loadMasterSchedules(context);
+    if (CommonUtility.isEmpty(jobSchedules)){
+      log.info("There is no job schedule to be run. ");
+      return;
+    }
+
+    JobDetail currentJobDetail = null;
+    Class<? extends Job> jobScheduleClass = null;
+    Trigger currentTrigger = null;
+    for (JobSchedule jobSchedule :jobSchedules) {
+      if (CommonUtility.isEmpty(jobSchedule.getJobClass()))
+        continue;
+
+      try {
+        jobScheduleClass = (Class<? extends Job>)BeanUtility.getClass(jobSchedule.getJobClass());
+      } catch (Exception e) {
+        jobScheduleClass = null;
+        log.error("An error occurred while get associated class from: " + jobSchedule.getJobClass());
+      }
+
+      if (null==jobScheduleClass)
+        continue;
+
+      currentTrigger = buildTrigger(jobSchedule.getName() + SchedulingConstants.specTrigger, jobSchedule.getCategory(), null, jobSchedule.getCronExpression());
+      
+      currentJobDetail = JobBuilder
+          .newJob(jobScheduleClass)
+          .withIdentity(jobSchedule.getName(), jobSchedule.getCategory())
+          .build();
+
+      scheduler.scheduleJob(currentJobDetail, currentTrigger);
+    }
+
+    if (!scheduler.isStarted()){
+      scheduler.start();
+    }
+    log.info("Leave startScheduleEngine()");
   }
 }
