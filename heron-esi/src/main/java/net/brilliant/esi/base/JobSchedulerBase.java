@@ -27,7 +27,7 @@ public abstract class JobSchedulerBase implements Job {
   }
 
   private ExecutionStatus handleScheduleStatus(String message){
-    //log.info(message + " fired at: " + Calendar.getInstance().getTime());
+    log.info(message + " fired at: " + Calendar.getInstance().getTime());
     return ExecutionStatus.SUCCESS;
   }
 
