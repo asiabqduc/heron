@@ -4,7 +4,6 @@
 package net.brilliant.security;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -21,9 +20,9 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import lombok.Builder;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.security.base.Cryptographer;
 import net.brilliant.security.base.CryptographyBase;
 

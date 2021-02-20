@@ -19,6 +19,11 @@
 			<artifactId>heron-utility</artifactId>
 			<version>${project.version}</version>
 		</dependency>	
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>heron-crossed-common</artifactId>
+      <version>${project.version}</version>
+    </dependency> 
 		<dependency>
 		    <groupId>javax.validation</groupId>
 		    <artifactId>validation-api</artifactId>

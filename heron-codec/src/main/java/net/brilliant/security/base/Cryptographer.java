@@ -3,7 +3,7 @@
  */
 package net.brilliant.security.base;
 
-import net.brilliant.exceptions.CryptographyException;
+import net.brilliant.ccs.exceptions.CryptographyException;
 
 /**
  * @author ducbq

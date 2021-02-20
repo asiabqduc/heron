@@ -3,7 +3,7 @@ package net.brilliant.auth.service;
 import org.springframework.data.domain.Page;
 
 import net.brilliant.auth.entity.Authority;
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.service.GenericService;
 

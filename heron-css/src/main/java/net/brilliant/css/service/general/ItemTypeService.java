@@ -2,8 +2,8 @@ package net.brilliant.css.service.general;
 
 import java.util.Optional;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.general.ItemType;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface ItemTypeService extends GenericService<ItemType, Long>{

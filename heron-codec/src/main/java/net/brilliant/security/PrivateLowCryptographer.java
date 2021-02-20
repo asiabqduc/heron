@@ -18,7 +18,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import net.brilliant.exceptions.CryptographyException;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.security.base.Cryptographer;
 import net.brilliant.security.base.CryptographyBase;
 

@@ -6,16 +6,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.css.repository.contact.ContactRepository;
 import net.brilliant.css.service.contact.ContactService;
 import net.brilliant.css.specification.ContactSpecification;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.exceptions.ExecutionContextException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 
 @Service
@@ -51,7 +51,7 @@ public class ContactServiceImpl extends GenericServiceImpl<CTAContact, Long> imp
 	}
 
 	@Override
-	public ExecutionContext load(ExecutionContext executionContext) throws ExecutionContextException {
+	public Context load(Context executionContext) throws ExecutionContextException {
 		/*GlobalDataServicesRepository globalDataServicesRepository = null;
 		Object projectContextData = null;
 		DataInterfaceModel dataInterfaceModel = null;

@@ -9,11 +9,11 @@ import lombok.Builder;
  * @author bqduc
  *
  */
-@Builder
-public class ExecutionContext extends Context {
-  /**
+/*@Builder
+public class Context extends Context {
+  *//**
 	 * 
-	 */
+	 *//*
 	private static final long serialVersionUID = -3206765121751074978L;
 
 	private String request;
@@ -27,7 +27,7 @@ public class ExecutionContext extends Context {
 		this.executionStage = executionStage;
 	}
 
-	public ExecutionContext set(String key, Object contextData){
+	public Context set(String key, Object contextData){
 		super.put(key, contextData);
 		return this;
 	}
@@ -40,3 +40,4 @@ public class ExecutionContext extends Context {
 		this.request = request;
 	}
 }
+*/

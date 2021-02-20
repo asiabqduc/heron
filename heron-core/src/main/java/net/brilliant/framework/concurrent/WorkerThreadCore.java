@@ -4,7 +4,7 @@
 package net.brilliant.framework.concurrent;
 
 import net.brilliant.framework.component.CompCore;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -13,10 +13,10 @@ import net.brilliant.model.ExecutionContext;
 public abstract class WorkerThreadCore extends CompCore implements Runnable {
 	private static final long serialVersionUID = -2857158059074111900L;
 
-	protected ExecutionContext executionContext;
+	protected Context executionContext;
 
-	public WorkerThreadCore(ExecutionContext executionContext) {
-		this.executionContext = ExecutionContext.builder().build();
+	public WorkerThreadCore(Context executionContext) {
+		this.executionContext = Context.builder().build();
 		this.executionContext.putAll(executionContext);
 	}
 

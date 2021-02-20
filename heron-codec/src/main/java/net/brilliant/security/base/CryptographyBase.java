@@ -5,7 +5,7 @@ package net.brilliant.security.base;
 
 import javax.crypto.spec.SecretKeySpec;
 
-import net.brilliant.exceptions.CryptographyException;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.security.SecretAlgorithm;
 
 /**

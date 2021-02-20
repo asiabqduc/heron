@@ -3,9 +3,9 @@
  */
 package net.brilliant.comm.comp;
 
+import net.brilliant.ccs.exceptions.CommunicatorException;
 import net.brilliant.comm.domain.CorpMimeMessage;
-import net.brilliant.exceptions.CommunicatorException;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -13,5 +13,5 @@ import net.brilliant.model.ExecutionContext;
  */
 public interface Communicator {
 	void sendEmail(CorpMimeMessage mailMessage) throws CommunicatorException;
-	void send(ExecutionContext context) throws CommunicatorException;
+	void send(Context context) throws CommunicatorException;
 }

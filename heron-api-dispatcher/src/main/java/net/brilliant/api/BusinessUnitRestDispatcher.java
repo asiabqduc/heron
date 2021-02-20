@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
@@ -15,7 +16,6 @@ import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.org.BusinessUnitService;
 import net.brilliant.domain.model.SearchCondition;
 import net.brilliant.entity.general.BusinessUnit;
-import net.brilliant.exceptions.AppException;
 import net.brilliant.framework.controller.RestCoreController;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.service.IService;
@@ -46,7 +46,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 			if (CommonUtility.isNotEmpty(fetchedBizObject)) {
 				this.simpleDataObjectTransformer.transformToProxy(fetchedBizObject, proxyObject);
 			}
-		} catch (AppException e) {
+		} catch (CerberusException e) {
 			log.error(e);
 		}
 		return proxyObject;
@@ -97,7 +97,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 			BusinessUnitProxy taxGroupProxy = BusinessUnitProxy.builder().build();
 			try {
 				this.simpleDataObjectTransformer.transformToProxy(fetchedBizObject, taxGroupProxy);
-			} catch (AppException e) {
+			} catch (CerberusException e) {
 				log.error(e);
 			}
 			list.add(taxGroupProxy);

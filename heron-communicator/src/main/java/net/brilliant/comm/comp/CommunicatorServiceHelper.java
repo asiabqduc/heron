@@ -12,12 +12,12 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import net.brilliant.ccs.exceptions.CommunicatorException;
 import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.CommunicatorException;
 import net.brilliant.framework.component.CompCore;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 @Component
 public class CommunicatorServiceHelper extends CompCore {
@@ -64,7 +64,7 @@ public class CommunicatorServiceHelper extends CompCore {
 		this.emailTemplateLoadingDir = emailTemplateLoadingDir;
 	}
 
-	public void sendEmail(ExecutionContext context) throws CommunicatorException {
+	public void sendEmail(Context context) throws CommunicatorException {
 		CorpMimeMessage corpMimeMessage = null;
 		MimeMessage mimeMessage = null;
     MimeMessageHelper helper = null;

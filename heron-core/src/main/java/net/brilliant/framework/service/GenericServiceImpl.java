@@ -24,14 +24,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.brilliant.autx.SecurityServiceContextHelper;
 import net.brilliant.ccs.GlobalSharedConstants;
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.AppException;
 import net.brilliant.exceptions.CommonException;
 import net.brilliant.exceptions.ExecutionContextException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.entity.RepoAuditable;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.model.SearchParameter;
@@ -41,7 +41,7 @@ import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.repository.CodeRepository;
 import net.brilliant.framework.repository.CodeSerialRepository;
 import net.brilliant.framework.specification.DefaultSpecification;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 
 @Service
@@ -126,8 +126,8 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		return getBizObject(contextParams);
 	}
 
-	protected Optional<ClassType> fetchBusinessObject(Object key) throws AppException {
-    throw new AppException("Not implemented yet. ");
+	protected Optional<ClassType> fetchBusinessObject(Object key) throws CerberusException {
+    throw new CerberusException("Not implemented yet. ");
 	}
 
 	protected Page<ClassType> getPaginatedObjects(Integer page, Integer size){
@@ -181,7 +181,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		boolean isExists = false;
 		try {
 			isExists = existsEntity(invokeMethod, parameters);
-		} catch (AppException e) {
+		} catch (CerberusException e) {
 			throw new CommonException(e);
 		}
 		return isExists;
@@ -221,7 +221,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		return count;
 	}
 
-	private boolean existsEntity(String methodName, Map<?, ?> parameters) throws AppException {
+	private boolean existsEntity(String methodName, Map<?, ?> parameters) throws CerberusException {
 		Object retData = null;
 		boolean exists = false;
 		try {
@@ -230,7 +230,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| InstantiationException e) {
 			//log.error(e);
-			throw new AppException(e);
+			throw new CerberusException(e);
 		}
 		return exists;
 	}
@@ -315,7 +315,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		return pagedEntities;
 	}*/
 
-	public ExecutionContext load(ExecutionContext executionContext) throws ExecutionContextException {
+	public Context load(Context executionContext) throws ExecutionContextException {
 		return executionContext;
 	}
 
@@ -325,7 +325,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 				searchParameter.getPageable());
 	}*/
 
-	public Optional<ClassType> getBusinessObject(Object key) throws AppException {
+	public Optional<ClassType> getBusinessObject(Object key) throws CerberusException {
 		Optional<ClassType> fetchedBizObject = this.fetchBusinessObject(key);
 		if (!fetchedBizObject.isPresent())
 			return Optional.empty();
@@ -339,8 +339,8 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		return fetchedBizObject;
 	}
 
-	public String nextSerial(String prefix) throws AppException {
-		throw new AppException("Not implemented yet!");
+	public String nextSerial(String prefix) throws CerberusException {
+		throw new CerberusException("Not implemented yet!");
 	}
 
 	public Optional<ClassType> getByCode(String code) throws ObjectNotFoundException {

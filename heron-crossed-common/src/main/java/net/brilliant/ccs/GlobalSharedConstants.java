@@ -8,6 +8,8 @@ package net.brilliant.ccs;
  *
  */
 public interface GlobalSharedConstants {
+  static final String WORKING_LOCALE = "workingLocale";
+
   static final String PROP_ID = "id";
   static final String PROP_CODE = "code";
   static final String PROP_NAME = "name";

@@ -29,42 +29,43 @@
                         </p:commandButton>
                     </div>
                     <p:spacer/>
-				            <p:panel id="toggleable" header="#{messages['lbl.general.search']}" toggleable="true" toggleSpeed="50" closeSpeed="50" widgetVar="panel" collapsed="true">
+				            <p:panel id="toggleable" header="#{messages['lbl.searchPanel']}" 
+				              menuTitle="MENU" toggleTitle="#{messages[jobScheduleBrowse.toggleTitle]}" toggleable="true" toggleSpeed="50" closeSpeed="50" widgetVar="panel" collapsed="true" >
 				
 				                <p:ajax event="close" listener="#{panelMB.onClose}" ignoreAutoUpdate="true"/>
-				                <p:ajax event="toggle" listener="#{panelMB.onToggle}" ignoreAutoUpdate="true"/>
+				                <p:ajax event="toggle" listener="#{jobScheduleBrowse.onToggle}" ignoreAutoUpdate="true" update="toggleable"/>
 				
                         <div class="ui-g ui-fluid">
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="id" value="#{messages['lbl.general.code']}"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:inputText id="id" styleClass="form-control"  value="#{jobScheduleBrowse.searchParameters['searchId]']}"/>
-                                <span class="help-block"> 
-                                    <p:message for="id"/>
-                                </span>
-                            </div>
-                        </div>
+	                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+	                            <div class="ui-sm-12 ui-g-11">
+	                                <p:outputLabel for="id" value="#{messages['lbl.general.code']}"/>
+	                            </div>
+	                            <div class="ui-sm-12 ui-g-11">
+	                                <p:inputText id="id" styleClass="form-control"  value="#{jobScheduleBrowse.searchParameters['searchCode']}"/>
+	                                <span class="help-block"> 
+	                                    <p:message for="id"/>
+	                                </span>
+	                            </div>
+	                        </div>
                         <div class="ui-sm-12 ui-g-6 ui-g-nopad">
                             <div class="ui-sm-12 ui-g-11">
                                 <p:outputLabel for="firstname" value="#{messages['lbl.general.name']}"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:inputText id="firstname"  value="#{jobScheduleBrowse.searchParameters['searchName]']}" maxlength="50"
-                                             required="true" requiredMessage="Firstname is required."/>
+                                <p:inputText id="firstname"  maxlength="50"/>
                                 <span class="help-block"> 
                                     <p:message for="firstname"/>
                                 </span>
                             </div>
                         </div>
+                        
                         <div class="ui-sm-12 ui-g-6 ui-g-nopad">
                             <div class="ui-sm-12 ui-g-11">
                                 <p:outputLabel for="surname" value="#{messages['lbl.general.displayName']}"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:inputText id="surname" value="#{jobScheduleBrowse.searchParameters['searchDisplayName]']}" maxlength="50"
-                                             required="true" requiredMessage="Surname is required."/>
+                                <p:inputText id="surname" value="#{jobScheduleBrowse.searchParameters['searchDisplayName']}" maxlength="50"
+                                             />
                                 <span class="help-block"> 
                                     <p:message for="surname"/>
                                 </span>
@@ -75,7 +76,7 @@
                                 <p:outputLabel for="age" value="#{messages['lbl.type']}"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:spinner id="age" value="#{samplePageMB.entity.age}" required="true" requiredMessage="Age is required."/>
+                                <p:spinner id="age" value="#{samplePageMB.entity.age}" />
                                 <span class="help-block"> 
                                     <p:message for="age" escape="false"/>
                                 </span>
@@ -86,7 +87,7 @@
                                 <p:outputLabel for="talk" value="#{messages['lbl.jobType']}"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:autoComplete id="talk" value="#{samplePageMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" required="true" requiredMessage="Talk is required." var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
+                                <p:autoComplete id="talk" value="#{samplePageMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
                                 <span class="help-block">
                                     <p:message for="talk" />
                                 </span>
@@ -113,7 +114,7 @@
                                 <p:outputLabel for="date" value="#{messages['lbl.lastTriggerTime']}"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:datePicker id="date" showIcon="true"  value="#{jobScheduleBrowse.searchDate}"/>
+                                <p:datePicker id="date" showIcon="true"  value="#{jobScheduleBrowse.searchDate}" />
                                 <span class="help-block"> 
                                     <p:message for="date"/>
                                 </span>
@@ -138,19 +139,20 @@
                             <div class="ui-g-12">
                                 <p:inputTextarea id="bio" rows="3" cols="20" counter="display" maxlength="2000"
                                                  counterTemplate="{0} remaining chars"
-                                                 autoResize="true"  value="#{jobScheduleBrowse.searchParameters['searchInfo]']}"/>
+                                                 autoResize="true"  value="#{jobScheduleBrowse.searchParameters['searchInfo']}"/>
                                 <span class="help-block"> 
                                     <h:outputText id="display"/> 
                                     <p:message for="bio"/>
                                 </span>
                             </div>
                         </div>
+
                         <div class="ui-g-12 ui-g-nopad">
                             <div class="ui-g-12">
                                 <p:outputLabel value=""/>
                             </div>
                             <div class="ui-g-12">
-                              <p:commandButton action="#{jobScheduleBrowse.search}" styleClass="btn-block btn-default" value="#{messages['lbl.execute']}" style="width: 95px" />
+                              <p:commandButton action="#{jobScheduleBrowse.search}" update="bizObjectDataTable" styleClass="btn-block btn-default" value="#{messages['lbl.execute']}" style="width: 95px" />
                             </div>
                         </div>
                         </div>
@@ -168,7 +170,7 @@
                                  paginatorPosition="bottom" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,15,20,50,100,250" rows="15" rowKey="#{currBizObject.id}"
                                  emptyMessage="No cars found with given criteria" stickyHeader="false" selection="#{jobScheduleBrowse.selectedObjects}"
-                                 filteredValue="#{jobScheduleBrowse.filteredObjects}" resizableColumns="true" expandableRowGroups="true">
+                                 filteredValue="#{jobScheduleBrowse.filteredObjects}" resizableColumns="true" expandableRowGroups="true" id="bizObjectDataTable">
 
                         <p:ajax event="rowSelectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>
                         <p:ajax event="rowUnselectCheckbox" update="@(.ui-button, .ui-confirm-dialog)"/>

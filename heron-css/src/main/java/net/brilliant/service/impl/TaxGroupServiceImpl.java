@@ -6,9 +6,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.general.TaxGroup;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 import net.brilliant.repository.trade.TaxGroupRepository;
@@ -33,7 +33,7 @@ public class TaxGroupServiceImpl extends GenericServiceImpl<TaxGroup, Long> impl
 	}
 
 	@Override
-	protected Optional<TaxGroup> fetchBusinessObject(Object key) throws AppException {
+	protected Optional<TaxGroup> fetchBusinessObject(Object key) throws CerberusException {
 		return super.getBizObject("findByName", key);
 	}
 }

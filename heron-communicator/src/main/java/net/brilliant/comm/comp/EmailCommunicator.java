@@ -7,9 +7,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
+import net.brilliant.ccs.exceptions.CommunicatorException;
 import net.brilliant.comm.domain.CorpMimeMessage;
-import net.brilliant.exceptions.CommunicatorException;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -27,7 +27,7 @@ public class EmailCommunicator implements Communicator {
 	}
 
 	@Override
-	public void send(ExecutionContext context) throws CommunicatorException {
+	public void send(Context context) throws CommunicatorException {
 		communicatorServiceHelper.sendEmail(context);
 	}
 }

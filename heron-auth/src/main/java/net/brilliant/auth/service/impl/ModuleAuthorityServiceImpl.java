@@ -11,7 +11,7 @@ import net.brilliant.auth.entity.Module;
 import net.brilliant.auth.entity.ModuleAuthority;
 import net.brilliant.auth.repository.ModuleAuthorityRepository;
 import net.brilliant.auth.service.ModuleAuthorityService;
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 

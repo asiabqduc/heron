@@ -2,8 +2,8 @@ package net.brilliant.service.trade;
 
 import java.util.Optional;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.trade.Portfolio;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface PortfolioService extends GenericService<Portfolio, Long> {

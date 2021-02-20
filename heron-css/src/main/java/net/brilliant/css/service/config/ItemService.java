@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.domain.entity.general.Language;
 import net.brilliant.entity.general.GeneralCatalogue;
 import net.brilliant.entity.general.LocalizedItem;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface ItemService extends GenericService<GeneralCatalogue, Long>{

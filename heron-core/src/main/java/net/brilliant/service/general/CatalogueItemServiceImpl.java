@@ -4,8 +4,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.domain.entity.general.CatalogueItem;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 import net.brilliant.repository.CatalogueItemRepository;

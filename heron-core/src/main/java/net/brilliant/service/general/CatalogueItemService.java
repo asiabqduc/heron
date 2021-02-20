@@ -2,8 +2,8 @@ package net.brilliant.service.general;
 
 import java.util.Optional;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.domain.entity.general.CatalogueItem;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface CatalogueItemService extends GenericService<CatalogueItem, Long> {

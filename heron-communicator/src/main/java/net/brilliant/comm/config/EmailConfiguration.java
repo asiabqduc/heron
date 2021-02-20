@@ -15,11 +15,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.comm.comp.EmailConfigurationHelper;
 import net.brilliant.comm.exceptions.CommunicationException;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.config.ConfigurationService;
-import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 import net.brilliant.security.GlobalCryptogramRepository;

@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.trade.ShipmentNote;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 import net.brilliant.repository.trade.ShipmentNoteRepository;

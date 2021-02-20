@@ -6,7 +6,7 @@ package net.brilliant.security;
 import java.util.Base64;
 
 import lombok.Builder;
-import net.brilliant.exceptions.CryptographyException;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.security.base.Cryptographer;
 import net.brilliant.security.base.CryptographyBase;
 

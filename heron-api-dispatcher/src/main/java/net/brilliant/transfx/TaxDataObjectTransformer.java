@@ -8,8 +8,8 @@ import javax.inject.Named;
 
 import org.springframework.stereotype.Component;
 
+import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.entity.trade.Tax;
-import net.brilliant.exceptions.AppException;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.service.trade.TaxGroupService;
 import net.brilliant.service.trade.TaxService;
@@ -32,7 +32,7 @@ public class TaxDataObjectTransformer extends DataTransformerBase implements Dat
 	@Inject 
 	private TaxService businessService;
 
-	protected RepoEntity transformToBusinessObject(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes)  throws AppException {
+	protected RepoEntity transformToBusinessObject(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes)  throws CerberusException {
 		TaxProxy taxProxy = null;
 		Tax taxObject = null;
 		try {
@@ -47,23 +47,23 @@ public class TaxDataObjectTransformer extends DataTransformerBase implements Dat
 				taxObject.setParent(this.businessService.getObject(taxProxy.getParent().getId()));
 			}
 		} catch (Exception e) {
-			throw new AppException(e);
+			throw new CerberusException(e);
 		}
 		return targetBusinessObject;
 	}
 
 	@Override
-	protected RepoEntity doTransformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject) throws AppException {
+	protected RepoEntity doTransformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject) throws CerberusException {
 		return transformToBusinessObject(proxyObject, targetBusinessObject, new String[] {});
 	}
 
 	@Override
-	protected RepoEntity doTransformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes) throws AppException {
+	protected RepoEntity doTransformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes) throws CerberusException {
 		return transformToBusinessObject(proxyObject, targetBusinessObject, excludedAttributes);
 	}
 
 	@Override
-	protected Repository doTransformToProxy(RepoEntity businessObject, Repository targetProxyObject) throws AppException {
+	protected Repository doTransformToProxy(RepoEntity businessObject, Repository targetProxyObject) throws CerberusException {
 		return this.simpleDataObjectTransformer.transformToProxy(businessObject, targetProxyObject);
 	}
 }

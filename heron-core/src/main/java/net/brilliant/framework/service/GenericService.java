@@ -8,11 +8,11 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import net.brilliant.exceptions.AppException;
+import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.exceptions.ExecutionContextException;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.model.SearchParameter;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 public interface GenericService<T extends RepoEntity, K extends Serializable> extends IService<T, K> {
 	T save(T entity);
@@ -30,9 +30,9 @@ public interface GenericService<T extends RepoEntity, K extends Serializable> ex
 
 	Long count(String countMethodName, Map<?, ?> parameters);
 
-	String nextSerial(String prefix) throws AppException;
+	String nextSerial(String prefix) throws CerberusException;
 
-	Optional<T> getBusinessObject(Object key) throws AppException;
+	Optional<T> getBusinessObject(Object key) throws CerberusException;
 	List<T> getObjects();
 
 	List<T> getVisibleObjects();
@@ -54,5 +54,5 @@ public interface GenericService<T extends RepoEntity, K extends Serializable> ex
 
 	List<T> imports(Map<Object, Object> parameters);
 	List<T> search(String keyword);
-	ExecutionContext load(ExecutionContext executionContext) throws ExecutionContextException;
+	Context load(Context executionContext) throws ExecutionContextException;
 }

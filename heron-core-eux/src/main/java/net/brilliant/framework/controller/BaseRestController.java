@@ -23,8 +23,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import net.brilliant.ccs.exceptions.EcosphereResourceException;
 import net.brilliant.domain.RestErrorInfo;
-import net.brilliant.exceptions.EcosphereResourceException;
 import net.brilliant.framework.entity.RepoEntity;
 import net.brilliant.framework.service.IService;
 

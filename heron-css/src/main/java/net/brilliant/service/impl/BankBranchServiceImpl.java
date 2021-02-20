@@ -8,9 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.trade.BankBranch;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 import net.brilliant.repository.trade.BankBranchRepository;
@@ -43,7 +43,7 @@ public class BankBranchServiceImpl extends GenericServiceImpl<BankBranch, Long> 
 	}
 
 	@Override
-	protected Optional<BankBranch> fetchBusinessObject(Object key) throws AppException {
+	protected Optional<BankBranch> fetchBusinessObject(Object key) throws CerberusException {
 		return super.getBizObject("findByName", key);
 	}
 }

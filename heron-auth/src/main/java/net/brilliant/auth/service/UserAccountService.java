@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.entity.UserAccountProfile;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.exceptions.NgepAuthException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface UserAccountService extends GenericService<UserAccountProfile, Long>, UserDetailsService{

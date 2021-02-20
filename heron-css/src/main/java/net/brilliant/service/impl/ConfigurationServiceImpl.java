@@ -9,12 +9,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.css.repository.config.ConfigurationRepository;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.css.specification.ConfigurationRepoSpecification;
 import net.brilliant.entity.config.Configuration;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
@@ -51,7 +51,7 @@ public class ConfigurationServiceImpl extends GenericServiceImpl<Configuration, 
 	}
 
 	@Override
-	protected Optional<Configuration> fetchBusinessObject(Object key) throws AppException {
+	protected Optional<Configuration> fetchBusinessObject(Object key) throws CerberusException {
 		return super.getBizObject("findByName", key);
 	}
 

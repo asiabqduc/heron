@@ -40,6 +40,13 @@
 			<artifactId>heron-esi</artifactId>
 			<version>${project.version}</version>
 		</dependency>	
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>heron-osx</artifactId>
+      <version>${project.version}</version>
+    </dependency> 
+
 		<!--
 		
 		<dependency>

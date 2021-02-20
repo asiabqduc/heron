@@ -7,9 +7,9 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Component;
 
+import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.css.service.stock.InventoryService;
 import net.brilliant.entity.stock.InventoryCore;
-import net.brilliant.exceptions.AppException;
 import net.brilliant.framework.entity.RepoEntity;
 import net.nep.facade.ProductProfile;
 import net.peaga.domain.base.Repository;
@@ -49,19 +49,19 @@ public class InventoryProfileTransformer implements DataTransformer {
 	}
 
 	@Override
-	public RepoEntity transformToBusiness(final Repository proxyObject, RepoEntity targetBusinessObject) throws AppException {
+	public RepoEntity transformToBusiness(final Repository proxyObject, RepoEntity targetBusinessObject) throws CerberusException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Repository transformToProxy(final RepoEntity businessObject, Repository targetProxyObject) throws AppException {
+	public Repository transformToProxy(final RepoEntity businessObject, Repository targetProxyObject) throws CerberusException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public RepoEntity transformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes) throws AppException {
+	public RepoEntity transformToBusiness(Repository proxyObject, RepoEntity targetBusinessObject, String[] excludedAttributes) throws CerberusException {
 		// TODO Auto-generated method stub
 		return null;
 	}

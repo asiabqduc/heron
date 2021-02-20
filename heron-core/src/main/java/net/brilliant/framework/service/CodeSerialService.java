@@ -3,7 +3,7 @@ package net.brilliant.framework.service;
 import java.io.Serializable;
 import java.util.Optional;
 
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.entity.RepoEntity;
 
 public interface CodeSerialService<T extends RepoEntity, K extends Serializable> extends GenericService<T, K> {

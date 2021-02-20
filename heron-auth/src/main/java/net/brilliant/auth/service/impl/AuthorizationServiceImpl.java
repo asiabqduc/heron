@@ -23,17 +23,17 @@ import net.brilliant.auth.entity.UserAccountProfile;
 import net.brilliant.auth.service.AccessDecisionPolicyService;
 import net.brilliant.auth.service.AuthorityService;
 import net.brilliant.auth.service.AuthorizationService;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.comm.comp.Communicator;
 import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.common.DateTimeUtility;
-import net.brilliant.common.CollectionsUtility;
 import net.brilliant.exceptions.NgepAuthException;
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.entity.auth.AuthenticationDetails;
 import net.brilliant.global.GlobalConstants;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -75,7 +75,7 @@ public class AuthorizationServiceImpl extends AuthorizationServiceBase implement
 	}
 
 	@Override
-	public UserSecurityProfile register(ExecutionContext context) throws NgepAuthException {
+	public UserSecurityProfile register(Context context) throws NgepAuthException {
 		String confirmLink = null;
 		UserSecurityProfile registrationProfile = null;
 		CorpMimeMessage mimeMessage = null;

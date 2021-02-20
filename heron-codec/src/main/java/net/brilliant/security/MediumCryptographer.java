@@ -17,8 +17,8 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 import lombok.Builder;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.security.base.Cryptographer;
 import net.brilliant.security.base.CryptographyBase;
 

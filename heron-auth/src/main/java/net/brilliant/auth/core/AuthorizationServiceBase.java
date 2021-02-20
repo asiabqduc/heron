@@ -13,9 +13,9 @@ import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.entity.UserAccountPrivilege;
 import net.brilliant.auth.entity.UserAccountProfile;
 import net.brilliant.auth.service.UserAccountService;
+import net.brilliant.ccs.exceptions.EcosExceptionCode;
 import net.brilliant.common.CommonConstants;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.EcosExceptionCode;
 import net.brilliant.exceptions.NgepAuthException;
 
 /**

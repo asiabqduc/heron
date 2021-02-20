@@ -6,6 +6,11 @@ package net.brilliant.model;
 import java.io.Serializable;
 import java.util.Map;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import net.brilliant.common.CollectionsUtility;
 
 /**
@@ -13,14 +18,20 @@ import net.brilliant.common.CollectionsUtility;
  * @author bqduc
  *
  */
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Context implements Serializable{
 	private static final long serialVersionUID = 2622407790323667698L;
 
-	private Map<String, Object> contextData = CollectionsUtility.createMap();
+	@Setter @Getter
+  private String request;
 
-	public Map<String, Object> getContextData() {
-		return this.contextData;
-	}
+	@Setter @Getter
+  private String executionStage;
+
+  @Setter @Getter @Builder.Default
+  private Map<String, Object> contextData = CollectionsUtility.createMap();
 
 	public boolean containsKey(String key){
 		return this.contextData.containsKey(key);
@@ -41,11 +52,6 @@ public class Context implements Serializable{
 
 	public Context putAll(Context executionContext){
 		this.contextData.putAll(executionContext.getContextData());
-		return this;
-	}
-
-	public Context context(String key, Object value){
-		this.contextData.put(key, value);
 		return this;
 	}
 

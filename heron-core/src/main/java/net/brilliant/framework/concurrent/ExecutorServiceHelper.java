@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -32,7 +32,7 @@ public class ExecutorServiceHelper extends CompCore {
   @Inject
   private ApplicationContext appContext;
 
-	private WorkerThreadBase invokeWorkerThread(ExecutionContext executionContext) {
+	private WorkerThreadBase invokeWorkerThread(Context executionContext) {
 		Class<?> beanClass = (Class<?>)executionContext.get(GlobalConstants.KEY_CONTEXT_CLASS);
 		return (WorkerThreadBase)appContext.getBean(beanClass, executionContext);
 	}
@@ -41,11 +41,11 @@ public class ExecutorServiceHelper extends CompCore {
 		return Executors.newFixedThreadPool(GlobalConstants.defaultNumberOfThreads);
 	}
 
-	public Future<ExecutionContext> startThread(ExecutionContext executionContext) throws InterruptedException{
+	public Future<Context> startThread(Context executionContext) throws InterruptedException{
 		WorkerThreadBase workerThread = invokeWorkerThread(executionContext);
 		ExecutorService executorService = getExecutorService();
 
-		List<Future<ExecutionContext>> futures = executorService.invokeAll(CollectionsUtility.createDataList(workerThread));
+		List<Future<Context>> futures = executorService.invokeAll(CollectionsUtility.createDataList(workerThread));
 		return futures.get(0);//CompletableFuture.completedFuture(executionContext);
 	}
 }

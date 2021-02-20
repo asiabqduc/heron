@@ -28,6 +28,7 @@ import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.entity.UserAccountProfile;
 import net.brilliant.auth.service.AuthorizationService;
 import net.brilliant.auth.service.UserAccountService;
+import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.comm.domain.CorpMimeMessage;
 import net.brilliant.comm.global.CommunicatorConstants;
 import net.brilliant.common.CommonConstants;
@@ -37,11 +38,10 @@ import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.entity.config.Configuration;
 import net.brilliant.entity.general.BusinessUnit;
 import net.brilliant.exceptions.AccessDeniedException;
-import net.brilliant.exceptions.AppException;
 import net.brilliant.framework.controller.DetailHome;
 import net.brilliant.global.GlobalConstants;
 import net.brilliant.model.Context;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -140,7 +140,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 
 			this.entity.setBusinessUnitCode(this.businessUnit.getCode());
 
-			ExecutionContext context = ExecutionContext.builder().build();
+			Context context = Context.builder().build();
 			
 			context.put(CommunicatorConstants.CTX_MAIL_TEMPLATE_DIR, "/template/");
 			context.put(CommunicatorConstants.CTX_MAIL_TEMPLATE_ID, "/auth/register.ftl");
@@ -253,7 +253,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 
 			Optional<Configuration> opt = configurationService.getByName(GlobalConstants.CONFIG_APP_ACCESS_URL);
 			if (!opt.isPresent())
-				throw new AppException("No configuration of application access link!");
+				throw new CerberusException("No configuration of application access link!");
 
 			definitions.put(GlobalConstants.CONFIG_APP_ACCESS_URL, new StringBuilder(opt.get().getValue())
 					.append("/protected/accountProfile/confirm/")

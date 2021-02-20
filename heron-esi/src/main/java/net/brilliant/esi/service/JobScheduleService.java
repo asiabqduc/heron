@@ -2,8 +2,8 @@ package net.brilliant.esi.service;
 
 import java.util.Optional;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.esi.domain.entity.JobSchedule;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface JobScheduleService extends GenericService<JobSchedule, Long> {

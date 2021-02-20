@@ -11,10 +11,10 @@ import org.springframework.security.web.FilterInvocation;
 import net.brilliant.auth.domain.UserSecurityProfile;
 import net.brilliant.auth.entity.AccessDecisionPolicy;
 import net.brilliant.auth.entity.UserAccountProfile;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.exceptions.NgepAuthException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.entity.auth.AuthenticationDetails;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author ducbq
@@ -30,7 +30,7 @@ public interface AuthorizationService {
 
 	UserAccountProfile saveSecurityAccountProfile(UserAccountProfile securityAccountProfile) throws NgepAuthException;
 
-	UserSecurityProfile register(ExecutionContext context) throws NgepAuthException;
+	UserSecurityProfile register(Context context) throws NgepAuthException;
 
 	UserAccountProfile getUserAccount(String ssoId)  throws ObjectNotFoundException;
 

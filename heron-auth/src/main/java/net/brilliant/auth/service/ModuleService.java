@@ -1,7 +1,7 @@
 package net.brilliant.auth.service;
 
 import net.brilliant.auth.entity.Module;
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.service.GenericService;
 
 public interface ModuleService extends GenericService<Module, Long> {

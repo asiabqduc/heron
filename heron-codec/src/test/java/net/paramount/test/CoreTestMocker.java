@@ -4,7 +4,6 @@
 package net.paramount.test;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -20,8 +19,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.common.CommonConstants;
-import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.security.CryptographyAlgorithm;
 import net.brilliant.security.GlobalCryptogramRepository;
 import net.brilliant.security.SecretAlgorithm;

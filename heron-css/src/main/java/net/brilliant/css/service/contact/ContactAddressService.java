@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.entity.contact.ContactAddress;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.service.GenericService;
 

@@ -8,13 +8,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.css.repository.general.CurrencyRepository;
 import net.brilliant.css.service.general.CurrencyService;
 import net.brilliant.css.service.system.SequenceManager;
 import net.brilliant.css.specification.CurrencySpecification;
 import net.brilliant.entity.general.Currency;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
@@ -53,7 +53,7 @@ public class CurrencyServiceImpl extends GenericServiceImpl<Currency, Long> impl
 	}
 
 	@Override
-	public String nextSerial(String prefix) throws AppException {
+	public String nextSerial(String prefix) throws CerberusException {
 		String newSerialNo = this.sequenceManager.getNewNumber(prefix, Integer.valueOf(GlobalConstants.SIZE_CODE));
 		newSerialNo = prefix + newSerialNo.substring(prefix.length());
 		return newSerialNo;

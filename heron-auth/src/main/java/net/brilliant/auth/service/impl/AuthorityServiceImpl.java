@@ -10,7 +10,7 @@ import net.brilliant.auth.constants.AuxGlobalConstants;
 import net.brilliant.auth.entity.Authority;
 import net.brilliant.auth.repository.AuthorityRepository;
 import net.brilliant.auth.service.AuthorityService;
-import net.brilliant.exceptions.ObjectNotFoundException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 

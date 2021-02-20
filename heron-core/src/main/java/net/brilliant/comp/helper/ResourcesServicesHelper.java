@@ -15,8 +15,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
+import net.brilliant.ccs.exceptions.EcosphereResourceException;
 import net.brilliant.common.CommonUtility;
-import net.brilliant.exceptions.EcosphereResourceException;
 import net.brilliant.framework.component.CompCore;
 
 /**

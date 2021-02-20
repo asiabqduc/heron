@@ -11,14 +11,14 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import net.brilliant.ccs.GlobalSharedConstants;
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.css.repository.general.MeasureUnitRepository;
 import net.brilliant.css.service.general.MeasureUnitService;
 import net.brilliant.css.service.system.SequenceManager;
 import net.brilliant.css.service.system.SequenceService;
 import net.brilliant.css.specification.MeasureUnitSpecification;
 import net.brilliant.entity.general.MeasureUnit;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
@@ -82,7 +82,7 @@ public class MeasureUnitServiceImpl extends GenericServiceImpl<MeasureUnit, Long
 	}
 
 	@Override
-	public String nextSerial(String prefix) throws AppException {
+	public String nextSerial(String prefix) throws CerberusException {
 		String newSerialNo = this.sequenceManager.getNewNumber(prefix, Integer.valueOf(GlobalConstants.SIZE_CODE));
 		newSerialNo = prefix + newSerialNo.substring(prefix.length());
 		return newSerialNo;

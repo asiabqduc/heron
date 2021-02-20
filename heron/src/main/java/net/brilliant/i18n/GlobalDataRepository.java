@@ -8,17 +8,22 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Builder;
-import net.brilliant.common.CommonUtility;
 import net.brilliant.common.CollectionsUtility;
+import net.brilliant.common.CommonUtility;
 
 /**
  * @author ducbui
  *
  */
 @Builder
+@SessionScoped
+@Component
 public class GlobalDataRepository {
 	public static final String SESSION_LOCALE = "locale";
 

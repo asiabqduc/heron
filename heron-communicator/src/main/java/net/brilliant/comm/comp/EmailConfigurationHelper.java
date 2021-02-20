@@ -10,11 +10,11 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 
 import net.brilliant.common.CommonConstants;
+import net.brilliant.ccs.exceptions.CryptographyException;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.css.service.config.ConfigurationService;
 import net.brilliant.entity.config.Configuration;
 import net.brilliant.entity.config.ConfigurationDetail;
-import net.brilliant.exceptions.CryptographyException;
 import net.brilliant.framework.component.CompCore;
 import net.brilliant.global.GlobalConstants;
 import net.brilliant.security.GlobalCryptogramRepository;

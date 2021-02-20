@@ -8,7 +8,7 @@ import java.util.GregorianCalendar;
 import javax.inject.Inject;
 
 import net.brilliant.framework.logging.LogService;
-import net.brilliant.model.ExecutionContext;
+import net.brilliant.model.Context;
 
 /**
  * @author bqduc_2
@@ -20,26 +20,26 @@ public abstract class Asynchronous /*implements Runnable*/ extends Thread {
 	@Inject 
 	protected LogService log;
 
-	private ExecutionContext executionContext;
+	private Context executionContext;
 
 	public Asynchronous() {
-		this.executionContext = ExecutionContext.builder().build();
+		this.executionContext = Context.builder().build();
 	}
 
 	@Override
 	public void run() {
 		log.info("Execute started at: " + GregorianCalendar.getInstance().getTime());
-		executeAsync(ExecutionContext.builder().build());
+		executeAsync(Context.builder().build());
 		log.info("Execute finishaed at: " + GregorianCalendar.getInstance().getTime());
 	}
 
-	protected abstract void executeAsync(ExecutionContext executionContext);
+	protected abstract void executeAsync(Context executionContext);
 
-	public ExecutionContext getExecutionContext() {
+	public Context getExecutionContext() {
 		return executionContext;
 	}
 
-	public void setExecutionContext(ExecutionContext executionContext) {
+	public void setExecutionContext(Context executionContext) {
 		this.executionContext = executionContext;
 	}
 

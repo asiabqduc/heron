@@ -8,9 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.CerberusException;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.entity.trade.Tax;
-import net.brilliant.exceptions.AppException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 import net.brilliant.repository.trade.TaxRepository;
@@ -46,7 +46,7 @@ public class TaxServiceImpl extends GenericServiceImpl<Tax, Long> implements Tax
 	}
 
 	@Override
-	protected Optional<Tax> fetchBusinessObject(Object key) throws AppException {
+	protected Optional<Tax> fetchBusinessObject(Object key) throws CerberusException {
 		return super.getBizObject("findByName", key);
 	}
 }

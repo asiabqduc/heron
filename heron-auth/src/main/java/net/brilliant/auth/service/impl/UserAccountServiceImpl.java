@@ -26,12 +26,12 @@ import net.brilliant.auth.model.AuthorityGroup;
 import net.brilliant.auth.repository.UserAccountRepository;
 import net.brilliant.auth.service.AuthorityService;
 import net.brilliant.auth.service.UserAccountService;
+import net.brilliant.ccs.exceptions.EcosExceptionCode;
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.common.BeanUtility;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.common.DateTimeUtility;
-import net.brilliant.exceptions.EcosExceptionCode;
 import net.brilliant.exceptions.NgepAuthException;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;
 

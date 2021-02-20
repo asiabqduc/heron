@@ -7,12 +7,12 @@ import javax.inject.Inject;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import net.brilliant.ccs.exceptions.ObjectNotFoundException;
 import net.brilliant.css.repository.contact.ContactAddressRepository;
 import net.brilliant.css.service.contact.ContactAddressService;
 import net.brilliant.css.specification.ContactAddressSpecification;
 import net.brilliant.entity.contact.CTAContact;
 import net.brilliant.entity.contact.ContactAddress;
-import net.brilliant.exceptions.ObjectNotFoundException;
 import net.brilliant.framework.model.SearchParameter;
 import net.brilliant.framework.repository.BaseRepository;
 import net.brilliant.framework.service.GenericServiceImpl;

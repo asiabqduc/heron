@@ -14,7 +14,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Service;
 
-import net.brilliant.exceptions.EcosExceptionCode;
+import net.brilliant.ccs.exceptions.EcosExceptionCode;
 import net.brilliant.exceptions.NgepAuthException;
 import net.brilliant.framework.logging.LogService;
 
