@@ -9,15 +9,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Component;
-
 import lombok.Builder;
 import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonUtility;
 import net.brilliant.model.Context;
-import net.brilliant.osx.model.OSXWorkbook;
 import net.brilliant.osx.model.OSXConstants;
+import net.brilliant.osx.model.OSXWorkbook;
 import net.brilliant.osx.model.OfficeMarshalType;
 import net.brilliant.osx.model.OsxBucketContainer;
 
@@ -25,7 +23,6 @@ import net.brilliant.osx.model.OsxBucketContainer;
  * @author ducbui
  *
  */
-@Component
 @Builder
 public class OfficeSuiteServicesHelper implements Serializable {
 	/**
