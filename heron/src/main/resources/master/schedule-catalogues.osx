@@ -1,6 +1,0 @@
-01|Planned|The job is only scheduled, but has no start condition, end date, execution frequency, and so on, and will never run.
-02|Released|The job has assigned process steps and all the parameters for execution are available. The job is waiting to be executed for the first time as soon as the start condition is fulfilled – e.g. a certain time.
-03|Ready|The job is ready for execution and has been placed in the execution queue by the job scheduler. As soon as a background process is free, the job is executed.
-04|Active|The job runs in the background. The status of the job can no longer be changed during execution.
-05|Completed|The job has been successfully completed.
-06|Cancelled|The job has been canceled. The termination may have been caused manually by an administrator, or a problem may have occurred during the execution of the job. The exact details can be read in the job logs and in the spool (see description below).
