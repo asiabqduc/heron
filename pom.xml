@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.2</version>
+		<version>2.4.3</version>
 		<relativePath />
 	</parent>	
 	
@@ -65,7 +65,7 @@
 		<version.commons-lang3>3.10</version.commons-lang3> 
 		<version.commons-text>1.8</version.commons-text>
 
-		<version.spring-core>5.3.3</version.spring-core>
+		<version.spring-core>5.3.4</version.spring-core>
 		<version.spring-boot-dependency>2.4.2</version.spring-boot-dependency>
 	</properties>
  
