@@ -72,7 +72,7 @@
 	<modules>
     <module>heron-crossed-common</module>
 		<module>heron-utility</module>
-		<!-- <module>heron-osx</module> -->
+		<module>heron-osx</module>
 		<module>heron-codec</module>
 		<module>heron-core</module>
 		<module>heron-core-eux</module>
