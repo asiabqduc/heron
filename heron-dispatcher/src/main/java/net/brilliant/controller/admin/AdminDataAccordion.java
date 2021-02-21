@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.model.Context;
-import net.brilliant.osx.helper.OfficeSuiteServiceProvider;
 import net.brilliant.osx.model.OSXConstants;
 import net.brilliant.osx.model.OSXWorkbook;
 import net.brilliant.osx.model.OSXWorksheet;
@@ -74,13 +73,16 @@ public class AdminDataAccordion implements Serializable {
     context.put(OSXConstants.INPUT_STREAM, inputStream);
     context.put(OSXConstants.PROCESSING_DATASHEET_IDS, processingSheetIds);
     context.put(OSXConstants.STARTED_ROW_INDEX, new Integer[] {1, 1, 1});
-    OSXWorkbook workbook = OfficeSuiteServiceProvider.builder().build().readExcelFile(context);
+    OSXWorkbook workbook = null;//OfficeSuiteServiceProvider.builder().build().readExcelFile(context);
     processLoadedData(workbook);
   }
 
-  protected void processLoadedData(OSXWorkbook osxWorkbook){
+  protected void processLoadedData(OSXWorkbook workbook){
+    if (null==workbook)
+      return;
+
     log.info("+++++++++++++++++");
-    for (OSXWorksheet worksheet :osxWorkbook.datasheets()){
+    for (OSXWorksheet worksheet :workbook.datasheets()){
       log.info("Number of rows: " + worksheet.getDataRow(worksheet.getKeys().size()));
     }
     log.info("+++++++++++++++++");

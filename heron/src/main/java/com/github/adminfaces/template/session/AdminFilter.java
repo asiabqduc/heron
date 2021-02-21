@@ -108,7 +108,7 @@ public class AdminFilter implements Filter {
     private void initBeans() {
     	try {
         Class<?> cdiClass = Class.forName("javax.enterprise.inject.spi.CDI");
-        System.out.println(cdiClass);
+        //System.out.println(cdiClass);
         /*CDI.current().select(AdminConfig.class).get();
         CDI.current().select(AdminSession.class).get();*/
 			} catch (Exception e) {
