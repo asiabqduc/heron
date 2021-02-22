@@ -34,7 +34,7 @@ public class ApplicationLunchpad {
 		  SpringApplication.run(ApplicationStarter.class, args);
 		  log.info("Application is ready!!!");
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 }

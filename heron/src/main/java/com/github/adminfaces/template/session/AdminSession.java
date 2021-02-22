@@ -2,8 +2,9 @@ package com.github.adminfaces.template.session;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by rmpestano on 04/02/17
@@ -12,8 +13,10 @@ import javax.inject.Named;
  * By default it is always logged in so to have this feature one must @Specializes this bean and put
  * the security logic in IsLoggedIn method.
  */
-@Named
-@SessionScoped
+//@Named
+//@SessionScoped
+@Component
+@Scope(value="session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class AdminSession implements Serializable {
     /**
    * 

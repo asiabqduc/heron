@@ -3,15 +3,21 @@
  */
 package net.sunrise.osx.test;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
 import net.brilliant.common.CollectionsUtility;
+import net.brilliant.common.CommonUtility;
+import net.brilliant.model.Context;
 import net.brilliant.osx.helper.OfficeSuiteServiceProvider;
+import net.brilliant.osx.helper.OfficeSuiteServicesHelper;
 import net.brilliant.osx.model.OSXConstants;
 import net.brilliant.osx.model.OSXWorkbook;
 import net.brilliant.osx.model.OSXWorksheet;
+import net.brilliant.osx.model.OfficeMarshalType;
 import net.brilliant.osx.model.OsxBucketContainer;
 
 /**
@@ -23,7 +29,8 @@ public class OSXTestMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		doTestReadXlsx();
+	  loadZipData();
+	  //doTestReadXlsx();
 	}
 
 	protected static void doTestReadXlsx() {
@@ -61,6 +68,47 @@ public class OSXTestMain {
 		}
 
 	}
+
+  protected static Context initContextData(
+      final Map<String, String> secretKeys, 
+      final Map<String, List<String>> sheetIdList, 
+      final String[] zipEntries,
+      final String originalFileName,
+      final InputStream compressedZipInputStream) {
+
+    return Context.builder().build()
+        .put(OSXConstants.COMPRESSED_FILE, CommonUtility.createFileFromInputStream(originalFileName, compressedZipInputStream))
+        .put(OSXConstants.ENCRYPTION_KEYS, secretKeys)
+        .put(OSXConstants.ZIP_ENTRY, CollectionsUtility.arraysAsList(zipEntries))
+        .put(OSXConstants.OFFICE_EXCEL_MARSHALLING_DATA_METHOD, OfficeMarshalType.STREAMING)
+        .put(OSXConstants.PROCESSING_DATASHEET_IDS, sheetIdList);
+  }
+	
+	
+	protected static void loadZipData(){
+	  String dataFile = "data-catalog-high.xlsx";
+	  try {
+	    long started = System.currentTimeMillis();
+	    InputStream inputStream = new FileInputStream("D:/git/heron/heron/src/main/resources/master/data-catalog-high.zip");
+	    OsxBucketContainer bucketContainer = OfficeSuiteServicesHelper.builder().build().loadZipDataFromInputStream(dataFile, inputStream);
+	    started = System.currentTimeMillis()-started;
+	    System.out.println("Taken: "+started);
+	    displayWorkbook((OSXWorkbook)bucketContainer.get(dataFile));
+	    System.out.println();
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  }
+	}
+
+	private static void displayWorkbook(OSXWorkbook workbook){
+	  for (OSXWorksheet worksheet :workbook.datasheets()){
+	    System.out.println("+++++++++++++++++" + worksheet.getId() + "+++++++++++++++++");
+	    for (Integer key :worksheet.getKeys()){
+	      System.out.println(worksheet.getDataRow(key));
+	    }
+	  }
+    System.out.println("+++++++++++++++++");
+  }
 
 	private static void displayDatasheet(OSXWorksheet osxWorksheet){
 	  System.out.println("+++++++++++++++++");

@@ -45,11 +45,11 @@ public class AdminFilter implements Filter {
     private String indexPage;
     private String redirectPrefix;
 
-    //@Inject
-    AdminSession adminSession;
+    @Inject
+    private AdminSession adminSession;
 
     @Inject
-    AdminConfig adminConfig;
+    private AdminConfig adminConfig;
 
     private final List<String> ignoredResources = new ArrayList<>();
 

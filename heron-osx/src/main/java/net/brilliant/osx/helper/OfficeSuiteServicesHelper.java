@@ -53,7 +53,7 @@ public class OfficeSuiteServicesHelper implements Serializable {
 			bucketContainer = OfficeSuiteServiceProvider
 					.builder()
 					.build()
-					.readOfficeDataInZip(executionContext);
+					.readOfficeDataInCompressedZip(executionContext);
 		} catch (Exception e) {
 			throw new CerberusException(e);
 		}
@@ -64,7 +64,7 @@ public class OfficeSuiteServicesHelper implements Serializable {
 		return OfficeSuiteServiceProvider
 					.builder()
 					.build()
-					.readOfficeDataInZip(executionContext);
+					.readOfficeDataInCompressedZip(executionContext);
 	}
 
 	public OsxBucketContainer loadZipDataFromInputStream(final String originFileName, final InputStream inputStream) throws CerberusException {
@@ -77,14 +77,21 @@ public class OfficeSuiteServicesHelper implements Serializable {
 			bucketContainer = OfficeSuiteServiceProvider
 					.builder()
 					.build()
-					.readOfficeDataInZip(executionContext);
+					.readOfficeDataInCompressedZip(executionContext);
 		} catch (Exception e) {
 			throw new CerberusException(e);
 		}
 		return bucketContainer;
 	}
 
-	public OSXWorkbook unmarshallContacts(Context executionContext) {
+  public OsxBucketContainer loadOfficeDataFromCompressedInputStream(Context context) throws CerberusException {
+    return OfficeSuiteServiceProvider
+          .builder()
+          .build()
+          .readOfficeDataInCompressedZip(context);
+  }
+
+  public OSXWorkbook unmarshallContacts(Context executionContext) {
 		OSXWorkbook fetchedDataWorkbook = null;
 		return fetchedDataWorkbook;
 	}

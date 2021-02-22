@@ -262,7 +262,7 @@ public class XSSFEventDataHelper {
 				for (int idx = 0; idx < startedRowIndex; ++idx){
 					this.stringTable.remove(0);
 				}
-				dataBucket.put(iter.getSheetName(), this.stringTable);
+				//dataBucket.put(iter.getSheetName(), this.stringTable);
 			}
 			stream.close();
 		}
@@ -305,7 +305,7 @@ public class XSSFEventDataHelper {
 					for (int idx = 0; idx < startedRowIndex; ++idx){
 						this.stringTable.remove(0);
 					}
-					dataBucket.put(iter.getSheetName(), this.stringTable);
+					//dataBucket.put(iter.getSheetName(), this.stringTable);
 				}
 				stream.close();
 			}
@@ -355,7 +355,7 @@ public class XSSFEventDataHelper {
 				for (int idx = 0; idx < startedRowIndex; ++idx){
 					this.stringTable.remove(0);
 				}
-				dataBucket.put(sheetName, this.stringTable);
+				//dataBucket.put(sheetName, this.stringTable);
 				inputStream.close();
 			}
 			this.xlsxPackage.close();

@@ -77,7 +77,7 @@ public class OfficeSuiteServiceProvider {
     return readExcelFile(context.getContextData());
   }
 
-	public OsxBucketContainer readOfficeDataInZip(final Context context) throws CerberusException {
+	public OsxBucketContainer readOfficeDataInCompressedZip(final Context context) throws CerberusException {
 		OsxBucketContainer bucketContainer = OsxBucketContainer.instance();
 		File zipFile = null;
 		Map<String, InputStream> zipInputStreams = null;
