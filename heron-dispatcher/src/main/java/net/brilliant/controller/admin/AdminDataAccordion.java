@@ -60,7 +60,7 @@ public class AdminDataAccordion implements Serializable {
           null, 
           new String[] {masterDataFile+".xlsx"},  
           CollectionsUtility.createMap(),
-          CollectionsUtility.createHashMapData(masterDataFile, CollectionsUtility.createDataList("contacts", "contacts-ext", "inventory-items", "business-units")));
+          CollectionsUtility.createHashMapData(masterDataFile, CollectionsUtility.createDataList("contacts", "contacts-ext", "saleman", "inventory-items", "business-units")));
     } catch (CerberusException e) {
       log.error(e.getMessage(), e);
     }
