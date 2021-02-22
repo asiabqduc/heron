@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author bqduc
@@ -17,7 +19,8 @@ import lombok.Builder;
  */
 @Builder
 public class OSXWorksheet extends OSXContainer {
-	private String id;
+  @Setter @Getter
+  private String id;
 
 	@Builder.Default
 	private Map<Integer, List<?>> dataRows = new HashMap<>();
@@ -41,11 +44,7 @@ public class OSXWorksheet extends OSXContainer {
 		return this.dataRows.values();
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+  public int getSize() {
+    return this.dataRows.size();
+  }
 }

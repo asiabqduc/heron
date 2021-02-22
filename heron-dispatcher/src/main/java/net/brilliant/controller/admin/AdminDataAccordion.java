@@ -60,7 +60,7 @@ public class AdminDataAccordion implements Serializable {
           null, 
           new String[] {masterDataFile+".xlsx"},  
           CollectionsUtility.createMap(),
-          CollectionsUtility.createHashMapData(masterDataFile, CollectionsUtility.createDataList("contacts", "inventory-items", "business-units")));
+          CollectionsUtility.createHashMapData(masterDataFile, CollectionsUtility.createDataList("contacts", "contacts-ext", "inventory-items", "business-units")));
     } catch (CerberusException e) {
       log.error(e.getMessage(), e);
     }
@@ -123,6 +123,7 @@ public class AdminDataAccordion implements Serializable {
       Map<String, List<String>> sheetIdList) throws CerberusException{
     Context context = Context.builder().build();
     InputStream compressedZipInputStream = null;
+    long duration = System.currentTimeMillis();
     try {
       Resource resource = this.resourceLoader.getResource(compressedZipFile);
       if (null==resource){
@@ -152,6 +153,8 @@ public class AdminDataAccordion implements Serializable {
     .builder()
     .build()
     .readOfficeDataInCompressedZip(context);
+    duration = System.currentTimeMillis()-duration;
+    log.info("Loading taken: " + duration + " miliseconds!");
     processLoadedData(bucketContainer);
   }
 
@@ -162,7 +165,12 @@ public class AdminDataAccordion implements Serializable {
     for (OSXWorkbook workbook :bucketContainer.getValues()){
       log.info("+++++++++++++++++");
       for (OSXWorksheet worksheet :workbook.datasheets()){
-        log.info("Number of rows: " + worksheet.getDataRow(worksheet.getKeys().size()));
+        log.info("Sheet [" + worksheet.getId() + "]: " + worksheet.getSize());
+        /*
+        for (Integer key :worksheet.getKeys()){
+          System.out.println(worksheet.getDataRow(key));
+        }
+        */
       }
     }
     log.info("+++++++++++++++++");
