@@ -1397,6 +1397,7 @@ public class CommonUtility implements CommonConstants {
 				}
 			}
 		} catch (IOException e) {
+		  e.printStackTrace();
 			throw new CommonException(e);
 		} finally {
       try {
