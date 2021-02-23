@@ -51,7 +51,7 @@ public class AdminDataAccordion implements Serializable {
 
   public void onLoadMasterDataFromCompressed() {
     log.info("On loading master data.");
-    final String masterDataDirectory = "classpath:/master/";
+    final String masterDataDirectory = "classpath:/META-INF/";
     final String masterDataFile = "data-catalog-high";
     try {
       //loadDataFromCompressedZip(masterDataDirectory + "data-catalog.zip");
