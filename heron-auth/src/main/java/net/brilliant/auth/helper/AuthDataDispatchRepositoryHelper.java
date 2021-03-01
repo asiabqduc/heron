@@ -37,67 +37,69 @@ public class AuthDataDispatchRepositoryHelper extends CompCore {
 	 */
 	private static final long serialVersionUID = 8201117425860593585L;
 
-	@Inject
-	  private Environment environment;
+  @Inject
+  private Environment environment;
 
-		@Inject
-		private ConfigurationService configurationService;
+  @Inject
+  private ConfigurationService configurationService;
 
-		@Inject
-		private AuthorityService authorityService;
+  @Inject
+  private AuthorityService authorityService;
 
-		@Inject
-		private AccessDecisionPolicyService accessDecisionPolicyService;
+  @Inject
+  private AccessDecisionPolicyService accessDecisionPolicyService;
 
-		@Inject 
-		private PasswordEncoder passwordEncoder;
+  @Inject
+  private PasswordEncoder passwordEncoder;
 
-		@Inject
-		private UserAccountService userAccountService;
+  @Inject
+  private UserAccountService userAccountService;
 
-		@Inject
-		private JsonWebTokenService jwtServiceProvider;
+  @Inject
+  private JsonWebTokenService jwtServiceProvider;
 
-		protected void initialize() {
-			initCountries();
-		}
+  protected void initialize() {
+    initCountries();
+  }
 
-		protected void initiateMasterData() {
-			initiateApplicationProfile();
-			setupMasterAuthorizations();
-		}
+  private void setupMasterAuthorizations() {
+    setupMasterAuthorities();
+    initAccessDecisionPolicies();
+    setupMasterUsers();
+  }
 
-		private void setupMasterAuthorizations() {
-			setupMasterAuthorities();
-			initAccessDecisionPolicies();
-			setupMasterUsers();
-		}
-
-		private void initAccessDecisionPolicies() {
-			String propAccessPattern = "accessPattern";
-			Authority 
-			administrator = authorityService.getByName(BaseACL.ADMINISTRATOR.getAuthority())
+  private void initAccessDecisionPolicies() {
+    String propAccessPattern = "accessPattern";
+		Authority administrator = authorityService.getByName(BaseACL.ADMINISTRATOR.getAuthority())
 			, sysManager = authorityService.getByName(BaseACL.MANAGER.getAuthority())
 			, regionalManager = authorityService.getByName(BaseACL.REGIONAL_MANAGER.getAuthority())
 			, divisionManager = authorityService.getByName(BaseACL.DIVISION_MANAGER.getAuthority())
 			, departmentManager = authorityService.getByName(BaseACL.DEPARTMENT_MANAGER.getAuthority())
 			;
 
-			if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.ADMINISTRATOR.getAntMatcher())) {
-				accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.ADMINISTRATOR.getAntMatcher()).build().addAccessDecisionAuthority(administrator));
-			}
+    if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.ADMINISTRATOR.getAntMatcher())) {
+      accessDecisionPolicyService.saveOrUpdate(
+          AccessDecisionPolicy.builder()
+          .accessPattern(BaseACL.ADMINISTRATOR.getAntMatcher())
+          .build()
+          .addAccessDecisionAuthority(administrator)
+       );
+    }
 
-			if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.COORDINATOR.getAntMatcher())) {
-				accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.COORDINATOR.getAntMatcher()).build().addAccessDecisionAuthority(authorityService.getByName(BaseACL.COORDINATOR.getAuthority())));
-			}
+    if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.COORDINATOR.getAntMatcher())) {
+      accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.COORDINATOR.getAntMatcher()).build()
+          .addAccessDecisionAuthority(authorityService.getByName(BaseACL.COORDINATOR.getAuthority())));
+    }
 
-			if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.CRSX.getAntMatcher())) {
-				accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.CRSX.getAntMatcher()).build().addAccessDecisionAuthority(authorityService.getByName(BaseACL.CRSX.getAuthority())));
-			}
+    if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.CRSX.getAntMatcher())) {
+      accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.CRSX.getAntMatcher()).build()
+          .addAccessDecisionAuthority(authorityService.getByName(BaseACL.CRSX.getAuthority())));
+    }
 
-			if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.MANAGER.getAntMatcher())) {
-				accessDecisionPolicyService.saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.MANAGER.getAntMatcher()).build().addAccessDecisionAuthority(sysManager));
-			}
+    if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.MANAGER.getAntMatcher())) {
+      accessDecisionPolicyService
+          .saveOrUpdate(AccessDecisionPolicy.builder().accessPattern(BaseACL.MANAGER.getAntMatcher()).build().addAccessDecisionAuthority(sysManager));
+    }
 
 			if (!accessDecisionPolicyService.exists(propAccessPattern, BaseACL.OSX.getAntMatcher())){
 				accessDecisionPolicyService.saveOrUpdate(
@@ -353,52 +355,50 @@ public class AuthDataDispatchRepositoryHelper extends CompCore {
 			}
 		}
 
-		private UserAccountProfile updateJWebToken(UserAccountProfile securityAccountProfile) {
-			String indefiniteToken = this.jwtServiceProvider.generateIndefiniteToken(securityAccountProfile);
-			//indefiniteToken = Base64Utils.encode(indefiniteToken);
-			securityAccountProfile.setActivationKey(indefiniteToken);
-			this.userAccountService.saveOrUpdate(securityAccountProfile);
-			return securityAccountProfile;
-		}
+  private UserAccountProfile updateJWebToken(UserAccountProfile securityAccountProfile) {
+    String indefiniteToken = this.jwtServiceProvider.generateIndefiniteToken(securityAccountProfile);
+    // indefiniteToken = Base64Utils.encode(indefiniteToken);
+    securityAccountProfile.setActivationKey(indefiniteToken);
+    this.userAccountService.saveOrUpdate(securityAccountProfile);
+    return securityAccountProfile;
+  }
 
-		private UserAccountProfile updateEncodedJWebToken(UserAccountProfile securityAccountProfile) {
-			String indefiniteToken = this.jwtServiceProvider.generateIndefiniteToken(securityAccountProfile);
-			indefiniteToken = Base64Utils.encode(indefiniteToken);
-			securityAccountProfile.setActivationKey(indefiniteToken);
-			this.userAccountService.saveOrUpdate(securityAccountProfile);
-			return securityAccountProfile;
-		}
+  private UserAccountProfile updateEncodedJWebToken(UserAccountProfile securityAccountProfile) {
+    String indefiniteToken = this.jwtServiceProvider.generateIndefiniteToken(securityAccountProfile);
+    indefiniteToken = Base64Utils.encode(indefiniteToken);
+    securityAccountProfile.setActivationKey(indefiniteToken);
+    this.userAccountService.saveOrUpdate(securityAccountProfile);
+    return securityAccountProfile;
+  }
 
-		private void initiateApplicationProfile() {
-			final String defaultProductiveLink = "https://paramounts.herokuapp.com";
-			final String defaultDevelopmentLink = "http://localhost:8181";
-			
-			String[] activeProfiles = null;
-			String runningProfile = null;
-			if (false==this.configurationService.isExistsByName(GlobalConstants.CONFIG_APP_ACCESS_URL)) {
-				activeProfiles = environment.getActiveProfiles();
-				if (CommonUtility.isNotEmpty(activeProfiles)) {
-					runningProfile = activeProfiles[0];
-				}
+  private void initiateApplicationProfile() {
+    final String defaultProductiveLink = "https://paramounts.herokuapp.com";
+    final String defaultDevelopmentLink = "http://localhost:8181";
 
-				this.configurationService.save(Configuration.builder()
-						.group(GlobalConstants.CONFIG_GROUP_APP)
-						.name(GlobalConstants.CONFIG_APP_ACCESS_URL)
-						.value((runningProfile.contains("postgres") || runningProfile.contains("develop"))?defaultDevelopmentLink:defaultProductiveLink)
-						.build());
-			}
-		}
+    String[] activeProfiles = null;
+    String runningProfile = null;
+    if (false == this.configurationService.isExistsByName(GlobalConstants.CONFIG_APP_ACCESS_URL)) {
+      activeProfiles = environment.getActiveProfiles();
+      if (CommonUtility.isNotEmpty(activeProfiles)) {
+        runningProfile = activeProfiles[0];
+      }
 
-		private void initCountries() {
-			log.info("Enter countries intialize");
-			//this.lingualHelper.initAvailableCountries();
-			log.info("Leave countries intialize");
-		}
-		
-		public void dispatch() {
-			long duration = System.currentTimeMillis();
-			initiateMasterData();
-			duration = System.currentTimeMillis()-duration;
-			System.out.println("Dispatching master data taken: " + duration);
-	}
+      this.configurationService.save(Configuration.builder()
+          .group(GlobalConstants.CONFIG_GROUP_APP)
+          .name(GlobalConstants.CONFIG_APP_ACCESS_URL)
+          .value((runningProfile.contains("postgres") || runningProfile.contains("develop")) ? defaultDevelopmentLink : defaultProductiveLink)
+          .build());
+    }
+  }
+
+  private void initCountries() {
+    logger.info("Enter countries intialize");
+    // this.lingualHelper.initAvailableCountries();
+    logger.info("Leave countries intialize");
+  }
+
+  public void dispatch() {
+    initiateApplicationProfile();
+    setupMasterAuthorizations();
+  }
 }

@@ -67,7 +67,7 @@ public class UserAccountServiceImpl extends GenericServiceImpl<UserAccountProfil
 
 	@Override
 	public UserDetails loadUserByUsername(String login) throws NgepAuthException {
-		log.debug("Authenticating {}", login);
+		logger.debug("Authenticating {}", login);
 		String lowercaseLogin = login;//.toLowerCase();
 		UserAccountProfile userFromDatabase = repository.findBySsoId(login);
 

@@ -107,7 +107,7 @@ public class BusinessUnitController extends DetailHome<BusinessUnit> {
 				Faces.redirect("/pages/trade/taxGroupBrowse.jsf");
 			}
 		} catch (Exception e) {
-			this.log.error(e);
+			this.logger.error(e);
 		}
 		return "success";
 	}

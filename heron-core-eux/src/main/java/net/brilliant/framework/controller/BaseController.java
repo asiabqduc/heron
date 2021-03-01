@@ -140,7 +140,7 @@ public abstract class BaseController extends RootController {
 					objectName = (String) BeanUtility.getBeanProperty(object, GlobalSharedConstants.PROP_NAME);
 					selectItems.add(SelectItem.builder().id(objectId).code(objectCode).name(objectName).build());
 				} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-					log.error(e);
+					logger.error(e);
 				}
 			}
 		}
@@ -159,7 +159,7 @@ public abstract class BaseController extends RootController {
 				objectName = (String) BeanUtility.getBeanProperty(object, displayNameProperty);
 				selectItems.add(SelectItem.builder().id(objectId).code(objectCode).name(objectName).build());
 			} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-				log.error(e);
+				logger.error(e);
 			}
 		}
 		return selectItems;
@@ -176,7 +176,7 @@ public abstract class BaseController extends RootController {
 				objectName = (String) BeanUtility.getBeanProperty(object, GlobalSharedConstants.PROP_NAME);
 				selectItems.add(SelectItem.builder().id(objectId).code(objectCode).name(objectName).build());
 			} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-				log.error(e);
+				logger.error(e);
 			}
 		}
 		return selectItems;
@@ -195,7 +195,7 @@ public abstract class BaseController extends RootController {
 
 				selectItems.add(SelectItem.builder().build().instance(objectId, displayValueMap));
 			} catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-				log.error(e);
+				logger.error(e);
 			}
 		}
 		return selectItems;
@@ -223,7 +223,7 @@ public abstract class BaseController extends RootController {
         return request;
     }
 
-    log.debug("Not called in the context of an HTTP request");
+    logger.debug("Not called in the context of an HTTP request");
     return null;
 	}	
 
@@ -242,11 +242,11 @@ public abstract class BaseController extends RootController {
 			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(ssoId, password);
 			token.setDetails(new WebAuthenticationDetails(request));
 			Authentication authentication = this.authenticationProvider.authenticate(token);
-			log.debug("Logging in with [{}]", authentication.getPrincipal());
+			logger.debug("Logging in with [{}]", authentication.getPrincipal());
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 		} catch (Exception e) {
 			SecurityContextHolder.getContext().setAuthentication(null);
-			log.error("Failure in autoLogin", e);
+			logger.error("Failure in autoLogin", e);
 		}
 	}	
 
@@ -254,7 +254,7 @@ public abstract class BaseController extends RootController {
 		try {
 			UserDetails userDetails = (UserDetails)request.getAttribute(ControllerConstants.AUTHENTICATED_PROFILE);
 			if (null==userDetails) {
-				log.error("There is no information of user to perform remore login. ");
+				logger.error("There is no information of user to perform remore login. ");
 				return;
 			}
 
@@ -263,7 +263,7 @@ public abstract class BaseController extends RootController {
       SecurityContextHolder.getContext().setAuthentication(authentication);
 		} catch (Exception e) {
 			SecurityContextHolder.getContext().setAuthentication(null);
-			log.error("Failure in remote Login", e);
+			logger.error("Failure in remote Login", e);
 		}
 	}	
 
@@ -274,13 +274,13 @@ public abstract class BaseController extends RootController {
 
 	@PostMapping(value = "/search/query", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String search(@RequestBody(required = false) SearchParameter params, Model model, Pageable pageable) {
-		log.info("Enter search/query");
+		logger.info("Enter search/query");
 		return performSearch(params.setPageable(pageable).setModel(model));
 	}
 
 	@RequestMapping(path = "/searchex/query", method = RequestMethod.GET)
 	public List<?> query(@RequestBody(required = false) SearchParameter params, Model model, Pageable pageable) {
-		log.info("Enter search/query");
+		logger.info("Enter search/query");
 		return performSearchObjects(params.setPageable(pageable).setModel(model));
 	}
 
@@ -299,7 +299,7 @@ public abstract class BaseController extends RootController {
 
 	@RequestMapping(value = "/suggest", method = RequestMethod.GET)
 	public @ResponseBody List<SelectItem> suggest(@RequestParam("term") String keyword, HttpServletRequest request) {
-		log.info("Enter keyword: " + keyword);
+		logger.info("Enter keyword: " + keyword);
 		List<SelectItem> suggestedItems = suggestItems(keyword);
 		if (CommonUtility.isNull(suggestedItems)) {
 			suggestedItems = new ArrayList<>();
@@ -309,7 +309,7 @@ public abstract class BaseController extends RootController {
 
 	@RequestMapping(value = "/suggestObjects", method = RequestMethod.GET)
 	public @ResponseBody List<SelectItem> suggestObject(@RequestParam("keyword") String keyword, HttpServletRequest request) {
-		log.info("Enter keyword: " + keyword);
+		logger.info("Enter keyword: " + keyword);
 		List<SelectItem> suggestedItems = suggestItems(keyword);
 		if (CommonUtility.isNull(suggestedItems)){
 			suggestedItems = new ArrayList<>();
@@ -322,9 +322,9 @@ public abstract class BaseController extends RootController {
    */
 	@RequestMapping(value = "/import", method = RequestMethod.GET)
 	public String imports(Model model, HttpServletRequest request) {
-		log.info("Importing business objects .....");
+		logger.info("Importing business objects .....");
 		String importResults = performImport(model, request);
-		log.info("Leave importing business objects!");
+		logger.info("Leave importing business objects!");
 		return importResults;
 	}
 
@@ -333,9 +333,9 @@ public abstract class BaseController extends RootController {
    */
 	@RequestMapping(value = "/export", method = RequestMethod.GET)
 	public String exports(Model model, HttpServletRequest request) {
-		log.info("Exporting business objects .....");
+		logger.info("Exporting business objects .....");
 		String exportResults = performExport(model, request);
-		log.info("Leaving exporting business objects .....");
+		logger.info("Leaving exporting business objects .....");
 		return exportResults;
 	}
 }

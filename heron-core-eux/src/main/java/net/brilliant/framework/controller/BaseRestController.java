@@ -107,7 +107,7 @@ public abstract class BaseRestController<T extends RepoEntity, PK extends Serial
 	@ExceptionHandler(DataFormatException.class)
 	public @ResponseBody RestErrorInfo handleDataStoreException(DataFormatException ex, WebRequest request,
 			HttpServletResponse response) {
-		log.info("Converting Data Store exception to RestResponse : " + ex.getMessage());
+		logger.info("Converting Data Store exception to RestResponse : " + ex.getMessage());
 
 		return new RestErrorInfo(ex, "You messed up.");
 	}
@@ -116,7 +116,7 @@ public abstract class BaseRestController<T extends RepoEntity, PK extends Serial
 	@ExceptionHandler(EcosphereResourceException.class)
 	public @ResponseBody RestErrorInfo handleResourceNotFoundException(EcosphereResourceException ex, WebRequest request,
 			HttpServletResponse response) {
-		log.info("EcosphereResourceException handler:" + ex.getMessage());
+		logger.info("EcosphereResourceException handler:" + ex.getMessage());
 
 		return new RestErrorInfo(ex, "Sorry I couldn't find it.");
 	}

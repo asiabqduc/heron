@@ -59,7 +59,7 @@ public class GlobalDispatcher extends CompCore {
 				securityAccountProfile = (UserSecurityProfile)session.getAttribute(GlobalConstants.AUTHENTICATED_PROFILE);
 			}
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 
 		if (null == securityAccountProfile) {
@@ -85,7 +85,7 @@ public class GlobalDispatcher extends CompCore {
 			ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 			this.httpSession = attr.getRequest().getSession(true);
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return this.httpSession;
 		// return attr.getRequest().getSession(true); // true == allow create
@@ -106,7 +106,7 @@ public class GlobalDispatcher extends CompCore {
 		try {
 			securityPrincipalProfile = this.getSecurityAccountProfile();
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 
 		if (null==securityPrincipalProfile || null==securityPrincipalProfile.getUserAccount() || null == securityPrincipalProfile.getUserAccount().getProfilePicture()) {

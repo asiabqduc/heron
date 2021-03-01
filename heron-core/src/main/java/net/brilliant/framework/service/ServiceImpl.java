@@ -109,7 +109,7 @@ public abstract class ServiceImpl<EntityType extends RepoEntity, Key extends Ser
 				searchResult = (List<EntityType>)findingResult;
 			}
 		} catch (ExecutionContextException e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return (null==searchResult)?DUMMY_LIST:searchResult;
 	}

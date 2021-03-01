@@ -87,6 +87,7 @@
 		<module>heron-api-dispatcher</module>
 		<module>heron-agent-domain</module>
 		<module>heron-esi</module>
+		<module>heron-dmx</module>
 		<module>heron</module>
     </modules>
 

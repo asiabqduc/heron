@@ -46,7 +46,7 @@ public class EmailTemplateHelper extends CompCore {
 		String emailTemplateDir = this.getEmailTemplateLoadingDir();
 		if (CommonUtility.isEmpty(emailTemplateDir)) {
 			emailTemplateDir = CommunicatorConstants.DEFAULT_LOADING_TEMPLATE_DIRECTORY;
-			log.info("The loading email template directory is empty, using the default email loading template: " + CommunicatorConstants.DEFAULT_LOADING_TEMPLATE_DIRECTORY);
+			logger.info("The loading email template directory is empty, using the default email loading template: " + CommunicatorConstants.DEFAULT_LOADING_TEMPLATE_DIRECTORY);
 		}
 
 		freemarkerConfig.setClassForTemplateLoading(this.getClass(), emailTemplateDir);

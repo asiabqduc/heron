@@ -40,7 +40,7 @@ public class EmailConfigurationHelper extends CompCore {
 				configurationService.save(config);
 			}
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 	}
 

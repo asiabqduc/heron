@@ -8,7 +8,8 @@ package net.brilliant.osx.model;
  *
  */
 public interface OSXConstants {
-	static final String INPUT_RESOURCE_NAME = "inputResourceName";
+  static final String RESOURCE_REPO = "repoResource";
+	static final String RESOURCE_NAME = "inputResourceName";
 	static final String WORK_DATA_SHEET = "workDataSheet";
 	static final String COMPRESSED_FILE = "compressedFile";
 	static final String ZIP_ENTRY = "zipEntry";
@@ -19,6 +20,7 @@ public interface OSXConstants {
 	static final String DATABOOKS_DATASHEETS_MAP = "dataBooksSheetsMap";
 	static final String DATA_INDEXES = "dataIndexes";
 	static final String STARTED_ROW_INDEX = "startedRowIndex";
+  static final String ENCRYPTION_KEY = "encryptionKey";
 	static final String ENCRYPTION_KEYS = "encryptionKeys";
 	static final String LIMITED_COLUMNS = "limitedColumns";
 	static final String LIMITED_ROWS = "limitedRows";

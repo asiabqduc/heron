@@ -149,7 +149,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		try {
 			//getRepository().delete(id);
 		} catch (EmptyResultDataAccessException e) {
-			log.error("Delete object by key", e);
+			logger.error("Delete object by key", e);
 		}
 	}
 
@@ -159,7 +159,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		try {
 			getRepository().delete(entity);
 		} catch (EmptyResultDataAccessException e) {
-			log.error("Delete object. ", e);
+			logger.error("Delete object. ", e);
 		}
 	}
 
@@ -169,7 +169,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 		try {
 			getRepository().deleteAll();
 		} catch (EmptyResultDataAccessException e) {
-			log.error("Delete all objects. ", e);
+			logger.error("Delete all objects. ", e);
 		}
 	}
 
@@ -216,7 +216,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 			count = (Long)retData;
 		} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| InstantiationException e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return count;
 	}
@@ -270,7 +270,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
     	if (null != respository){
     		respository.saveAndFlush(entity);
     	} else {
-    		log.info("There is no implemented repository for " + this.getClass().getSimpleName());
+    		logger.info("There is no implemented repository for " + this.getClass().getSimpleName());
       	if (null == entity.getId()){
       		this.em.persist(entity);
       	}else{
@@ -278,7 +278,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
       		this.em.refresh(mergedEntity);
       	}
       	this.em.flush();
-    		log.info("Use the persistence context entity manager object instead of repository. ");
+    		logger.info("Use the persistence context entity manager object instead of repository. ");
     	}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -332,7 +332,7 @@ public abstract class GenericServiceImpl<ClassType extends RepoEntity, Key exten
 
 		if (fetchedBizObject.get() instanceof RepoAuditable && 
 				(!Boolean.TRUE.equals(((RepoAuditable)fetchedBizObject.get()).getVisible())||!Boolean.TRUE.equals(((RepoAuditable)fetchedBizObject.get()).getSystem()))) {
-			log.error("The business object with key: [" + key + "] not activated or visible yet. ");
+			logger.error("The business object with key: [" + key + "] not activated or visible yet. ");
 			return Optional.empty();
 		}
 

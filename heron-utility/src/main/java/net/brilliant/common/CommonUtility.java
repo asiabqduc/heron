@@ -1434,7 +1434,7 @@ public class CommonUtility implements CommonConstants {
 		return resp;
 	}
 
-	public static InputStream createInputStream(final String fileName, final byte[] data) throws CommonException {
+	public static InputStream buildInputStream(final String fileName, final byte[] data) throws CommonException {
 		InputStream inputStream = null;
 		File tempDataFile = null;
 		try {

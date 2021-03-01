@@ -77,7 +77,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 		try {
 			securityAccountProfile = (UserSecurityProfile)this.httpSession.getAttribute(GlobalConstants.AUTHENTICATED_PROFILE);
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 
 		if (null == securityAccountProfile) {
@@ -100,7 +100,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 			UserSecurityProfile securityPrincipalProfile = this.getAuthSecurityAccountProfile();
 			if (null == securityPrincipalProfile || null == securityPrincipalProfile.getUserAccount() || !userId.equals(securityPrincipalProfile.getUserAccount().getId())) {
 				//////////////////// Leak
-				log.info("Illegal access. ");
+				logger.info("Illegal access. ");
 				return;
 			}
 		} else {
@@ -154,7 +154,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 			FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "index");
 			*/
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 	}
 
@@ -171,7 +171,7 @@ public class UserAccountRegister extends DetailHome<UserAccountProfile>/*RootCon
 			System.out.println("Update account");
 			Faces.redirect("/index.jsf");
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 	}
 

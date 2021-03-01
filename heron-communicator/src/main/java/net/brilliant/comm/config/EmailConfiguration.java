@@ -52,7 +52,7 @@ public class EmailConfiguration extends CompCore {
 		try {
 			mailSender = configEmailProfile();
 		} catch (CommunicationException e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return mailSender;
 		/*

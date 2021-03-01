@@ -36,7 +36,7 @@ public class ResourcesServicesHelper extends CompCore {
 	
 	private Resource loadClasspathResource(String resourcePath) {
 		Resource resource = this.resourceLoader.getResource(CLASSPATH + resourcePath);
-		log.info("Resource is loaded::" + resource);
+		logger.info("Resource is loaded::" + resource);
 		return resource;
 	}
 
@@ -50,7 +50,7 @@ public class ResourcesServicesHelper extends CompCore {
 				throw new EcosphereResourceException("Unable to get resource from path: " + resourcePath);
 
 			resourceDataStream = resource.getInputStream();
-			log.info("Found resource by given path: " + resourcePath);
+			logger.info("Found resource by given path: " + resourcePath);
 			bdata = CommonUtility.getByteArray(resourceDataStream);
 			/*
 			byte[] bdata = FileCopyUtils.copyToByteArray(resourceDataStream);
@@ -72,7 +72,7 @@ public class ResourcesServicesHelper extends CompCore {
 				throw new EcosphereResourceException("Unable to get resource from path: " + resourcePath);
 
 			resourceDataStream = resource.getInputStream();
-			log.info("Found resource by given path: " + resourcePath);
+			logger.info("Found resource by given path: " + resourcePath);
 			/*
 			byte[] bdata = FileCopyUtils.copyToByteArray(resourceDataStream);
 			String data = new String(bdata, StandardCharsets.UTF_8);
@@ -93,7 +93,7 @@ public class ResourcesServicesHelper extends CompCore {
 				throw new EcosphereResourceException("Unable to get resource from path: " + resourcePath);
 
 			InputStream resourceStream = this.getClass().getClassLoader().getResourceAsStream(resourcePath);
-			log.info("Real path: " + resourceStream);
+			logger.info("Real path: " + resourceStream);
 
 			String baseName = CommonUtility.getFileBaseName(resourcePath);
 			String extension = CommonUtility.getFileExtension(resourcePath);
@@ -105,7 +105,7 @@ public class ResourcesServicesHelper extends CompCore {
 			
 			//log.info("Is exist: " + resource.exists() + ". Is file: " + resource.isFile() + ". " + ". |" + resource.getDescription());
 			//resourceFile = resource.getFile();
-			log.info("Found resource file by given path: " + resourcePath);
+			logger.info("Found resource file by given path: " + resourcePath);
 		} catch (IOException e) {
 			throw new EcosphereResourceException(e);
 		}

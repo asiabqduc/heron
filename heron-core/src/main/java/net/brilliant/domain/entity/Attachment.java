@@ -35,6 +35,6 @@ public class Attachment extends RepoEntity {
 	@Lob
   private byte[] data;
 
-	@Column(name = "encryption_key", length=200)
+	@Column(name = "encryption_key", length=50)
 	private String encryptionKey;
 }

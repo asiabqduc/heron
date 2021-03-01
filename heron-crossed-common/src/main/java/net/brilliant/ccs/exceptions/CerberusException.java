@@ -1,7 +1,7 @@
 package net.brilliant.ccs.exceptions;
 
 /**
- * The class {@code AppException} and its subclasses are a form of
+ * The class {@code CerberusException} and its subclasses are a form of
  * {@code Throwable} that indicates conditions that a reasonable
  * application might want to catch.
  *

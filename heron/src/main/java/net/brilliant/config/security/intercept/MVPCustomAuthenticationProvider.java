@@ -33,7 +33,7 @@ public class MVPCustomAuthenticationProvider extends CompCore implements Authent
 				authenticateResp = authenticateByToken(authentication.getName());
 			}
 		} catch (NgepAuthException cae) {
-			log.error(cae);
+			logger.error(cae);
 			throw cae;
 		}
 		return authenticateResp;

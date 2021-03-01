@@ -47,7 +47,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 				this.simpleDataObjectTransformer.transformToProxy(fetchedBizObject, proxyObject);
 			}
 		} catch (CerberusException e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return proxyObject;
 	}
@@ -66,7 +66,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 			proxyObject.setId(newBizObject.getId());
 			System.out.println("Done");
 		} catch (Exception e) {
-			log.error(e);
+			logger.error(e);
 		}
 		return proxyObject;
 	}
@@ -98,7 +98,7 @@ public class BusinessUnitRestDispatcher extends RestCoreController<BusinessUnitP
 			try {
 				this.simpleDataObjectTransformer.transformToProxy(fetchedBizObject, taxGroupProxy);
 			} catch (CerberusException e) {
-				log.error(e);
+				logger.error(e);
 			}
 			list.add(taxGroupProxy);
 		}

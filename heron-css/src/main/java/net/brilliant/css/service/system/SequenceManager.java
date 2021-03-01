@@ -38,12 +38,12 @@ public class SequenceManager extends CompCore {
 		// TODO: burda gerçek numaranın bir şekilde veri tabanından alınması lazım. Veri tabanı sequence'i v.s. bişey kullnılması lazım.'
 		Sequence seq = findSequence(serial);
 
-		log.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
+		logger.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
 
 		seq.setNumber(seq.getNumber() + 1);
 		systemSequenceService.saveOrUpdate(seq);
 
-		log.debug("SystemSequence #0 newValue #1", seq.getSerial(), seq.getNumber());
+		logger.debug("SystemSequence #0 newValue #1", seq.getSerial(), seq.getNumber());
 
 		// TODO: numara digit sayısı dönecek digit sayısından büyük ise hata dönmesi lazım. Taşma var.
 		String newSerial = GlobalConstants.SERIAL_PATTERN + seq.getNumber();
@@ -56,13 +56,13 @@ public class SequenceManager extends CompCore {
 		// TODO: burda gerçek numaranın bir şekilde veri tabanından alınması lazım. Veri tabanı sequence'i v.s. bişey kullnılması lazım.'
 		Sequence seq = findSequence(serial);
 
-		log.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
+		logger.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
 
 		Long num = seq.getNumber() + 1;
 		// entityManager.merge(seq);
 		// entityManager.flush();
 
-		log.debug("SystemSequence #0 newValue #1", seq.getSerial(), num);
+		logger.debug("SystemSequence #0 newValue #1", seq.getSerial(), num);
 
 		// TODO: numara digit sayısı dönecek digit sayısından büyük ise hata dönmesi lazım. Taşma var.
 		String newSerial = GlobalConstants.SERIAL_PATTERN + num;
@@ -71,7 +71,7 @@ public class SequenceManager extends CompCore {
 	}
 
 	protected Sequence findSequence(String serial) {
-		log.debug("Find SystemSequence : #0", serial);
+		logger.debug("Find SystemSequence : #0", serial);
 		Sequence seq = null;
 
 		// Önce eldeki Map kontrol ediliyor...
@@ -157,12 +157,12 @@ public class SequenceManager extends CompCore {
 
 		Sequence seq = findSequence(serial);
 
-		log.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
+		logger.debug("SystemSequence #0 oldValue #1", seq.getSerial(), seq.getNumber());
 
 		seq.setNumber(seq.getNumber() + 1);
 		this.systemSequenceService.saveOrUpdate(seq);
 
-		log.debug("SystemSequence #0 newValue #1", seq.getSerial(), seq.getNumber());
+		logger.debug("SystemSequence #0 newValue #1", seq.getSerial(), seq.getNumber());
 
 		// TODO: numara digit sayısı dönecek digit sayısından büyük ise hata dönmesi lazım. Taşma var.
 		String s = "00000000000000" + seq.getNumber();
