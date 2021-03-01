@@ -13,6 +13,7 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -21,19 +22,16 @@ import lombok.Setter;
  */
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class OsxBucketContainer {
   @Setter @Getter
 	private OfficeSuiteTarget suiteTargeted;
 
 	@Setter @Getter @Builder.Default
-	private Map<Object, OSXWorkbook> bucketData = null;
+	private Map<Object, OSXWorkbook> bucketData = new HashMap<>();
 
   @Setter @Getter
 	private List<Object> container;
-
-	private OsxBucketContainer() {
-		this.bucketData = new HashMap<>();
-	}
 
 	public OsxBucketContainer(Object[] values) {
 		this.container = new ArrayList<>();

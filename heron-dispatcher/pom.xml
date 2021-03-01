@@ -19,21 +19,21 @@
 			<artifactId>heron-core-eux</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>heron-css</artifactId>
 			<version>${project.version}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>heron-communicator</artifactId>
 			<version>${project.version}</version>
 		</dependency>		
-		<dependency>
+		<!-- <dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>heron-auth</artifactId>
 			<version>${project.version}</version>
-		</dependency>	
+		</dependency> -->	
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
@@ -41,11 +41,17 @@
 			<version>${project.version}</version>
 		</dependency>	
 
-    <dependency>
+    <!-- <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>heron-osx</artifactId>
       <version>${project.version}</version>
-    </dependency> 
+    </dependency>  -->
+
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>heron-dmx</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 
 		<!--
 		

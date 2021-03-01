@@ -194,13 +194,17 @@ public class GlobalDmxManager extends CompCore {
   public OsxBucketContainer marshallArchivedOfficeData(Context context) throws CerberusException {
     OsxBucketContainer osxBucketContainer = null;
     InputStream inputStream = null;
+    OSXWorkbook workbook = null;
+    String archivedName = null;
+    Optional<Attachment> optAttachment = null;
+    Context executionContext = null;
     try {
-      String archivedName = (String) context.get(OSXConstants.RESOURCE_NAME);
-      Optional<Attachment> optAttachment = this.attachmentService.getByName(archivedName);
+      archivedName = (String) context.get(OSXConstants.RESOURCE_NAME);
+      optAttachment = this.attachmentService.getByName(archivedName);
       if (!optAttachment.isPresent())
         return null;
 
-      Context executionContext = Context.builder().build().putAll(context);
+      executionContext = Context.builder().build().putAll(context);
       inputStream = CommonUtility.buildInputStream(archivedName, optAttachment.get().getData());
       if (null == inputStream)
         return null;
@@ -209,9 +213,9 @@ public class GlobalDmxManager extends CompCore {
        * optConfig = configurationService.getByName(archivedName); if (optConfig.isPresent()) { defaultExecutionContext
        * = resourcesStorageServiceHelper.syncExecutionContext(optConfig.get(), optAttachment.get().getData()); }
        */
-
-      OSXWorkbook workbook = OfficeSuiteServiceProvider.builder().build().readExcelFile(executionContext);
-      if (null != null) {
+      executionContext.put(OSXConstants.INPUT_STREAM, inputStream);
+      workbook = OfficeSuiteServiceProvider.builder().build().readExcelFile(executionContext);
+      if (workbook != null) {
         osxBucketContainer = OsxBucketContainer.builder().build().put(archivedName, workbook);
       }
     } catch (Exception e) {

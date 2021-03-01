@@ -15,9 +15,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 import lombok.extern.slf4j.Slf4j;
+import net.brilliant.ccs.GlobalSharedConstants;
 import net.brilliant.ccs.exceptions.CerberusException;
 import net.brilliant.common.CollectionsUtility;
 import net.brilliant.common.CommonUtility;
+import net.brilliant.dmx.manager.GlobalDmxManager;
 import net.brilliant.model.Context;
 import net.brilliant.osx.helper.OfficeSuiteServiceProvider;
 import net.brilliant.osx.model.OSXConstants;
@@ -38,6 +40,9 @@ public class AdminDataAccordion implements Serializable {
   @Inject
   private ResourceLoader resourceLoader;
 
+  @Inject
+  private GlobalDmxManager globalDmxManager;
+
   private List<String> processingSheetIds = CollectionsUtility.createList();
 
   @PostConstruct
@@ -48,6 +53,17 @@ public class AdminDataAccordion implements Serializable {
 
   public void onLoadMasterDataFromCompressed() {
     log.info("On loading master data.");
+    Context context = Context.builder().build()
+        .put(OSXConstants.RESOURCE_NAME, GlobalSharedConstants.APP_DEFAULT_CATALOUE_DATA)
+        .put(OSXConstants.OFFICE_EXCEL_MARSHALLING_DATA_METHOD, OfficeMarshalType.STREAMING)
+        ;
+    try {
+      OsxBucketContainer bucketContainer = this.globalDmxManager.marshallArchivedOfficeData(context);
+      System.out.println(bucketContainer.hashCode());
+    } catch (CerberusException e1) {
+      e1.printStackTrace();
+    }
+    /*
     final String masterDataDirectory = "classpath:/META-INF/";
     final String masterDataFile = "data-catalog-high";
     try {
@@ -61,6 +77,7 @@ public class AdminDataAccordion implements Serializable {
     } catch (CerberusException e) {
       log.error(e.getMessage(), e);
     }
+    */
   }
 
   public void onLoadMasterData() {
