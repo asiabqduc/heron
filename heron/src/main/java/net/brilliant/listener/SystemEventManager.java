@@ -87,6 +87,8 @@ public class SystemEventManager extends CompCore {
           .put(OSXConstants.RESOURCE_NAME, GlobalSharedConstants.APP_DEFAULT_CATALOUE_DATA)
           ;
       this.globalDmxManager.archive(context);
+    } else {
+      logger.info("There is one attachment represents the default catalog data!");
     }
 
     configureDefaultSchedulers();
