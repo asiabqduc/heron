@@ -122,9 +122,10 @@ public class GlobalDmxManager extends CompCore {
 	/**
 	 * Archive resource data to database unit
 	 */
-	public void archiveResourceData(final String archivedFileName, final InputStream inputStream, final String encryptionKey) throws CerberusException {
+	public void archive(final String archivedFileName, final InputStream inputStream, final String encryptionKey) throws CerberusException {
 		Attachment attachment = null;
 		Optional<Attachment> optAttachment = null;
+    logger.info("Enter GlobalDmxManager.archive(String, InputStream, String)");
 		try {
 			optAttachment = this.attachmentService.getByName(archivedFileName);
 			if (!optAttachment.isPresent()) {
@@ -134,6 +135,7 @@ public class GlobalDmxManager extends CompCore {
 		} catch (Exception e) {
 			throw new CerberusException(e);
 		}
+    logger.info("Enter GlobalDmxManager.archive(String, InputStream, String)");
 	}
 
   /**
@@ -141,6 +143,7 @@ public class GlobalDmxManager extends CompCore {
    */
   public Context archive(final Context context) throws CerberusException {
     String encryptionKey = null;
+    logger.info("Enter GlobalDmxManager.archive(Context)");
     if (!context.containsKey(OSXConstants.RESOURCE_REPO)){
       logger.info("There is no input resource ro be archived. ");
       return context;
@@ -151,13 +154,15 @@ public class GlobalDmxManager extends CompCore {
       logger.info("There is no archive name to be processed. ");
       return context;
     }
-    String archivedFileName = (String)context.get(OSXConstants.RESOURCE_NAME);
+    String archivedRepoName = (String)context.get(OSXConstants.RESOURCE_NAME);
+    logger.info("Archive with resource name: {}", archivedRepoName);
 
     if (context.containsKey(OSXConstants.ENCRYPTION_KEY)){
       encryptionKey = (String)context.get(OSXConstants.ENCRYPTION_KEY);
     }
 
-    this.archiveResourceData(archivedFileName, inputStream, encryptionKey);
+    this.archive(archivedRepoName, inputStream, encryptionKey);
+    logger.info("Leave GlobalDmxManager.archive(Context)");
     return context;
   }
 

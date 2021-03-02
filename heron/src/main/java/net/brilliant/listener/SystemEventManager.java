@@ -79,6 +79,7 @@ public class SystemEventManager extends CompCore {
 
     Optional<Attachment> optAttachment = this.attachmentService.getByName(GlobalSharedConstants.APP_DEFAULT_CATALOUE_DATA);
     if (!optAttachment.isPresent()) {
+      logger.info("There is no attachment represents the default catalog data!");
       Context context = Context.builder()
           .build()
           //.put(OSXConstants.INPUT_STREAM, this.globalDmxManager.getResourceInputStream(GlobalSharedConstants.APP_DATA_REPO_DIRECTORY + GlobalSharedConstants.APP_DEFAULT_CATALOUE_DATA))
