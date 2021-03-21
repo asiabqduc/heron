@@ -38,6 +38,7 @@ import net.brilliant.osx.model.OSXConstants;
 import net.brilliant.osx.model.OSXWorkbook;
 import net.brilliant.osx.model.OfficeMarshalType;
 import net.brilliant.osx.model.OsxBucketContainer;
+import sun.rmi.runtime.Log;
 
 /**
  * @author ducbui
@@ -203,12 +204,14 @@ public class GlobalDmxManager extends CompCore {
     String archivedName = null;
     Optional<Attachment> optAttachment = null;
     Context executionContext = null;
+    logger.info("Enter marshallArchivedOfficeData");
     try {
       archivedName = (String) context.get(OSXConstants.RESOURCE_NAME);
       optAttachment = this.attachmentService.getByName(archivedName);
       if (!optAttachment.isPresent())
         return null;
 
+      logger.info("Start processing resource: {}", archivedName);
       executionContext = Context.builder().build().putAll(context);
       inputStream = CommonUtility.buildInputStream(archivedName, optAttachment.get().getData());
       if (null == inputStream)
@@ -218,6 +221,7 @@ public class GlobalDmxManager extends CompCore {
        * optConfig = configurationService.getByName(archivedName); if (optConfig.isPresent()) { defaultExecutionContext
        * = resourcesStorageServiceHelper.syncExecutionContext(optConfig.get(), optAttachment.get().getData()); }
        */
+      logger.info("Get input stream");
       executionContext.put(OSXConstants.INPUT_STREAM, inputStream);
       workbook = OfficeSuiteServiceProvider.builder().build().readExcelFile(executionContext);
       if (workbook != null) {
